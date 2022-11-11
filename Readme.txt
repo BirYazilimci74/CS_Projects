@@ -1,0 +1,7 @@
+Create a new folder for each project.
+Into the folder with console.
+Write "dotnet new console"
+A few file will appear.
+You will write your code in "Program.cs".
+If you want, you can change its name ^.
+After you write the code, hit ctrl+s and write "dotnet run" in console to run your code.

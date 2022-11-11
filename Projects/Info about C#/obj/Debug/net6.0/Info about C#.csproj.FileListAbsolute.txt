@@ -1,0 +1,15 @@
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\obj\Debug\net6.0\Info about C#.csproj.AssemblyReference.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\obj\Debug\net6.0\Info about C#.GeneratedMSBuildEditorConfig.editorconfig
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\obj\Debug\net6.0\Info about C#.AssemblyInfoInputs.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\obj\Debug\net6.0\Info about C#.AssemblyInfo.cs
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\obj\Debug\net6.0\Info about C#.csproj.CoreCompileInputs.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\bin\Debug\net6.0\Info about C#.exe
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\bin\Debug\net6.0\Info about C#.deps.json
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\bin\Debug\net6.0\Info about C#.runtimeconfig.json
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\bin\Debug\net6.0\Info about C#.dll
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\bin\Debug\net6.0\Info about C#.pdb
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\obj\Debug\net6.0\Info about C#.dll
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\obj\Debug\net6.0\refint\Info about C#.dll
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\obj\Debug\net6.0\Info about C#.pdb
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\obj\Debug\net6.0\Info about C#.genruntimeconfig.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\Info about C#\obj\Debug\net6.0\ref\Info about C#.dll

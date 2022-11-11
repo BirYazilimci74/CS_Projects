@@ -1,0 +1,15 @@
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\obj\Debug\net6.0\Enterance.csproj.AssemblyReference.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\obj\Debug\net6.0\Enterance.GeneratedMSBuildEditorConfig.editorconfig
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\obj\Debug\net6.0\Enterance.AssemblyInfoInputs.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\obj\Debug\net6.0\Enterance.AssemblyInfo.cs
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\obj\Debug\net6.0\Enterance.csproj.CoreCompileInputs.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\bin\Debug\net6.0\Enterance.exe
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\bin\Debug\net6.0\Enterance.deps.json
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\bin\Debug\net6.0\Enterance.runtimeconfig.json
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\bin\Debug\net6.0\Enterance.dll
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\bin\Debug\net6.0\Enterance.pdb
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\obj\Debug\net6.0\Enterance.dll
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\obj\Debug\net6.0\refint\Enterance.dll
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\obj\Debug\net6.0\Enterance.pdb
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\obj\Debug\net6.0\Enterance.genruntimeconfig.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\Enterance\obj\Debug\net6.0\ref\Enterance.dll
