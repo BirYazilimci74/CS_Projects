@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c82bd88d9bd340e18205607c0cf45999" Name="Diagram1">
+        <EntityTypeShape EntityType="DBMS_Proje1Model.Author" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMS_Proje1Model.Co_Supervisor" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMS_Proje1Model.Institute" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMS_Proje1Model.Keyword" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMS_Proje1Model.Language" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMS_Proje1Model.Subject_Topic" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMS_Proje1Model.Supervisor" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMS_Proje1Model.Thesis" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBMS_Proje1Model.University" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="DBMS_Proje1Model.FK__Thesis__AUTHOR_I__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="DBMS_Proje1Model.FK__Thesis__CSV_ID__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="DBMS_Proje1Model.FK__Institute__UNI_I__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="DBMS_Proje1Model.FK__Thesis__INS_ID__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="DBMS_Proje1Model.FK__Keyword__THES_NO__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="DBMS_Proje1Model.FK__Thesis__LANG_NAM__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="DBMS_Proje1Model.FK__Subject_T__THES___48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBMS_Proje1Model.FK__Thesis__UNI_ID__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBMS_Proje1Model.Thes_SV" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

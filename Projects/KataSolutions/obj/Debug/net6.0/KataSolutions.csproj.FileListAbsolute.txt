@@ -1,0 +1,15 @@
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\obj\Debug\net6.0\KataSolutions.csproj.AssemblyReference.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\obj\Debug\net6.0\KataSolutions.GeneratedMSBuildEditorConfig.editorconfig
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\obj\Debug\net6.0\KataSolutions.AssemblyInfoInputs.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\obj\Debug\net6.0\KataSolutions.AssemblyInfo.cs
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\obj\Debug\net6.0\KataSolutions.csproj.CoreCompileInputs.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\bin\Debug\net6.0\KataSolutions.exe
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\bin\Debug\net6.0\KataSolutions.deps.json
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\bin\Debug\net6.0\KataSolutions.runtimeconfig.json
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\bin\Debug\net6.0\KataSolutions.dll
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\bin\Debug\net6.0\KataSolutions.pdb
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\obj\Debug\net6.0\KataSolutions.dll
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\obj\Debug\net6.0\refint\KataSolutions.dll
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\obj\Debug\net6.0\KataSolutions.pdb
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\obj\Debug\net6.0\KataSolutions.genruntimeconfig.cache
+E:\One Drive\Masaüstü\Software\C#\Projects\KataSolutions\obj\Debug\net6.0\ref\KataSolutions.dll

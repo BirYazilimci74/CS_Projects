@@ -2,11 +2,11 @@ namespace Classes;
 
 public class araba
 {
-    public string model;
-    public int yıl;
-    public string vites;
-    public string yakıt;
-    public int maxHız;
+    public string? model;
+    public int yil;
+    public string? vites;
+    public string? yakit;
+    public int maxHiz;
     
     public static void printf(string str)
     {
@@ -17,9 +17,9 @@ public class araba
     {
         Console.WriteLine(str);
     }
-    public static void arabaOzellikler(string marka, string model, int yıl, string vites)
+    public static void arabaOzellikler(string marka, string model, int yil, string vites)
     {
-        printf("Araba " + yıl + " model " + vites + " " + marka + " " + model);
+        printf("Araba " + yil + " model " + vites + " " + marka + " " + model);
     }
     
 }

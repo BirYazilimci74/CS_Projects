@@ -1,0 +1,632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBMS_Proje1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AUTHOR_ID" />
+          </Key>
+          <Property Name="AUTHOR_ID" Type="int" Nullable="false" />
+          <Property Name="AUTHOR_NAME" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="AUTHOR_PASSWORD" Type="int" />
+        </EntityType>
+        <EntityType Name="Co_Supervisor">
+          <Key>
+            <PropertyRef Name="CSV_ID" />
+          </Key>
+          <Property Name="CSV_ID" Type="int" Nullable="false" />
+          <Property Name="CSV_NAME" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Institute">
+          <Key>
+            <PropertyRef Name="INS_ID" />
+          </Key>
+          <Property Name="INS_ID" Type="int" Nullable="false" />
+          <Property Name="INS_NAME" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="UNI_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Keyword">
+          <Key>
+            <PropertyRef Name="KEYWORD_ID" />
+          </Key>
+          <Property Name="KEYWORD_ID" Type="int" Nullable="false" />
+          <Property Name="KEYWORD_NAME" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="THES_NO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LANG_NAME" />
+          </Key>
+          <Property Name="LANG_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subject_Topic">
+          <Key>
+            <PropertyRef Name="SUBJECT_TOPIC_ID" />
+          </Key>
+          <Property Name="SUBJECT_TOPIC_ID" Type="int" Nullable="false" />
+          <Property Name="SUBJECT_TOPIC_NAME" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="THES_NO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supervisor">
+          <Key>
+            <PropertyRef Name="SV_ID" />
+          </Key>
+          <Property Name="SV_ID" Type="int" Nullable="false" />
+          <Property Name="SV_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Thes_SV">
+          <Key>
+            <PropertyRef Name="SV_ID" />
+            <PropertyRef Name="THES_NO" />
+          </Key>
+          <Property Name="SV_ID" Type="int" Nullable="false" />
+          <Property Name="THES_NO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Thesis">
+          <Key>
+            <PropertyRef Name="THES_NO" />
+          </Key>
+          <Property Name="THES_NO" Type="int" Nullable="false" />
+          <Property Name="THES_TITLE" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="THES_ABS" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="AUTHOR_ID" Type="int" Nullable="false" />
+          <Property Name="CSV_ID" Type="int" />
+          <Property Name="THES_YEAR" Type="int" Nullable="false" />
+          <Property Name="THES_TYPE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UNI_ID" Type="int" Nullable="false" />
+          <Property Name="INS_ID" Type="int" Nullable="false" />
+          <Property Name="THES_NOP" Type="int" Nullable="false" />
+          <Property Name="LANG_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="THES_SUBDATE" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="UNI_ID" />
+          </Key>
+          <Property Name="UNI_ID" Type="int" Nullable="false" />
+          <Property Name="UNI_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Institute__UNI_I__38996AB5">
+          <End Role="University" Type="Self.University" Multiplicity="1" />
+          <End Role="Institute" Type="Self.Institute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="Institute">
+              <PropertyRef Name="UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Keyword__THES_NO__4BAC3F29">
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="1" />
+          <End Role="Keyword" Type="Self.Keyword" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thesis">
+              <PropertyRef Name="THES_NO" />
+            </Principal>
+            <Dependent Role="Keyword">
+              <PropertyRef Name="THES_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subject_T__THES___48CFD27E">
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="1" />
+          <End Role="Subject_Topic" Type="Self.Subject_Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thesis">
+              <PropertyRef Name="THES_NO" />
+            </Principal>
+            <Dependent Role="Subject_Topic">
+              <PropertyRef Name="THES_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thes_SV__SV_ID__5070F446">
+          <End Role="Supervisor" Type="Self.Supervisor" Multiplicity="1" />
+          <End Role="Thes_SV" Type="Self.Thes_SV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supervisor">
+              <PropertyRef Name="SV_ID" />
+            </Principal>
+            <Dependent Role="Thes_SV">
+              <PropertyRef Name="SV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thes_SV__THES_NO__5165187F">
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="1" />
+          <End Role="Thes_SV" Type="Self.Thes_SV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thesis">
+              <PropertyRef Name="THES_NO" />
+            </Principal>
+            <Dependent Role="Thes_SV">
+              <PropertyRef Name="THES_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thesis__AUTHOR_I__4316F928">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AUTHOR_ID" />
+            </Principal>
+            <Dependent Role="Thesis">
+              <PropertyRef Name="AUTHOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thesis__CSV_ID__440B1D61">
+          <End Role="Co_Supervisor" Type="Self.Co_Supervisor" Multiplicity="0..1" />
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Co_Supervisor">
+              <PropertyRef Name="CSV_ID" />
+            </Principal>
+            <Dependent Role="Thesis">
+              <PropertyRef Name="CSV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thesis__INS_ID__45F365D3">
+          <End Role="Institute" Type="Self.Institute" Multiplicity="1" />
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institute">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="Thesis">
+              <PropertyRef Name="INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thesis__LANG_NAM__4222D4EF">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LANG_NAME" />
+            </Principal>
+            <Dependent Role="Thesis">
+              <PropertyRef Name="LANG_NAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thesis__UNI_ID__44FF419A">
+          <End Role="University" Type="Self.University" Multiplicity="1" />
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="Thesis">
+              <PropertyRef Name="UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBMS_Proje1ModelStoreContainer">
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Co_Supervisor" EntityType="Self.Co_Supervisor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Institute" EntityType="Self.Institute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Keyword" EntityType="Self.Keyword" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject_Topic" EntityType="Self.Subject_Topic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supervisor" EntityType="Self.Supervisor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Thes_SV" EntityType="Self.Thes_SV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Thesis" EntityType="Self.Thesis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="University" EntityType="Self.University" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Institute__UNI_I__38996AB5" Association="Self.FK__Institute__UNI_I__38996AB5">
+            <End Role="University" EntitySet="University" />
+            <End Role="Institute" EntitySet="Institute" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Keyword__THES_NO__4BAC3F29" Association="Self.FK__Keyword__THES_NO__4BAC3F29">
+            <End Role="Thesis" EntitySet="Thesis" />
+            <End Role="Keyword" EntitySet="Keyword" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subject_T__THES___48CFD27E" Association="Self.FK__Subject_T__THES___48CFD27E">
+            <End Role="Thesis" EntitySet="Thesis" />
+            <End Role="Subject_Topic" EntitySet="Subject_Topic" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thes_SV__SV_ID__5070F446" Association="Self.FK__Thes_SV__SV_ID__5070F446">
+            <End Role="Supervisor" EntitySet="Supervisor" />
+            <End Role="Thes_SV" EntitySet="Thes_SV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thes_SV__THES_NO__5165187F" Association="Self.FK__Thes_SV__THES_NO__5165187F">
+            <End Role="Thesis" EntitySet="Thesis" />
+            <End Role="Thes_SV" EntitySet="Thes_SV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thesis__AUTHOR_I__4316F928" Association="Self.FK__Thesis__AUTHOR_I__4316F928">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Thesis" EntitySet="Thesis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thesis__CSV_ID__440B1D61" Association="Self.FK__Thesis__CSV_ID__440B1D61">
+            <End Role="Co_Supervisor" EntitySet="Co_Supervisor" />
+            <End Role="Thesis" EntitySet="Thesis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thesis__INS_ID__45F365D3" Association="Self.FK__Thesis__INS_ID__45F365D3">
+            <End Role="Institute" EntitySet="Institute" />
+            <End Role="Thesis" EntitySet="Thesis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thesis__LANG_NAM__4222D4EF" Association="Self.FK__Thesis__LANG_NAM__4222D4EF">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="Thesis" EntitySet="Thesis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thesis__UNI_ID__44FF419A" Association="Self.FK__Thesis__UNI_ID__44FF419A">
+            <End Role="University" EntitySet="University" />
+            <End Role="Thesis" EntitySet="Thesis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBMS_Proje1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AUTHOR_ID" />
+          </Key>
+          <Property Name="AUTHOR_ID" Type="Int32" Nullable="false" />
+          <Property Name="AUTHOR_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AUTHOR_PASSWORD" Type="Int32" />
+          <NavigationProperty Name="Theses" Relationship="Self.FK__Thesis__AUTHOR_I__4316F928" FromRole="Author" ToRole="Thesis" />
+        </EntityType>
+        <EntityType Name="Co_Supervisor">
+          <Key>
+            <PropertyRef Name="CSV_ID" />
+          </Key>
+          <Property Name="CSV_ID" Type="Int32" Nullable="false" />
+          <Property Name="CSV_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Theses" Relationship="Self.FK__Thesis__CSV_ID__440B1D61" FromRole="Co_Supervisor" ToRole="Thesis" />
+        </EntityType>
+        <EntityType Name="Institute">
+          <Key>
+            <PropertyRef Name="INS_ID" />
+          </Key>
+          <Property Name="INS_ID" Type="Int32" Nullable="false" />
+          <Property Name="INS_NAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UNI_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="University" Relationship="Self.FK__Institute__UNI_I__38996AB5" FromRole="Institute" ToRole="University" />
+          <NavigationProperty Name="Theses" Relationship="Self.FK__Thesis__INS_ID__45F365D3" FromRole="Institute" ToRole="Thesis" />
+        </EntityType>
+        <EntityType Name="Keyword">
+          <Key>
+            <PropertyRef Name="KEYWORD_ID" />
+          </Key>
+          <Property Name="KEYWORD_ID" Type="Int32" Nullable="false" />
+          <Property Name="KEYWORD_NAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="THES_NO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Thesis" Relationship="Self.FK__Keyword__THES_NO__4BAC3F29" FromRole="Keyword" ToRole="Thesis" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LANG_NAME" />
+          </Key>
+          <Property Name="LANG_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Theses" Relationship="Self.FK__Thesis__LANG_NAM__4222D4EF" FromRole="Language" ToRole="Thesis" />
+        </EntityType>
+        <EntityType Name="Subject_Topic">
+          <Key>
+            <PropertyRef Name="SUBJECT_TOPIC_ID" />
+          </Key>
+          <Property Name="SUBJECT_TOPIC_ID" Type="Int32" Nullable="false" />
+          <Property Name="SUBJECT_TOPIC_NAME" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="THES_NO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Thesis" Relationship="Self.FK__Subject_T__THES___48CFD27E" FromRole="Subject_Topic" ToRole="Thesis" />
+        </EntityType>
+        <EntityType Name="Supervisor">
+          <Key>
+            <PropertyRef Name="SV_ID" />
+          </Key>
+          <Property Name="SV_ID" Type="Int32" Nullable="false" />
+          <Property Name="SV_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Theses" Relationship="Self.Thes_SV" FromRole="Supervisor" ToRole="Thesis" />
+        </EntityType>
+        <EntityType Name="Thesis">
+          <Key>
+            <PropertyRef Name="THES_NO" />
+          </Key>
+          <Property Name="THES_NO" Type="Int32" Nullable="false" />
+          <Property Name="THES_TITLE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="THES_ABS" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AUTHOR_ID" Type="Int32" Nullable="false" />
+          <Property Name="CSV_ID" Type="Int32" />
+          <Property Name="THES_YEAR" Type="Int32" Nullable="false" />
+          <Property Name="THES_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UNI_ID" Type="Int32" Nullable="false" />
+          <Property Name="INS_ID" Type="Int32" Nullable="false" />
+          <Property Name="THES_NOP" Type="Int32" Nullable="false" />
+          <Property Name="LANG_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="THES_SUBDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Author" Relationship="Self.FK__Thesis__AUTHOR_I__4316F928" FromRole="Thesis" ToRole="Author" />
+          <NavigationProperty Name="Co_Supervisor" Relationship="Self.FK__Thesis__CSV_ID__440B1D61" FromRole="Thesis" ToRole="Co_Supervisor" />
+          <NavigationProperty Name="Institute" Relationship="Self.FK__Thesis__INS_ID__45F365D3" FromRole="Thesis" ToRole="Institute" />
+          <NavigationProperty Name="Keywords" Relationship="Self.FK__Keyword__THES_NO__4BAC3F29" FromRole="Thesis" ToRole="Keyword" />
+          <NavigationProperty Name="Language" Relationship="Self.FK__Thesis__LANG_NAM__4222D4EF" FromRole="Thesis" ToRole="Language" />
+          <NavigationProperty Name="Subject_Topic" Relationship="Self.FK__Subject_T__THES___48CFD27E" FromRole="Thesis" ToRole="Subject_Topic" />
+          <NavigationProperty Name="University" Relationship="Self.FK__Thesis__UNI_ID__44FF419A" FromRole="Thesis" ToRole="University" />
+          <NavigationProperty Name="Supervisors" Relationship="Self.Thes_SV" FromRole="Thesis" ToRole="Supervisor" />
+        </EntityType>
+        <EntityType Name="University">
+          <Key>
+            <PropertyRef Name="UNI_ID" />
+          </Key>
+          <Property Name="UNI_ID" Type="Int32" Nullable="false" />
+          <Property Name="UNI_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Institutes" Relationship="Self.FK__Institute__UNI_I__38996AB5" FromRole="University" ToRole="Institute" />
+          <NavigationProperty Name="Theses" Relationship="Self.FK__Thesis__UNI_ID__44FF419A" FromRole="University" ToRole="Thesis" />
+        </EntityType>
+        <Association Name="FK__Thesis__AUTHOR_I__4316F928">
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AUTHOR_ID" />
+            </Principal>
+            <Dependent Role="Thesis">
+              <PropertyRef Name="AUTHOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thesis__CSV_ID__440B1D61">
+          <End Role="Co_Supervisor" Type="Self.Co_Supervisor" Multiplicity="0..1" />
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Co_Supervisor">
+              <PropertyRef Name="CSV_ID" />
+            </Principal>
+            <Dependent Role="Thesis">
+              <PropertyRef Name="CSV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Institute__UNI_I__38996AB5">
+          <End Role="University" Type="Self.University" Multiplicity="1" />
+          <End Role="Institute" Type="Self.Institute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="Institute">
+              <PropertyRef Name="UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thesis__INS_ID__45F365D3">
+          <End Role="Institute" Type="Self.Institute" Multiplicity="1" />
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institute">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="Thesis">
+              <PropertyRef Name="INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Keyword__THES_NO__4BAC3F29">
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="1" />
+          <End Role="Keyword" Type="Self.Keyword" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thesis">
+              <PropertyRef Name="THES_NO" />
+            </Principal>
+            <Dependent Role="Keyword">
+              <PropertyRef Name="THES_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thesis__LANG_NAM__4222D4EF">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LANG_NAME" />
+            </Principal>
+            <Dependent Role="Thesis">
+              <PropertyRef Name="LANG_NAME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subject_T__THES___48CFD27E">
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="1" />
+          <End Role="Subject_Topic" Type="Self.Subject_Topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thesis">
+              <PropertyRef Name="THES_NO" />
+            </Principal>
+            <Dependent Role="Subject_Topic">
+              <PropertyRef Name="THES_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Thesis__UNI_ID__44FF419A">
+          <End Role="University" Type="Self.University" Multiplicity="1" />
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="University">
+              <PropertyRef Name="UNI_ID" />
+            </Principal>
+            <Dependent Role="Thesis">
+              <PropertyRef Name="UNI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Thes_SV">
+          <End Role="Supervisor" Type="Self.Supervisor" Multiplicity="*" />
+          <End Role="Thesis" Type="Self.Thesis" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DBMSProje1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authors" EntityType="Self.Author" />
+          <EntitySet Name="Co_Supervisor" EntityType="Self.Co_Supervisor" />
+          <EntitySet Name="Institutes" EntityType="Self.Institute" />
+          <EntitySet Name="Keywords" EntityType="Self.Keyword" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="Subject_Topic" EntityType="Self.Subject_Topic" />
+          <EntitySet Name="Supervisors" EntityType="Self.Supervisor" />
+          <EntitySet Name="Theses" EntityType="Self.Thesis" />
+          <EntitySet Name="Universities" EntityType="Self.University" />
+          <AssociationSet Name="FK__Thesis__AUTHOR_I__4316F928" Association="Self.FK__Thesis__AUTHOR_I__4316F928">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Thesis" EntitySet="Theses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thesis__CSV_ID__440B1D61" Association="Self.FK__Thesis__CSV_ID__440B1D61">
+            <End Role="Co_Supervisor" EntitySet="Co_Supervisor" />
+            <End Role="Thesis" EntitySet="Theses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Institute__UNI_I__38996AB5" Association="Self.FK__Institute__UNI_I__38996AB5">
+            <End Role="University" EntitySet="Universities" />
+            <End Role="Institute" EntitySet="Institutes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thesis__INS_ID__45F365D3" Association="Self.FK__Thesis__INS_ID__45F365D3">
+            <End Role="Institute" EntitySet="Institutes" />
+            <End Role="Thesis" EntitySet="Theses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Keyword__THES_NO__4BAC3F29" Association="Self.FK__Keyword__THES_NO__4BAC3F29">
+            <End Role="Thesis" EntitySet="Theses" />
+            <End Role="Keyword" EntitySet="Keywords" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thesis__LANG_NAM__4222D4EF" Association="Self.FK__Thesis__LANG_NAM__4222D4EF">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Thesis" EntitySet="Theses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subject_T__THES___48CFD27E" Association="Self.FK__Subject_T__THES___48CFD27E">
+            <End Role="Thesis" EntitySet="Theses" />
+            <End Role="Subject_Topic" EntitySet="Subject_Topic" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Thesis__UNI_ID__44FF419A" Association="Self.FK__Thesis__UNI_ID__44FF419A">
+            <End Role="University" EntitySet="Universities" />
+            <End Role="Thesis" EntitySet="Theses" />
+          </AssociationSet>
+          <AssociationSet Name="Thes_SV" Association="Self.Thes_SV">
+            <End Role="Supervisor" EntitySet="Supervisors" />
+            <End Role="Thesis" EntitySet="Theses" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBMS_Proje1ModelStoreContainer" CdmEntityContainer="DBMSProje1Entities">
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="DBMS_Proje1Model.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="AUTHOR_ID" ColumnName="AUTHOR_ID" />
+                <ScalarProperty Name="AUTHOR_NAME" ColumnName="AUTHOR_NAME" />
+                <ScalarProperty Name="AUTHOR_PASSWORD" ColumnName="AUTHOR_PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Co_Supervisor">
+            <EntityTypeMapping TypeName="DBMS_Proje1Model.Co_Supervisor">
+              <MappingFragment StoreEntitySet="Co_Supervisor">
+                <ScalarProperty Name="CSV_ID" ColumnName="CSV_ID" />
+                <ScalarProperty Name="CSV_NAME" ColumnName="CSV_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Institutes">
+            <EntityTypeMapping TypeName="DBMS_Proje1Model.Institute">
+              <MappingFragment StoreEntitySet="Institute">
+                <ScalarProperty Name="INS_ID" ColumnName="INS_ID" />
+                <ScalarProperty Name="INS_NAME" ColumnName="INS_NAME" />
+                <ScalarProperty Name="UNI_ID" ColumnName="UNI_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Keywords">
+            <EntityTypeMapping TypeName="DBMS_Proje1Model.Keyword">
+              <MappingFragment StoreEntitySet="Keyword">
+                <ScalarProperty Name="KEYWORD_ID" ColumnName="KEYWORD_ID" />
+                <ScalarProperty Name="KEYWORD_NAME" ColumnName="KEYWORD_NAME" />
+                <ScalarProperty Name="THES_NO" ColumnName="THES_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="DBMS_Proje1Model.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="LANG_NAME" ColumnName="LANG_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subject_Topic">
+            <EntityTypeMapping TypeName="DBMS_Proje1Model.Subject_Topic">
+              <MappingFragment StoreEntitySet="Subject_Topic">
+                <ScalarProperty Name="SUBJECT_TOPIC_ID" ColumnName="SUBJECT_TOPIC_ID" />
+                <ScalarProperty Name="SUBJECT_TOPIC_NAME" ColumnName="SUBJECT_TOPIC_NAME" />
+                <ScalarProperty Name="THES_NO" ColumnName="THES_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supervisors">
+            <EntityTypeMapping TypeName="DBMS_Proje1Model.Supervisor">
+              <MappingFragment StoreEntitySet="Supervisor">
+                <ScalarProperty Name="SV_ID" ColumnName="SV_ID" />
+                <ScalarProperty Name="SV_NAME" ColumnName="SV_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Theses">
+            <EntityTypeMapping TypeName="DBMS_Proje1Model.Thesis">
+              <MappingFragment StoreEntitySet="Thesis">
+                <ScalarProperty Name="THES_NO" ColumnName="THES_NO" />
+                <ScalarProperty Name="THES_TITLE" ColumnName="THES_TITLE" />
+                <ScalarProperty Name="THES_ABS" ColumnName="THES_ABS" />
+                <ScalarProperty Name="AUTHOR_ID" ColumnName="AUTHOR_ID" />
+                <ScalarProperty Name="CSV_ID" ColumnName="CSV_ID" />
+                <ScalarProperty Name="THES_YEAR" ColumnName="THES_YEAR" />
+                <ScalarProperty Name="THES_TYPE" ColumnName="THES_TYPE" />
+                <ScalarProperty Name="UNI_ID" ColumnName="UNI_ID" />
+                <ScalarProperty Name="INS_ID" ColumnName="INS_ID" />
+                <ScalarProperty Name="THES_NOP" ColumnName="THES_NOP" />
+                <ScalarProperty Name="LANG_NAME" ColumnName="LANG_NAME" />
+                <ScalarProperty Name="THES_SUBDATE" ColumnName="THES_SUBDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Universities">
+            <EntityTypeMapping TypeName="DBMS_Proje1Model.University">
+              <MappingFragment StoreEntitySet="University">
+                <ScalarProperty Name="UNI_ID" ColumnName="UNI_ID" />
+                <ScalarProperty Name="UNI_NAME" ColumnName="UNI_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Thes_SV" TypeName="DBMS_Proje1Model.Thes_SV" StoreEntitySet="Thes_SV">
+            <EndProperty Name="Supervisor">
+              <ScalarProperty Name="SV_ID" ColumnName="SV_ID" />
+            </EndProperty>
+            <EndProperty Name="Thesis">
+              <ScalarProperty Name="THES_NO" ColumnName="THES_NO" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

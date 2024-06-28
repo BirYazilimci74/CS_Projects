@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBMS_Proje1ModelStoreContainer" CdmEntityContainer="DBMSProje1Entities">
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="DBMS_Proje1Model.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="AUTHOR_ID" ColumnName="AUTHOR_ID" />
+          <ScalarProperty Name="AUTHOR_NAME" ColumnName="AUTHOR_NAME" />
+          <ScalarProperty Name="AUTHOR_PASSWORD" ColumnName="AUTHOR_PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Co_Supervisor">
+      <EntityTypeMapping TypeName="DBMS_Proje1Model.Co_Supervisor">
+        <MappingFragment StoreEntitySet="Co_Supervisor">
+          <ScalarProperty Name="CSV_ID" ColumnName="CSV_ID" />
+          <ScalarProperty Name="CSV_NAME" ColumnName="CSV_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Institutes">
+      <EntityTypeMapping TypeName="DBMS_Proje1Model.Institute">
+        <MappingFragment StoreEntitySet="Institute">
+          <ScalarProperty Name="INS_ID" ColumnName="INS_ID" />
+          <ScalarProperty Name="INS_NAME" ColumnName="INS_NAME" />
+          <ScalarProperty Name="UNI_ID" ColumnName="UNI_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Keywords">
+      <EntityTypeMapping TypeName="DBMS_Proje1Model.Keyword">
+        <MappingFragment StoreEntitySet="Keyword">
+          <ScalarProperty Name="KEYWORD_ID" ColumnName="KEYWORD_ID" />
+          <ScalarProperty Name="KEYWORD_NAME" ColumnName="KEYWORD_NAME" />
+          <ScalarProperty Name="THES_NO" ColumnName="THES_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="DBMS_Proje1Model.Language">
+        <MappingFragment StoreEntitySet="Language">
+          <ScalarProperty Name="LANG_NAME" ColumnName="LANG_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subject_Topic">
+      <EntityTypeMapping TypeName="DBMS_Proje1Model.Subject_Topic">
+        <MappingFragment StoreEntitySet="Subject_Topic">
+          <ScalarProperty Name="SUBJECT_TOPIC_ID" ColumnName="SUBJECT_TOPIC_ID" />
+          <ScalarProperty Name="SUBJECT_TOPIC_NAME" ColumnName="SUBJECT_TOPIC_NAME" />
+          <ScalarProperty Name="THES_NO" ColumnName="THES_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supervisors">
+      <EntityTypeMapping TypeName="DBMS_Proje1Model.Supervisor">
+        <MappingFragment StoreEntitySet="Supervisor">
+          <ScalarProperty Name="SV_ID" ColumnName="SV_ID" />
+          <ScalarProperty Name="SV_NAME" ColumnName="SV_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Theses">
+      <EntityTypeMapping TypeName="DBMS_Proje1Model.Thesis">
+        <MappingFragment StoreEntitySet="Thesis">
+          <ScalarProperty Name="THES_NO" ColumnName="THES_NO" />
+          <ScalarProperty Name="THES_TITLE" ColumnName="THES_TITLE" />
+          <ScalarProperty Name="THES_ABS" ColumnName="THES_ABS" />
+          <ScalarProperty Name="AUTHOR_ID" ColumnName="AUTHOR_ID" />
+          <ScalarProperty Name="CSV_ID" ColumnName="CSV_ID" />
+          <ScalarProperty Name="THES_YEAR" ColumnName="THES_YEAR" />
+          <ScalarProperty Name="THES_TYPE" ColumnName="THES_TYPE" />
+          <ScalarProperty Name="UNI_ID" ColumnName="UNI_ID" />
+          <ScalarProperty Name="INS_ID" ColumnName="INS_ID" />
+          <ScalarProperty Name="THES_NOP" ColumnName="THES_NOP" />
+          <ScalarProperty Name="LANG_NAME" ColumnName="LANG_NAME" />
+          <ScalarProperty Name="THES_SUBDATE" ColumnName="THES_SUBDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Universities">
+      <EntityTypeMapping TypeName="DBMS_Proje1Model.University">
+        <MappingFragment StoreEntitySet="University">
+          <ScalarProperty Name="UNI_ID" ColumnName="UNI_ID" />
+          <ScalarProperty Name="UNI_NAME" ColumnName="UNI_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Thes_SV" TypeName="DBMS_Proje1Model.Thes_SV" StoreEntitySet="Thes_SV">
+      <EndProperty Name="Supervisor">
+        <ScalarProperty Name="SV_ID" ColumnName="SV_ID" />
+      </EndProperty>
+      <EndProperty Name="Thesis">
+        <ScalarProperty Name="THES_NO" ColumnName="THES_NO" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
