@@ -1,0 +1,12 @@
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\bin\Debug\CodeFirst.exe.config
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\bin\Debug\CodeFirst.exe
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\bin\Debug\CodeFirst.pdb
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\bin\Debug\EntityFramework.dll
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\bin\Debug\EntityFramework.xml
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\obj\Debug\CodeFirst.csproj.AssemblyReference.cache
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\obj\Debug\CodeFirst.csproj.CoreCompileInputs.cache
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\obj\Debug\CodeFirst.csproj.CopyComplete
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\obj\Debug\CodeFirst.exe
+C:\Users\yahya\Desktop\Software\C#\CodeFirst\obj\Debug\CodeFirst.pdb
