@@ -1,0 +1,1 @@
+C:\Users\yahya\Desktop\Software\C#\MAUI\MeridyenTente\MeridyenTente.csproj;x64

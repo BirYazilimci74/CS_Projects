@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeridyenTente.GlassBalconySystem"
+             Title="Cam Balkon">
+    
+    <VerticalStackLayout
+        Spacing="30"
+        Padding="10">
+        <HorizontalStackLayout
+            Spacing="1"
+            HorizontalOptions="CenterAndExpand">
+            <!--Left Side-->
+                <VerticalStackLayout>
+                <Image
+                    Source="side.png"
+                    Aspect="AspectFit"/>
+                <Entry x:Name="leftSideWidth" 
+                       Placeholder="Genişlik" 
+                       Keyboard="Numeric"
+                       HorizontalOptions="FillAndExpand"/>
+                <Entry x:Name="leftGlassPiece" 
+                       Placeholder="Adet" 
+                       Keyboard="Numeric"
+                       HorizontalOptions="FillAndExpand"/>
+            </VerticalStackLayout>
+
+            <!--Middle Side-->
+            <VerticalStackLayout>
+                <Image
+                    Source="middle.png"
+                    Aspect="AspectFit"/>
+                <Entry x:Name="middleSideWidth" 
+                       Placeholder="Genişlik(cm)" 
+                       Keyboard="Numeric"
+                       HorizontalOptions="FillAndExpand"/>
+                <Entry x:Name="middleGlassPiece" 
+                       Placeholder="Adet" 
+                       Keyboard="Numeric"
+                       HorizontalOptions="FillAndExpand"/>
+                <Entry x:Name="systemHight" 
+                       Placeholder="Yükseklik" 
+                       Keyboard="Numeric"
+                       HorizontalOptions="FillAndExpand"/>
+
+            </VerticalStackLayout>
+
+            <!--Right Side-->
+            <VerticalStackLayout>
+                <Image
+                    Source="side.png"
+                    Aspect="AspectFit"/>
+                <Entry x:Name="rightSideWidth"
+                       Placeholder="Genişlik"
+                       Keyboard="Numeric"
+                       HorizontalOptions="FillAndExpand"/>
+                <Entry x:Name="rightGlassPiece"
+                       Placeholder="Adet"
+                       Keyboard="Numeric"
+                       HorizontalOptions="FillAndExpand"/>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+
+        <Button
+            Text="Hesapla"
+            Clicked="CalculateGlassSize"/>
+        <Label
+            x:Name="glassSize"
+            Text="Cam Ölçüsü:"/>
+        
+        
+
+    </VerticalStackLayout>
+</ContentPage>
