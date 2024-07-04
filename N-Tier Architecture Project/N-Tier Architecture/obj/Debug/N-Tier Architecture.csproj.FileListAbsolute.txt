@@ -1,0 +1,39 @@
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\bin\Debug\N-Tier Architecture.exe.config
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\bin\Debug\N-Tier Architecture.exe
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\bin\Debug\N-Tier Architecture.pdb
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\bin\Debug\EntityFramework.dll
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\bin\Debug\EntityFramework.xml
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\obj\Debug\N-Tier Architecture.csproj.AssemblyReference.cache
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\obj\Debug\N-Tier Architecture.csproj.CoreCompileInputs.cache
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\obj\Debug\N-Tier Architecture.csproj.CopyComplete
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\obj\Debug\N-Tier Architecture.exe
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture\obj\Debug\N-Tier Architecture.pdb
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\N-Tier Architecture.exe.config
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\N-Tier Architecture.exe
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\N-Tier Architecture.pdb
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\EntityFramework.dll
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\EntityFramework.xml
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\obj\Debug\N-Tier Architecture.csproj.AssemblyReference.cache
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\obj\Debug\N-Tier Architecture.csproj.CoreCompileInputs.cache
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\obj\Debug\N-Tier Architecture.csproj.CopyComplete
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\obj\Debug\N-Tier Architecture.exe
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\obj\Debug\N-Tier Architecture.pdb
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\BusinessLayer.dll
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\DataAccessLayer.dll
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\EntityLayer.dll
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\BusinessLayer.pdb
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\BusinessLayer.dll.config
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\DataAccessLayer.pdb
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\DataAccessLayer.dll.config
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\EntityLayer.pdb
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\EntityLayer.dll.config
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\FluentValidation.dll
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\FluentValidation.xml
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\yahya\Desktop\Software\C#\N-Tier Architecture Project\N-Tier Architecture\bin\Debug\System.Threading.Tasks.Extensions.xml
