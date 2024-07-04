@@ -1,0 +1,12 @@
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\bin\Debug\CurrencyAppWithXML.exe.config
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\bin\Debug\CurrencyAppWithXML.exe
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\bin\Debug\CurrencyAppWithXML.pdb
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\obj\Debug\CurrencyAppWithXML.csproj.AssemblyReference.cache
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\obj\Debug\CurrencyAppWithXML.csproj.CoreCompileInputs.cache
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\obj\Debug\CurrencyAppWithXML.exe
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\obj\Debug\CurrencyAppWithXML.pdb
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\bin\Debug\EntityFramework.dll
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\bin\Debug\EntityFramework.xml
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\yahya\Desktop\Software\C#\CurrencyAppWithXML\obj\Debug\CurrencyAppWithXML.csproj.CopyComplete

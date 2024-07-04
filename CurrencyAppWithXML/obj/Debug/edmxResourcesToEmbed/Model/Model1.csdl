@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBCurrencyAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurrencyName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="CurrencySymbol" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="CurrencyValues" Relationship="Self.FK_CurrencyValueS_Currency" FromRole="Currency" ToRole="CurrencyValues" />
+    <NavigationProperty Name="Operations" Relationship="Self.FK_Operation_Currency" FromRole="Currency" ToRole="Operation" />
+  </EntityType>
+  <EntityType Name="CurrencyValue">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurrencyID" Type="Int32" />
+    <Property Name="Buying" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Selling" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Currency" Relationship="Self.FK_CurrencyValueS_Currency" FromRole="CurrencyValues" ToRole="Currency" />
+  </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyID" Type="Int32" />
+    <Property Name="OperationType" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentCurrencyValue" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Amout" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Currency" Relationship="Self.FK_Operation_Currency" FromRole="Operation" ToRole="Currency" />
+  </EntityType>
+  <Association Name="FK_CurrencyValueS_Currency">
+    <End Role="Currency" Type="Self.Currency" Multiplicity="0..1" />
+    <End Role="CurrencyValues" Type="Self.CurrencyValue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CurrencyValues">
+        <PropertyRef Name="CurrencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Operation_Currency">
+    <End Role="Currency" Type="Self.Currency" Multiplicity="0..1" />
+    <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Operation">
+        <PropertyRef Name="CurrencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBCurrencyAppEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Currencies" EntityType="Self.Currency" />
+    <EntitySet Name="CurrencyValues" EntityType="Self.CurrencyValue" />
+    <EntitySet Name="Operations" EntityType="Self.Operation" />
+    <AssociationSet Name="FK_CurrencyValueS_Currency" Association="Self.FK_CurrencyValueS_Currency">
+      <End Role="Currency" EntitySet="Currencies" />
+      <End Role="CurrencyValues" EntitySet="CurrencyValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Operation_Currency" Association="Self.FK_Operation_Currency">
+      <End Role="Currency" EntitySet="Currencies" />
+      <End Role="Operation" EntitySet="Operations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

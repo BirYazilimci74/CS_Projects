@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBCurrencyAppModelStoreContainer" CdmEntityContainer="DBCurrencyAppEntities">
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="DBCurrencyAppModel.Currency">
+        <MappingFragment StoreEntitySet="Currency">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />
+          <ScalarProperty Name="CurrencySymbol" ColumnName="CurrencySymbol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrencyValues">
+      <EntityTypeMapping TypeName="DBCurrencyAppModel.CurrencyValue">
+        <MappingFragment StoreEntitySet="CurrencyValues">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+          <ScalarProperty Name="Buying" ColumnName="Buying" />
+          <ScalarProperty Name="Selling" ColumnName="Selling" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operations">
+      <EntityTypeMapping TypeName="DBCurrencyAppModel.Operation">
+        <MappingFragment StoreEntitySet="Operation">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+          <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+          <ScalarProperty Name="CurrentCurrencyValue" ColumnName="CurrentCurrencyValue" />
+          <ScalarProperty Name="Amout" ColumnName="Amout" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
