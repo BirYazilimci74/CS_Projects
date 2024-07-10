@@ -1,0 +1,4 @@
+C:\Users\yahya\Desktop\Software\C#\Projects\BinPacking\obj\Debug\net8.0\BinPacking.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yahya\Desktop\Software\C#\Projects\BinPacking\obj\Debug\net8.0\BinPacking.AssemblyInfoInputs.cache
+C:\Users\yahya\Desktop\Software\C#\Projects\BinPacking\obj\Debug\net8.0\BinPacking.AssemblyInfo.cs
+C:\Users\yahya\Desktop\Software\C#\Projects\BinPacking\obj\Debug\net8.0\BinPacking.csproj.CoreCompileInputs.cache
