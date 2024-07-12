@@ -68,7 +68,5 @@
             x:Name="glassSize"
             Text="Cam Ölçüsü:"/>
         
-        
-
     </VerticalStackLayout>
 </ContentPage>

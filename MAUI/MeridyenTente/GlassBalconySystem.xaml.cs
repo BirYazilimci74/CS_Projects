@@ -2,97 +2,96 @@ namespace MeridyenTente;
 
 public partial class GlassBalconySystem : ContentPage
 {
-	public GlassBalconySystem()
+    public GlassBalconySystem()
 	{
 		InitializeComponent();
 	}
 
 	public void CalculateGlassSize(object sender, EventArgs e)
 	{
-        float systemHeightf = Convert.ToInt16(systemHight.Text);
-        float middleSideWidthf = Convert.ToInt16(middleSideWidth.Text);
-        float leftSideWidthf = Convert.ToInt16(leftSideWidth.Text);
-        float rightSideWidthf = Convert.ToInt16(rightSideWidth.Text);
-
-        if (leftSideWidth.Text is null ^ rightSideWidth.Text is null)
+        if (float.TryParse(systemHight.Text, out float systemHeightf))
+            systemHeightf *= 10;
+        if (float.TryParse(middleSideWidth.Text, out float middleSideWidthf))
+            middleSideWidthf *= 10;
+        if (float.TryParse(leftSideWidth.Text, out float leftSideWidthf))
+            leftSideWidthf *= 10;
+        if (float.TryParse(rightSideWidth.Text, out float rightSideWidthf))
+            rightSideWidthf *= 10;
+        
+        if (string.IsNullOrWhiteSpace(leftSideWidth.Text) ^ string.IsNullOrWhiteSpace(rightSideWidth.Text))
         {
-            float sideWidth = leftSideWidth.Text is (null or "") ? rightSideWidthf : leftSideWidthf;
-            sideWidth = rightSideWidth.Text is (null or "") ? leftSideWidthf : rightSideWidthf;
+            float sideWidth = string.IsNullOrWhiteSpace(leftSideWidth.Text) ? rightSideWidthf : leftSideWidthf;
+            sideWidth = string.IsNullOrWhiteSpace(rightSideWidth.Text) ? leftSideWidthf : rightSideWidthf;
 
             int sidePiece = 1;
 
-            if (leftGlassPiece.Text is (null or ""))
+            if (!string.IsNullOrWhiteSpace(leftGlassPiece.Text) && string.IsNullOrWhiteSpace(rightGlassPiece.Text))
             {
-                try
-                {
-                    sidePiece = Convert.ToInt16(rightGlassPiece.Text);
-                }
-                catch (Exception ex) { }
+                if (int.TryParse(leftGlassPiece.Text, out int result))
+                    sidePiece = result;
             }
-            else if (rightGlassPiece.Text is (null or ""))
+            else if (!string.IsNullOrWhiteSpace(rightGlassPiece.Text) && string.IsNullOrEmpty(leftGlassPiece.Text))
             {
-                sidePiece = Convert.ToInt16(leftGlassPiece.Text);
-                try
-                {
-
-                }
-                catch (Exception ex) { }
+                if (int.TryParse(rightGlassPiece.Text, out int result))
+                    sidePiece = result;
             }
             else
             {
                 sidePiece = DeterminePiece(sideWidth);
             }
 
-            LBalcony(systemHeightf,middleSideWidthf,sideWidth,sidePiece);
+            LBalconyCalculation(systemHeightf,middleSideWidthf,sideWidth,sidePiece,glassSize);
         }
-        else if (!(leftSideWidth.Text is null || rightSideWidth.Text is null))
+        else if (!string.IsNullOrWhiteSpace(leftSideWidth.Text) && !string.IsNullOrWhiteSpace(rightSideWidth.Text))
         {
-            UBalcony();
+            if (!int.TryParse(rightGlassPiece.Text, out int rightGlassPieceI))
+                rightGlassPieceI = DeterminePiece(rightSideWidthf);
+            if (!int.TryParse(leftGlassPiece.Text, out int leftGlassPieceI))
+                leftGlassPieceI = DeterminePiece(leftSideWidthf);
+
+            UBalconyCalculation(systemHeightf,middleSideWidthf,leftSideWidthf,leftGlassPieceI,rightSideWidthf,rightGlassPieceI,glassSize);
         }
         else
         {
-            FlatBalcony(systemHeightf,middleSideWidthf);
+            FlatBalconyCalcualtion(systemHeightf,middleSideWidthf,glassSize);
         }
     }
 
-	private void FlatBalcony(float systemHeightf, float middleSideWidthf)
-	{
-        int piece = middleGlassPiece.Text is (null or "") ? DeterminePiece(middleSideWidthf) : Convert.ToInt16(middleGlassPiece.Text);
-        float glassWitdh = ((middleSideWidthf - 50) - ((piece - 1) * 5)) / piece;
-        float glassHeight = (systemHeightf - 172);
-
-        glassSize.Text = $"Cam Ölçüsü: \n{piece} adet {glassHeight}mm x {(int)glassWitdh}mm";
-    }
-
-	private void LBalcony(float systemHeightf, float middleSideWidthf, float sideWidthf, int sidePiece)
-	{
-        float sideGlassWitdh = ((sideWidthf - 55) - ((sidePiece - 1) * 5)) / sidePiece;
-        float sideGlassHeight = (systemHeightf - 172);
-        
-        FlatBalcony(systemHeightf, middleSideWidthf);
-        glassSize.Text += $"\n{sidePiece} adet {sideGlassHeight}mm x {(int)sideGlassWitdh}mm";
-    }
-
-    private void UBalcony()
+    public void UBalconyCalculation(float systemHeightf, float middleSideWidthf, float leftSideWidthf, int leftSidePiece, float rightSideWidthf, int rightSidePiece, Label glassSize)
     {
+        var (leftSideGlassWidth, leftGlassPiece) = SideBalcony(leftSideWidthf, leftSidePiece);
+        var (rightSideGlassWidth, rightGlassPiece) = SideBalcony(rightSideWidthf, rightSidePiece);
+        float glassHeight = (systemHeightf - Constants.HIGHT_OFFSET);
 
+        FlatBalconyCalcualtion(systemHeightf, middleSideWidthf, glassSize);
+        glassSize.Text +=
+            $"\n{leftGlassPiece} adet {glassHeight}mm x {(int)leftSideGlassWidth}mm" +
+            $"\n{rightGlassPiece} adet {glassHeight}mm x {(int)rightSideGlassWidth}mm";
     }
 
-    private int DeterminePiece(float width)
+    public void FlatBalconyCalcualtion(float systemHeightf, float middleSideWidthf, Label glassSize)
     {
-        float MIN_WIDTH = 440f;
-        float MAX_WIDTH = 550f;
-        float glassWidth = width;
-        int piece = 1;
+        int piece = string.IsNullOrWhiteSpace(middleGlassPiece.Text) ? DeterminePiece(middleSideWidthf) : Convert.ToInt16(middleGlassPiece.Text);
+        float glassWitdh = ((middleSideWidthf - Constants.WIDTH_OFFSET) - ((piece - 1) * Constants.SEPERATION)) / piece;
+        float glassHeight = (systemHeightf - Constants.HIGHT_OFFSET);
 
-        if (width < MIN_WIDTH) return piece;
-
-        while (!(glassWidth > MIN_WIDTH && glassWidth < MAX_WIDTH))
-        {
-            glassWidth = width / (float)piece;
-            piece++;
-        }
-        return piece;
+        glassSize.Text = $"Cam Ölçüsü:\n{piece} adet {glassHeight}mm x {(int)glassWitdh}mm";
     }
+
+    public void LBalconyCalculation(float systemHeightf, float middleSideWidthf, float sideWidthf, int sidePiece, Label glassSize)
+    {
+        var (sideGlassWidth, sideGlassPiece) = SideBalcony(sideWidthf, sidePiece);
+        float glassHeight = (systemHeightf - Constants.HIGHT_OFFSET);
+
+        FlatBalconyCalcualtion(systemHeightf, middleSideWidthf, glassSize);
+        glassSize.Text += $"\n{sideGlassPiece} adet {glassHeight}mm x {(int)sideGlassWidth}mm";
+    }
+
+    public (float,int) SideBalcony(float sideWidth, int sidePiece)
+    {
+        return (((sideWidth - Constants.WIDTH_OFFSET_L) - ((sidePiece - 1) * Constants.SEPERATION)) / sidePiece, sidePiece);
+    }
+
+    public static int DeterminePiece(float width) => (int)(width / Constants.OPTIMUM_GLASSWIDTH) + 1;
 
 }

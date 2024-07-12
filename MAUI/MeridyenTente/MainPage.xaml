@@ -16,17 +16,17 @@
                     x:Name="CamBalkonBtn"
                     Text="Cam Balkon" 
                     Clicked="OnTransitionButtonClicked"
-                    HorizontalOptions="Fill" />
+                    WidthRequest="200"/>
                 <Button
                     x:Name="GuillotineBtn"
                     Text="Giyotin"
                     Clicked="OnTransitionButtonClicked"
-                    HorizontalOptions="Fill" />
+                    WidthRequest="200"/>
                 <Button
                     x:Name="TenteBtn"
                     Text="Tente"
                     Clicked="OnTransitionButtonClicked"
-                    HorizontalOptions="Fill" />
+                    WidthRequest="200"/>
             </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
