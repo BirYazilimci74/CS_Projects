@@ -14,6 +14,8 @@ namespace N_Tier_Architecture
         MemberManager memberManager = new MemberManager(new EFMemberDAL());
         CommentManager commentManager = new CommentManager(new EFCommentDAL());
 
+        //Eğer new MemberManager() içine başka bir veri tabanı Kodları girersen o veri tavanı için çalışır. (Bu örnekte Entity Framework ile MSSQL)
+
         public void JoinForComments()
         {
             var comments = commentManager.TCommentListWithLocationAndMember();

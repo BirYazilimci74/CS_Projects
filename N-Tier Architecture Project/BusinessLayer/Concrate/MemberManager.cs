@@ -7,36 +7,36 @@ namespace BusinessLayer.Concrate
 {
     public class MemberManager : IMemberService
     {
-        IMemberDAL MemberDAL;
+        private IMemberDAL _memberDAL; // Dependency Injection
 
         public MemberManager(IMemberDAL memberDAL)
         {
-            MemberDAL = memberDAL;
+            _memberDAL = memberDAL;
         }
 
         public void TDelete(Member t)
         {
-            MemberDAL.Delete(t);
+            _memberDAL.Delete(t);
         }
 
         public Member TGetById(int id)
         {
-            return MemberDAL.GetByID(id);
+            return _memberDAL.GetByID(id);
         }
 
         public List<Member> TGetList()
         {
-            return MemberDAL.GetList();
+            return _memberDAL.GetList();
         }
 
         public void TInsert(Member t)
         {
-            MemberDAL.Insert(t);
+            _memberDAL.Insert(t);
         }
 
         public void TUpdate(Member t)
         {
-            MemberDAL.Update(t);
+            _memberDAL.Update(t);
         }
     }
 }

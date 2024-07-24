@@ -7,41 +7,41 @@ namespace BusinessLayer.Concrate
 {
     public class CommentManager : ICommentService
     {
-        ICommentDAL CommentDAL;
+        private ICommentDAL _commentDAL; // Dependency Injection
 
         public CommentManager(ICommentDAL commentDAL)
         {
-            CommentDAL = commentDAL;
+            _commentDAL = commentDAL;
         }
 
         public List<CommentDTO> TCommentListWithLocationAndMember()
         {
-            return CommentDAL.CommentListWithLocationAndMember();
+            return _commentDAL.CommentListWithLocationAndMember();
         }
 
         public void TDelete(Comment t)
         {
-            CommentDAL.Delete(t);
+            _commentDAL.Delete(t);
         }
 
         public Comment TGetById(int id)
         {
-            return CommentDAL.GetByID(id);
+            return _commentDAL.GetByID(id);
         }
 
         public List<Comment> TGetList()
         {
-            return CommentDAL.GetList();
+            return _commentDAL.GetList();
         }
 
         public void TInsert(Comment t)
         {
-            CommentDAL.Insert(t);
+            _commentDAL.Insert(t);
         }
 
         public void TUpdate(Comment t)
         {
-            CommentDAL.Update(t);
+            _commentDAL.Update(t);
         }
     }
 }

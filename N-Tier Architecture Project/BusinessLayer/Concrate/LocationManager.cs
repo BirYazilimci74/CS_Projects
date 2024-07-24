@@ -7,36 +7,36 @@ namespace BusinessLayer.Concrate
 {
     public class LocationManager : ILocationService
     {
-        ILocationDAL LocationDAL;
+        private ILocationDAL _locationDAL; // Dependency Injection
 
         public LocationManager(ILocationDAL locationDAL)
         {
-            LocationDAL = locationDAL;
+            _locationDAL = locationDAL;
         }
 
         public void TDelete(Location t)
         {
-            LocationDAL.Delete(t);
+            _locationDAL.Delete(t);
         }
 
         public Location TGetById(int id)
         {
-            return LocationDAL.GetByID(id);
+            return _locationDAL.GetByID(id);
         }
 
         public List<Location> TGetList()
         {
-            return LocationDAL.GetList();
+            return _locationDAL.GetList();
         }
 
         public void TInsert(Location t)
         {
-            LocationDAL.Insert(t);
+            _locationDAL.Insert(t);
         }
 
         public void TUpdate(Location t)
         {
-            LocationDAL.Update(t);
+            _locationDAL.Update(t);
         }
     }
 }
