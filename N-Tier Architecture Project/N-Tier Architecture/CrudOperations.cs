@@ -5,20 +5,21 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using BusinessLayer.FluentValidation;
 using FluentValidation.Results;
+using BusinessLayer.Abstract;
 
 namespace N_Tier_Architecture
 {
     public class CrudOperations
     {
-        LocationManager locationManager = new LocationManager(new EFLocationDAL());
-        MemberManager memberManager = new MemberManager(new EFMemberDAL());
-        CommentManager commentManager = new CommentManager(new EFCommentDAL());
+        ILocationService locationService = new LocationManager(new EFLocationDAL());
+        IMemberService memberService = new MemberManager(new EFMemberDAL());
+        ICommentService commentService = new CommentManager(new EFCommentDAL());
 
         //Eğer new MemberManager() içine başka bir veri tabanı Kodları girersen o veri tavanı için çalışır. (Bu örnekte Entity Framework ile MSSQL)
 
         public void JoinForComments()
         {
-            var comments = commentManager.TCommentListWithLocationAndMember();
+            var comments = commentService.TCommentListWithLocationAndMember();
 
             foreach (var comment in comments)
             {
@@ -85,7 +86,7 @@ namespace N_Tier_Architecture
             Console.WriteLine("Enter a member name to update:");
             string memberNameToUpdate = Console.ReadLine();
 
-            Member memberToUpdate = memberManager
+            Member memberToUpdate = memberService
                                         .TGetList()
                                         .FirstOrDefault(member => member.Name.ToLower().Contains(memberNameToUpdate.ToLower()));
 
@@ -98,7 +99,7 @@ namespace N_Tier_Architecture
             if (validation.IsValid)
             {
                 memberToUpdate.Name = updatedMember.Name;
-                memberManager.TUpdate(memberToUpdate);
+                memberService.TUpdate(memberToUpdate);
                 Console.Clear();
                 Console.WriteLine("Member added successfuly.\n\n");
             }
@@ -117,11 +118,11 @@ namespace N_Tier_Architecture
             Console.WriteLine("Enter a member name to delete:");
             string memberNameToDelete = Console.ReadLine();
 
-            Member memberToDelete = memberManager
+            Member memberToDelete = memberService
                                         .TGetList()
                                         .Find(member => member.Name.ToLower() == memberNameToDelete.ToLower());
 
-            memberManager.TDelete(memberToDelete);
+            memberService.TDelete(memberToDelete);
             Console.Clear();
         }
         public void InsertMember()
@@ -134,7 +135,7 @@ namespace N_Tier_Architecture
             ValidationResult validation = validationRules.Validate(newMember);
             if (validation.IsValid)
             {
-                memberManager.TInsert(newMember);
+                memberService.TInsert(newMember);
                 Console.Clear();
                 Console.WriteLine("Member added successfuly.\n\n");
             }
@@ -155,7 +156,7 @@ namespace N_Tier_Architecture
             Console.WriteLine("Enter a Location name to update:");
             string locationNameToUpdate = Console.ReadLine();
 
-            Location locationToUpdate = locationManager
+            Location locationToUpdate = locationService
                                         .TGetList()
                                         .FirstOrDefault(location => location.Name.ToLower() == locationNameToUpdate.ToLower());
 
@@ -168,7 +169,7 @@ namespace N_Tier_Architecture
             if (validation.IsValid)
             {
                 locationToUpdate.Name = updatedLocation.Name;
-                locationManager.TUpdate(locationToUpdate);
+                locationService.TUpdate(locationToUpdate);
                 Console.Clear();
                 Console.WriteLine("Location updated successfully!!!");
             }
@@ -187,11 +188,11 @@ namespace N_Tier_Architecture
             Console.WriteLine("Enter a Location name to delete:");
             string locationNameToDelete = Console.ReadLine();
 
-            Location locationToDelete = locationManager
+            Location locationToDelete = locationService
                                         .TGetList()
                                         .Find(location => location.Name.ToLower() == locationNameToDelete.ToLower());
 
-            locationManager.TDelete(locationToDelete);
+            locationService.TDelete(locationToDelete);
             Console.Clear();
         }
         public void InsertLocation()
@@ -204,7 +205,7 @@ namespace N_Tier_Architecture
             ValidationResult validation = validationRules.Validate(newLocation);
             if (validation.IsValid)
             {
-                locationManager.TInsert(newLocation);
+                locationService.TInsert(newLocation);
                 Console.Clear();
                 Console.WriteLine("Location added successfuly.\n\n");
             }
@@ -221,9 +222,9 @@ namespace N_Tier_Architecture
 
         public void List()
         {
-            var locations = locationManager.TGetList();
-            var members = memberManager.TGetList();
-            var comments = commentManager.TGetList();
+            var locations = locationService.TGetList();
+            var members = memberService.TGetList();
+            var comments = commentService.TGetList();
 
             foreach (var location in locations)
             { 
