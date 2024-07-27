@@ -1,7 +1,9 @@
 ﻿using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace DataAccessLayer.Repositories
 {
@@ -20,9 +22,11 @@ namespace DataAccessLayer.Repositories
             return _context.Set<T>().Find(id);
         }
 
-        public List<T> GetList()
+        public List<T> GetList(Expression<Func<T, bool>> filter = null)  //It allows to filter the list with the expression that is written.
         {
-            return _context.Set<T>().ToList();
+            return filter == null ?
+                _context.Set<T>().ToList() :
+                _context.Set<T>().Where(filter).ToList();
         }
 
         public void Insert(T t)
