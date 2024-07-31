@@ -1,0 +1,14 @@
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\obj\Debug\net8.0\TakingWithAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\obj\Debug\net8.0\TakingWithAPI.AssemblyInfoInputs.cache
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\obj\Debug\net8.0\TakingWithAPI.AssemblyInfo.cs
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\obj\Debug\net8.0\TakingWithAPI.csproj.CoreCompileInputs.cache
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\bin\Debug\net8.0\TakingWithAPI.exe
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\bin\Debug\net8.0\TakingWithAPI.deps.json
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\bin\Debug\net8.0\TakingWithAPI.runtimeconfig.json
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\bin\Debug\net8.0\TakingWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\bin\Debug\net8.0\TakingWithAPI.pdb
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\obj\Debug\net8.0\TakingWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\obj\Debug\net8.0\refint\TakingWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\obj\Debug\net8.0\TakingWithAPI.pdb
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\obj\Debug\net8.0\TakingWithAPI.genruntimeconfig.cache
+C:\Users\yahya\Desktop\Software\C#\API\TakingWithAPI\obj\Debug\net8.0\ref\TakingWithAPI.dll
