@@ -36,11 +36,11 @@ public class RidesController : ControllerBase
         _context.Rides.Add(ride);
         _context.SaveChanges();
 
-        return CreatedAtAction(nameof(GetRideByID), new {id = ride.Id}, ride);
+        return CreatedAtAction(nameof(PostRideByID), new {id = ride.Id}, ride);
     }
 
     [HttpPost("{id}")]
-    public ActionResult<IEnumerable<Ride>> GetRideByID(int id)
+    public ActionResult<IEnumerable<Ride>> PostRideByID(int id)
     {
         var ride = _context.Rides.FirstOrDefault(r => r.Id == id);
 
@@ -51,5 +51,16 @@ public class RidesController : ControllerBase
         return Ok(ride);
     }
     
+    [HttpGet("{id}")]
+    public ActionResult<IEnumerable<Ride>> GetRideByID(int id)
+    {
+        var ride = _context.Rides.FirstOrDefault(r => r.Id == id);
+
+        if (ride is null)
+        {
+            return NotFound();
+        }
+        return Ok(ride);
+    }
     
 }
