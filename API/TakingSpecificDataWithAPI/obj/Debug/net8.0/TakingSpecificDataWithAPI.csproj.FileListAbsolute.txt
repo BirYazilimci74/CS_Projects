@@ -1,0 +1,14 @@
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\obj\Debug\net8.0\TakingSpecificDataWithAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\obj\Debug\net8.0\TakingSpecificDataWithAPI.AssemblyInfoInputs.cache
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\obj\Debug\net8.0\TakingSpecificDataWithAPI.AssemblyInfo.cs
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\obj\Debug\net8.0\TakingSpecificDataWithAPI.csproj.CoreCompileInputs.cache
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\bin\Debug\net8.0\TakingSpecificDataWithAPI.exe
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\bin\Debug\net8.0\TakingSpecificDataWithAPI.deps.json
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\bin\Debug\net8.0\TakingSpecificDataWithAPI.runtimeconfig.json
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\bin\Debug\net8.0\TakingSpecificDataWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\bin\Debug\net8.0\TakingSpecificDataWithAPI.pdb
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\obj\Debug\net8.0\TakingSpecificDataWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\obj\Debug\net8.0\refint\TakingSpecificDataWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\obj\Debug\net8.0\TakingSpecificDataWithAPI.pdb
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\obj\Debug\net8.0\TakingSpecificDataWithAPI.genruntimeconfig.cache
+C:\Users\yahya\Desktop\Software\C#\API\TakingSpecificDataWithAPI\obj\Debug\net8.0\ref\TakingSpecificDataWithAPI.dll
