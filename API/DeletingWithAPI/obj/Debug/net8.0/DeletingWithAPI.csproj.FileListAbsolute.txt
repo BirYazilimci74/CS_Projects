@@ -1,0 +1,14 @@
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\bin\Debug\net8.0\DeletingWithAPI.exe
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\bin\Debug\net8.0\DeletingWithAPI.deps.json
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\bin\Debug\net8.0\DeletingWithAPI.runtimeconfig.json
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\bin\Debug\net8.0\DeletingWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\bin\Debug\net8.0\DeletingWithAPI.pdb
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\obj\Debug\net8.0\DeletingWithAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\obj\Debug\net8.0\DeletingWithAPI.AssemblyInfoInputs.cache
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\obj\Debug\net8.0\DeletingWithAPI.AssemblyInfo.cs
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\obj\Debug\net8.0\DeletingWithAPI.csproj.CoreCompileInputs.cache
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\obj\Debug\net8.0\DeletingWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\obj\Debug\net8.0\refint\DeletingWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\obj\Debug\net8.0\DeletingWithAPI.pdb
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\obj\Debug\net8.0\DeletingWithAPI.genruntimeconfig.cache
+C:\Users\yahya\Desktop\Software\C#\API\DeletingWithAPI\obj\Debug\net8.0\ref\DeletingWithAPI.dll
