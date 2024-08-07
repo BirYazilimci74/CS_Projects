@@ -63,6 +63,25 @@ namespace API.MyLocalServerAPI.Controllers
             }
 
             _context.Cars.Remove(carToDelete);
+            _context.SaveChanges();
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult<Car> UpdateCar(int id, Car updatedCar)
+        {
+            var carToUpdate = _context.Cars.FirstOrDefault(c => c.Id == id);
+
+            if (carToUpdate is null)
+            {
+                return NotFound();
+            }
+
+            carToUpdate.Name = updatedCar.Name ?? carToUpdate.Name;
+            carToUpdate.Description = updatedCar.Description ?? carToUpdate.Description;
+            carToUpdate.Image_Filename = updatedCar.Image_Filename ?? carToUpdate.Image_Filename;
+
+            _context.SaveChanges();
             return NoContent();
         }
     }

@@ -67,6 +67,25 @@ public class RidesController : ControllerBase
         return NoContent();
     }
 
+    [HttpPut("{id}")]
+    public IActionResult UpdateRide(int id, Ride updatedRide)
+    {
+        var rideToUpdate = _context.Rides.FirstOrDefault(r => r.Id == id);
+
+        if (rideToUpdate is null)
+        {
+            return NotFound();
+        }
+
+        rideToUpdate.DriverName = updatedRide.DriverName ?? rideToUpdate.DriverName;
+        rideToUpdate.Target = updatedRide.Target ?? rideToUpdate.Target;
+        rideToUpdate.Plate = updatedRide.Plate ?? rideToUpdate.Plate;
+        rideToUpdate.Latitude = updatedRide.Latitude;
+        rideToUpdate.Longitude = updatedRide.Longitude;
+
+        _context.SaveChanges();
+        return NoContent();
+    }
     
     
 }

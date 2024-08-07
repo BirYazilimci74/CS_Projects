@@ -1,0 +1,14 @@
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\obj\Debug\net8.0\UpdatingWithAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\obj\Debug\net8.0\UpdatingWithAPI.AssemblyInfoInputs.cache
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\obj\Debug\net8.0\UpdatingWithAPI.AssemblyInfo.cs
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\obj\Debug\net8.0\UpdatingWithAPI.csproj.CoreCompileInputs.cache
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\bin\Debug\net8.0\UpdatingWithAPI.exe
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\bin\Debug\net8.0\UpdatingWithAPI.deps.json
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\bin\Debug\net8.0\UpdatingWithAPI.runtimeconfig.json
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\bin\Debug\net8.0\UpdatingWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\bin\Debug\net8.0\UpdatingWithAPI.pdb
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\obj\Debug\net8.0\UpdatingWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\obj\Debug\net8.0\refint\UpdatingWithAPI.dll
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\obj\Debug\net8.0\UpdatingWithAPI.pdb
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\obj\Debug\net8.0\UpdatingWithAPI.genruntimeconfig.cache
+C:\Users\yahya\Desktop\Software\C#\API\UpdatingWithAPI\obj\Debug\net8.0\ref\UpdatingWithAPI.dll
