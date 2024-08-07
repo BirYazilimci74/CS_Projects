@@ -37,7 +37,7 @@ namespace API.MyLocalServerAPI.Controllers
             _context.Cars.Add(car);
             _context.SaveChanges();
 
-            return CreatedAtAction(nameof(GetCarById), new { id = car.Id }, car);
+            return NoContent();
         }
 
         [HttpGet("{id}")]
@@ -51,7 +51,19 @@ namespace API.MyLocalServerAPI.Controllers
 
             return Ok(car);
         }
-    }
 
-    
+        [HttpDelete("{id}")]
+        public ActionResult<Car> Delete(int id)
+        {
+            var carToDelete = _context.Cars.FirstOrDefault(r => r.Id == id);
+
+            if (carToDelete is null)
+            {
+                return NotFound();
+            }
+
+            _context.Cars.Remove(carToDelete);
+            return NoContent();
+        }
+    }
 }

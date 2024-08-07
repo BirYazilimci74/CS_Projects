@@ -26,7 +26,7 @@ public class RidesController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult<Ride> PostRide([FromBody] Ride ride)
+    public ActionResult<Ride> AddRide(Ride ride)
     {
         if (ride is null)
         {
@@ -36,19 +36,7 @@ public class RidesController : ControllerBase
         _context.Rides.Add(ride);
         _context.SaveChanges();
 
-        return CreatedAtAction(nameof(PostRideByID), new {id = ride.Id}, ride);
-    }
-
-    [HttpPost("{id}")]
-    public ActionResult<IEnumerable<Ride>> PostRideByID(int id)
-    {
-        var ride = _context.Rides.FirstOrDefault(r => r.Id == id);
-
-        if (ride is null)
-        {
-            return NotFound();
-        }
-        return Ok(ride);
+        return NoContent();
     }
     
     [HttpGet("{id}")]
@@ -62,5 +50,23 @@ public class RidesController : ControllerBase
         }
         return Ok(ride);
     }
+
+    [HttpDelete("{id}")]
+    public ActionResult<Ride> Delete(int id)
+    {
+        var rideToDelete = _context.Rides.FirstOrDefault(r => r.Id == id);
+        
+        if (rideToDelete is null)
+        {
+            return NotFound();
+        }
+
+        _context.Rides.Remove(rideToDelete);
+        _context.SaveChanges();
+        
+        return NoContent();
+    }
+
+    
     
 }
