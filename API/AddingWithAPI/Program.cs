@@ -9,10 +9,22 @@ namespace API.AddingWithAPI
         public static async Task Main(string[] args)
         {
             Console.WriteLine("*****************Add Car*****************");
-            await AddCar(new Car {Id = 11, Name = "Chery Tiggo", Description = "Worthless", Image_Filename = "chery" });//id should change according to the database.
-                                                                                                                        //if id is auto inc, no problem.
+            await AddCar(new Car {Id = 13,
+                                Name = "Deneme", 
+                                Description = "deneme", 
+                                Image_Filename = "try"
+            });//id should change according to the database.
+               //if id is auto inc, no problem.
+               
+            
             Console.WriteLine("*****************Add Ride*****************");
-            await AddRide(new Ride {DriverName = "Hamdiye Nur Kanca", Target = "Maltepe", Plate = "05HMD312", Latitude = 40.8889309 ,Longitude = 29.2380319});
+            /*
+            await AddRide(new Ride {DriverName = "Hamdiye Nur Kanca", 
+                                    Target = "Adalar", 
+                                    Plate = "05HMD312", 
+                                    Latitude = 40.8889319, 
+                                    Longitude = 29.2380309
+            });*/
         }
 
         public static async Task AddCar(Car newCar)

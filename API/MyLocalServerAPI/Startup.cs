@@ -22,6 +22,19 @@ public class Startup
             options.UseMySql(connectionStringRideShareApp, ServerVersion.AutoDetect(connectionStringRideShareApp)));
 
         services.AddControllers();
+
+
+        services.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+            {
+                Version = "v1",
+                Title = "My API",
+                Description = "ASP.NET Core Web API"
+            });
+        });
+
+        
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -30,6 +43,15 @@ public class Startup
         {
             app.UseDeveloperExceptionPage();
         }
+
+
+        app.UseSwagger();
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            c.RoutePrefix = string.Empty; // Swagger UI kök URL'de yer alsın
+        });
+
 
         app.UseRouting();
 

@@ -17,7 +17,7 @@ public class RidesController : ControllerBase
     {
         _context = context;
     }
-
+    
     [HttpGet]
     public ActionResult<IEnumerable<Ride>> GetRides()
     {
@@ -48,6 +48,7 @@ public class RidesController : ControllerBase
         {
             return NotFound();
         }
+        
         return Ok(ride);
     }
 
@@ -86,6 +87,6 @@ public class RidesController : ControllerBase
         _context.SaveChanges();
         return NoContent();
     }
-    
+
     
 }
