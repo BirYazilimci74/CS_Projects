@@ -14,6 +14,5 @@ namespace LibraryManagementSystemWithEF.Models
         public DateTime BorrewedTime { get; set; }
         public DateTime ReturnTime { get; set; }
         public int BookID { get; set; }
-        public Book Book { get; set; }
     }
 }

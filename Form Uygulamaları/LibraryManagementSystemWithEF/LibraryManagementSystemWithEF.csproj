@@ -112,12 +112,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\Abstract\IBookService.cs" />
+    <Compile Include="BusinessLayer\Abstract\IBorrowedBookService.cs" />
+    <Compile Include="BusinessLayer\Abstract\IGenericService.cs" />
+    <Compile Include="BusinessLayer\Concrate\BookManager.cs" />
+    <Compile Include="BusinessLayer\Concrate\BorrowedBookManager.cs" />
+    <Compile Include="DAL\Abstract\IBookDAL.cs" />
+    <Compile Include="DAL\Abstract\IBorrowedBookDAL.cs" />
+    <Compile Include="DAL\Abstract\IGenericDAL.cs" />
+    <Compile Include="DAL\EntityFramework\EFBookDAL.cs" />
+    <Compile Include="DAL\EntityFramework\EFBorrowedBookDAL.cs" />
     <Compile Include="DAL\LibraryContext.cs" />
+    <Compile Include="DAL\Repository\GenericRepository.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408241124077_stock.cs" />
+    <Compile Include="Migrations\202408241124077_stock.designer.cs">
+      <DependentUpon>202408241124077_stock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202408241459007_Book removed in BorrowedBook.cs" />
+    <Compile Include="Migrations\202408241459007_Book removed in BorrowedBook.designer.cs">
+      <DependentUpon>202408241459007_Book removed in BorrowedBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
@@ -126,6 +145,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408241124077_stock.resx">
+      <DependentUpon>202408241124077_stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408241459007_Book removed in BorrowedBook.resx">
+      <DependentUpon>202408241459007_Book removed in BorrowedBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

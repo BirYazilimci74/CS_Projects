@@ -49,3 +49,5 @@ C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWit
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.csproj.SuggestedBindingRedirects.cache
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.exe.config
+C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Migrations.stock.resources
+C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Migrations.BookremovedinBorrowedBook.resources
