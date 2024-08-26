@@ -45,7 +45,7 @@ namespace LibraryManagementSystemWithEF
 
         private void LoadBorrowedBooks()
         {
-            dgvBorrowedBook.DataSource = borrowedBooks.TGetAll();
+            dgvBorrowedBook.DataSource = borrowedBooks.TGetBorrowedBooksWithName();
         }
 
         private void button1_Click(object sender, EventArgs e)

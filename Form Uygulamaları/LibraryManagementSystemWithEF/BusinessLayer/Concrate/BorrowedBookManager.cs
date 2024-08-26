@@ -32,6 +32,11 @@ namespace LibraryManagementSystemWithEF.BusinessLayer.Concrate
             return _borrowedBookDal.GetAll();
         }
 
+        public List<BorrowedBookDTO> TGetBorrowedBooksWithName()
+        {
+            return _borrowedBookDal.GetBorrowedBooksWithName();
+        }
+
         public BorrowedBook TGetById(int id)
         {
             return _borrowedBookDal.GetByID(id);
