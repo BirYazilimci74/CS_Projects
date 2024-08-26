@@ -2,7 +2,6 @@ C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWit
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\LibraryManagementSystemWithEF.exe
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\LibraryManagementSystemWithEF.pdb
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.csproj.AssemblyReference.cache
-C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Form1.resources
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Properties.Resources.resources
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.csproj.GenerateResource.cache
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.csproj.CoreCompileInputs.cache
@@ -51,3 +50,7 @@ C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWit
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.exe.config
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Migrations.stock.resources
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Migrations.BookremovedinBorrowedBook.resources
+C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.ReturnBookMenu.resources
+C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.BorrowBookMenu.resources
+C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.ManageBooksMenu.resources
+C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Library.resources
