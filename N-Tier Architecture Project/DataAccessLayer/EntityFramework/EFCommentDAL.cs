@@ -13,13 +13,13 @@ namespace DataAccessLayer.EntityFramework
         {
             Context context = new Context();
 
-            var comments = (from comment in context.Comments
+            var comments = (from comment in context.Comments           //from {name for maintable} in {maintable}
 
-                            join location in context.Locations
-                            on comment.LocationID equals location.ID
+                            join location in context.Locations         //join {name for joining table} in {joining table}
+                            on comment.LocationID equals location.ID   //on {maintable fk} equals {joining table pk}
 
-                            join member in context.Members
-                            on comment.MemberID equals member.ID
+                            join member in context.Members             //join {name for joining table} in {joining table}
+                            on comment.MemberID equals member.ID       //on {maintable fk} equals {joining table pk}
 
                             select new
                             {
