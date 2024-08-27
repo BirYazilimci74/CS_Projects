@@ -131,11 +131,11 @@
     <Compile Include="DAL\LibraryContext.cs" />
     <Compile Include="DAL\Repository\GenericRepository.cs" />
     <Compile Include="DAL\Services.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Library.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Library.Designer.cs">
+      <DependentUpon>Library.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageBooksMenu.cs">
       <SubType>Form</SubType>
@@ -166,8 +166,8 @@
     <EmbeddedResource Include="BorrowBookMenu.resx">
       <DependentUpon>BorrowBookMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Library.resx">
+      <DependentUpon>Library.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageBooksMenu.resx">
       <DependentUpon>ManageBooksMenu.cs</DependentUpon>
