@@ -41,5 +41,10 @@ namespace LibraryManagementSystemWithEF.BusinessLayer.Concrate
         {
             _bookDal.Borrow(book);
         }
+
+        public List<BookDTO> TGetBooksWithCategoryName()
+        {
+            return _bookDal.GetBooksWithCategoryName();
+        }
     }
 }

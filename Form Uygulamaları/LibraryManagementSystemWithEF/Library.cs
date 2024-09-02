@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using LibraryManagementSystemWithEF.BusinessLayer.Abstract;
-using LibraryManagementSystemWithEF.BusinessLayer.Concrate;
-using LibraryManagementSystemWithEF.DAL.EntityFramework;
-using LibraryManagementSystemWithEF.Models;
 
 namespace LibraryManagementSystemWithEF
 {
@@ -30,6 +26,11 @@ namespace LibraryManagementSystemWithEF
         {
             ManageBooksMenu manageBooksMenu = new ManageBooksMenu();
             manageBooksMenu.Show();
+        }
+
+        private void Library_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -151,10 +151,28 @@
     <Compile Include="Migrations\202408241459007_Book removed in BorrowedBook.designer.cs">
       <DependentUpon>202408241459007_Book removed in BorrowedBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202409021019397_Category added.cs" />
+    <Compile Include="Migrations\202409021019397_Category added.designer.cs">
+      <DependentUpon>202409021019397_Category added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202409021037380_Category added on book.cs" />
+    <Compile Include="Migrations\202409021037380_Category added on book.designer.cs">
+      <DependentUpon>202409021037380_Category added on book.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202409021135337_check.cs" />
+    <Compile Include="Migrations\202409021135337_check.designer.cs">
+      <DependentUpon>202409021135337_check.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202409021202519_Category Relationship.cs" />
+    <Compile Include="Migrations\202409021202519_Category Relationship.designer.cs">
+      <DependentUpon>202409021202519_Category Relationship.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\BookDTO.cs" />
     <Compile Include="Models\BorrowedBook.cs" />
     <Compile Include="Models\BorrowedBookDTO.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReturnBookMenu.cs">
@@ -177,6 +195,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408241459007_Book removed in BorrowedBook.resx">
       <DependentUpon>202408241459007_Book removed in BorrowedBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409021019397_Category added.resx">
+      <DependentUpon>202409021019397_Category added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409021037380_Category added on book.resx">
+      <DependentUpon>202409021037380_Category added on book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409021135337_check.resx">
+      <DependentUpon>202409021135337_check.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409021202519_Category Relationship.resx">
+      <DependentUpon>202409021202519_Category Relationship.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

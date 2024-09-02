@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using LibraryManagementSystemWithEF.BusinessLayer.Abstract;
 using LibraryManagementSystemWithEF.DAL;
@@ -20,7 +21,7 @@ namespace LibraryManagementSystemWithEF
 
         private void LoadBooks()
         {
-            dgvBooks.DataSource = bookService.TGetAll();
+            dgvBooks.DataSource = bookService.TGetBooksWithCategoryName();
         }
     }
 }

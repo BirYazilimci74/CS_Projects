@@ -8,11 +8,16 @@ namespace LibraryManagementSystemWithEF.DAL.EntityFramework
 {
     internal class EFBorrowedBookDAL : GenericRepository<BorrowedBook> , IBorrowedBookDAL
     {
-        LibraryContext _context = new LibraryContext();
+        private readonly LibraryContext _context = new LibraryContext();
         public void ReturnBook(BorrowedBook borrowedBook)
         {
-            _context.Books.FirstOrDefault(b => b.Id == borrowedBook.BookID).Stock++;
-            _context.SaveChanges();
+            var book = _context.Books.FirstOrDefault(b => b.Id == borrowedBook.BookID);
+            
+            if (book != null)
+            {
+                book.Stock++;
+                _context.SaveChanges();
+            }
         }
 
         public List<BorrowedBookDTO> GetBorrowedBooksWithName()
@@ -35,11 +40,13 @@ namespace LibraryManagementSystemWithEF.DAL.EntityFramework
             
             foreach (var book in borrowedBooks)
             {
-                BorrowedBookDTO borrowedBookDto = new BorrowedBookDTO();
-                borrowedBookDto.Id = book.Id;
-                borrowedBookDto.BorrewedTime = book.BorrowedTime;
-                borrowedBookDto.ReturnTime = book.ReturnTime;
-                borrowedBookDto.BookName = book.BookName;
+                BorrowedBookDTO borrowedBookDto = new BorrowedBookDTO
+                {
+                    Id = book.Id,
+                    BorrewedTime = book.BorrowedTime,
+                    ReturnTime = book.ReturnTime,
+                    BookName = book.BookName
+                };
                 result.Add(borrowedBookDto);
             }
 

@@ -76,6 +76,7 @@
             this.Name = "Library";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Library";
+            this.Load += new System.EventHandler(this.Library_Load);
             this.ResumeLayout(false);
 
         }

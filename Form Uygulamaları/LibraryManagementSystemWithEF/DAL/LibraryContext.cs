@@ -7,5 +7,6 @@ namespace LibraryManagementSystemWithEF.DAL
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<BorrowedBook> BorrowedBooks { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

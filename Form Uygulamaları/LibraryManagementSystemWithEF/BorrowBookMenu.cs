@@ -29,7 +29,7 @@ namespace LibraryManagementSystemWithEF
 
         private void LoadBooks()
         {
-            dgvBooks.DataSource = bookService.TGetAll();
+            dgvBooks.DataSource = bookService.TGetBooksWithCategoryName();
         }
 
         private void BorrowBook()

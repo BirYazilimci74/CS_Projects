@@ -54,3 +54,7 @@ C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWit
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.BorrowBookMenu.resources
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.ManageBooksMenu.resources
 C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Library.resources
+C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Migrations.Categoryadded.resources
+C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Migrations.Categoryaddedonbook.resources
+C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Migrations.check.resources
+C:\Users\yahya\Desktop\Software\C#\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Migrations.CategoryRelationship.resources

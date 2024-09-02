@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystemWithEF.Models
 {
-    public class BorrowedBookDTO
+    public class BookDTO
     {
         public int Id { get; set; }
-        public DateTime BorrewedTime { get; set; }
-        public DateTime ReturnTime { get; set; }
-        public string BookName { get; set; }
-    
+        public string Name { get; set; }
+        public string Author { get; set; }
+        public string Category { get; set; }
+        public int Stock { get; set; }
     }
 }
