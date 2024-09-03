@@ -10,8 +10,8 @@ namespace LibraryManagementSystemWithEF
 {
     public partial class BorrowBookMenu : Form
     {
-        private IBookService bookService = Services.BookService;
-        private IBorrowedBookService borrowedBookService = Services.BorrowedBookService;
+        private IBookService _bookService = Services.BookService;
+        private IBorrowedBookService _borrowedBookService = Services.BorrowedBookService;
         public BorrowBookMenu()
         {
             InitializeComponent();
@@ -29,13 +29,13 @@ namespace LibraryManagementSystemWithEF
 
         private void LoadBooks()
         {
-            dgvBooks.DataSource = bookService.TGetBooksWithCategoryName();
+            dgvBooks.DataSource = _bookService.TGetBooksWithCategoryName();
         }
 
         private void BorrowBook()
         {
-            Book bookToBorrow = bookService.TGetById(Convert.ToInt32(dgvBooks.SelectedRows[0].Cells[0].Value));
-            bookService.TBorrow(bookToBorrow);
+            Book bookToBorrow = _bookService.TGetById(Convert.ToInt32(dgvBooks.SelectedRows[0].Cells[0].Value));
+            _bookService.TBorrow(bookToBorrow);
 
             BorrowedBook borrowedBook = new BorrowedBook();
 
@@ -43,7 +43,7 @@ namespace LibraryManagementSystemWithEF
             borrowedBook.ReturnTime = borrowedBook.BorrewedTime.AddDays(15);
             borrowedBook.BookID = bookToBorrow.Id;
 
-            borrowedBookService.TAdd(borrowedBook);
+            _borrowedBookService.TAdd(borrowedBook);
 
             LoadBooks();
         }

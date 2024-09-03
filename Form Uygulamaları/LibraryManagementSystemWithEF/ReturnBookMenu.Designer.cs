@@ -37,6 +37,7 @@
             // 
             this.dgvBorrowedBooks.AllowUserToAddRows = false;
             this.dgvBorrowedBooks.AllowUserToDeleteRows = false;
+            this.dgvBorrowedBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBorrowedBooks.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvBorrowedBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBorrowedBooks.Cursor = System.Windows.Forms.Cursors.Hand;

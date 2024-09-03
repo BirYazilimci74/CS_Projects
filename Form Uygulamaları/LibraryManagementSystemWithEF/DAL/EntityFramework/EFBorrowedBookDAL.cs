@@ -36,7 +36,7 @@ namespace LibraryManagementSystemWithEF.DAL.EntityFramework
                     BookName = book.Name,
                 }).ToList();
 
-            List<BorrowedBookDTO> result = new List<BorrowedBookDTO>();
+            var result = new List<BorrowedBookDTO>();
             
             foreach (var book in borrowedBooks)
             {

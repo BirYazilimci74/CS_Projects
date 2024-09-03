@@ -120,14 +120,18 @@
     </Compile>
     <Compile Include="BusinessLayer\Abstract\IBookService.cs" />
     <Compile Include="BusinessLayer\Abstract\IBorrowedBookService.cs" />
+    <Compile Include="BusinessLayer\Abstract\ICategoryService.cs" />
     <Compile Include="BusinessLayer\Abstract\IGenericService.cs" />
     <Compile Include="BusinessLayer\Concrate\BookManager.cs" />
     <Compile Include="BusinessLayer\Concrate\BorrowedBookManager.cs" />
+    <Compile Include="BusinessLayer\Concrate\CategoryManager.cs" />
     <Compile Include="DAL\Abstract\IBookDAL.cs" />
     <Compile Include="DAL\Abstract\IBorrowedBookDAL.cs" />
+    <Compile Include="DAL\Abstract\ICategoryDAL.cs" />
     <Compile Include="DAL\Abstract\IGenericDAL.cs" />
     <Compile Include="DAL\EntityFramework\EFBookDAL.cs" />
     <Compile Include="DAL\EntityFramework\EFBorrowedBookDAL.cs" />
+    <Compile Include="DAL\EntityFramework\EFCategoryDAL.cs" />
     <Compile Include="DAL\LibraryContext.cs" />
     <Compile Include="DAL\Repository\GenericRepository.cs" />
     <Compile Include="DAL\Services.cs" />

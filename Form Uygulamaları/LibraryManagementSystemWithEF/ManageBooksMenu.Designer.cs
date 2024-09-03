@@ -30,21 +30,38 @@
         {
             this.dgvBooks = new System.Windows.Forms.DataGridView();
             this.gbAdd = new System.Windows.Forms.GroupBox();
+            this.cmbAddCategory = new System.Windows.Forms.ComboBox();
+            this.lblAddCategory = new System.Windows.Forms.Label();
+            this.tbxAddStock = new System.Windows.Forms.TextBox();
+            this.tbxAddAuthor = new System.Windows.Forms.TextBox();
+            this.tbxAddName = new System.Windows.Forms.TextBox();
+            this.lblAddStock = new System.Windows.Forms.Label();
+            this.lblAddAuthor = new System.Windows.Forms.Label();
+            this.lblAddName = new System.Windows.Forms.Label();
             this.gbUpdate = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cmbUpdateCategory = new System.Windows.Forms.ComboBox();
+            this.tbxUpdateName = new System.Windows.Forms.TextBox();
+            this.lblUpdateCategory = new System.Windows.Forms.Label();
+            this.lblUpdateName = new System.Windows.Forms.Label();
+            this.tbxUpdateStock = new System.Windows.Forms.TextBox();
+            this.lblUpdateAuthor = new System.Windows.Forms.Label();
+            this.tbxUpdateAuthor = new System.Windows.Forms.TextBox();
+            this.lblUpdateStock = new System.Windows.Forms.Label();
+            this.btnAddBook = new System.Windows.Forms.Button();
+            this.btnUpdateBook = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.gbAdd.SuspendLayout();
+            this.gbUpdate.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvBooks
             // 
             this.dgvBooks.AllowUserToAddRows = false;
             this.dgvBooks.AllowUserToDeleteRows = false;
+            this.dgvBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBooks.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvBooks.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBooks.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvBooks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
@@ -57,80 +74,219 @@
             this.dgvBooks.RowTemplate.Height = 24;
             this.dgvBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBooks.Size = new System.Drawing.Size(800, 180);
-            this.dgvBooks.TabIndex = 3;
+            this.dgvBooks.TabIndex = 0;
+            this.dgvBooks.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBooks_CellClick);
             // 
             // gbAdd
             // 
-            this.gbAdd.Controls.Add(this.textBox2);
-            this.gbAdd.Controls.Add(this.textBox1);
-            this.gbAdd.Controls.Add(this.label3);
-            this.gbAdd.Controls.Add(this.label2);
-            this.gbAdd.Controls.Add(this.label1);
-            this.gbAdd.Location = new System.Drawing.Point(41, 288);
+            this.gbAdd.Controls.Add(this.cmbAddCategory);
+            this.gbAdd.Controls.Add(this.lblAddCategory);
+            this.gbAdd.Controls.Add(this.tbxAddStock);
+            this.gbAdd.Controls.Add(this.tbxAddAuthor);
+            this.gbAdd.Controls.Add(this.tbxAddName);
+            this.gbAdd.Controls.Add(this.lblAddStock);
+            this.gbAdd.Controls.Add(this.lblAddAuthor);
+            this.gbAdd.Controls.Add(this.lblAddName);
+            this.gbAdd.Location = new System.Drawing.Point(37, 270);
             this.gbAdd.Name = "gbAdd";
             this.gbAdd.Size = new System.Drawing.Size(415, 225);
             this.gbAdd.TabIndex = 4;
             this.gbAdd.TabStop = false;
             this.gbAdd.Text = "Add Book";
             // 
+            // cmbAddCategory
+            // 
+            this.cmbAddCategory.FormattingEnabled = true;
+            this.cmbAddCategory.Location = new System.Drawing.Point(120, 130);
+            this.cmbAddCategory.Name = "cmbAddCategory";
+            this.cmbAddCategory.Size = new System.Drawing.Size(178, 24);
+            this.cmbAddCategory.TabIndex = 3;
+            // 
+            // lblAddCategory
+            // 
+            this.lblAddCategory.AutoSize = true;
+            this.lblAddCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAddCategory.Location = new System.Drawing.Point(26, 130);
+            this.lblAddCategory.Name = "lblAddCategory";
+            this.lblAddCategory.Size = new System.Drawing.Size(88, 22);
+            this.lblAddCategory.TabIndex = 6;
+            this.lblAddCategory.Text = "Category:";
+            // 
+            // tbxAddStock
+            // 
+            this.tbxAddStock.Location = new System.Drawing.Point(120, 170);
+            this.tbxAddStock.Name = "tbxAddStock";
+            this.tbxAddStock.Size = new System.Drawing.Size(178, 22);
+            this.tbxAddStock.TabIndex = 4;
+            // 
+            // tbxAddAuthor
+            // 
+            this.tbxAddAuthor.Location = new System.Drawing.Point(120, 90);
+            this.tbxAddAuthor.Name = "tbxAddAuthor";
+            this.tbxAddAuthor.Size = new System.Drawing.Size(178, 22);
+            this.tbxAddAuthor.TabIndex = 2;
+            // 
+            // tbxAddName
+            // 
+            this.tbxAddName.Location = new System.Drawing.Point(120, 50);
+            this.tbxAddName.Name = "tbxAddName";
+            this.tbxAddName.Size = new System.Drawing.Size(178, 22);
+            this.tbxAddName.TabIndex = 1;
+            // 
+            // lblAddStock
+            // 
+            this.lblAddStock.AutoSize = true;
+            this.lblAddStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAddStock.Location = new System.Drawing.Point(26, 170);
+            this.lblAddStock.Name = "lblAddStock";
+            this.lblAddStock.Size = new System.Drawing.Size(60, 22);
+            this.lblAddStock.TabIndex = 2;
+            this.lblAddStock.Text = "Stock:";
+            // 
+            // lblAddAuthor
+            // 
+            this.lblAddAuthor.AutoSize = true;
+            this.lblAddAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAddAuthor.Location = new System.Drawing.Point(26, 90);
+            this.lblAddAuthor.Name = "lblAddAuthor";
+            this.lblAddAuthor.Size = new System.Drawing.Size(68, 22);
+            this.lblAddAuthor.TabIndex = 1;
+            this.lblAddAuthor.Text = "Author:";
+            // 
+            // lblAddName
+            // 
+            this.lblAddName.AutoSize = true;
+            this.lblAddName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAddName.Location = new System.Drawing.Point(26, 50);
+            this.lblAddName.Name = "lblAddName";
+            this.lblAddName.Size = new System.Drawing.Size(62, 22);
+            this.lblAddName.TabIndex = 0;
+            this.lblAddName.Text = "Name:";
+            // 
             // gbUpdate
             // 
-            this.gbUpdate.Location = new System.Drawing.Point(522, 288);
+            this.gbUpdate.Controls.Add(this.cmbUpdateCategory);
+            this.gbUpdate.Controls.Add(this.tbxUpdateName);
+            this.gbUpdate.Controls.Add(this.lblUpdateCategory);
+            this.gbUpdate.Controls.Add(this.lblUpdateName);
+            this.gbUpdate.Controls.Add(this.tbxUpdateStock);
+            this.gbUpdate.Controls.Add(this.lblUpdateAuthor);
+            this.gbUpdate.Controls.Add(this.tbxUpdateAuthor);
+            this.gbUpdate.Controls.Add(this.lblUpdateStock);
+            this.gbUpdate.Location = new System.Drawing.Point(520, 270);
             this.gbUpdate.Name = "gbUpdate";
             this.gbUpdate.Size = new System.Drawing.Size(415, 225);
             this.gbUpdate.TabIndex = 5;
             this.gbUpdate.TabStop = false;
             this.gbUpdate.Text = "Update Book";
             // 
-            // label1
+            // cmbUpdateCategory
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(26, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name:";
+            this.cmbUpdateCategory.FormattingEnabled = true;
+            this.cmbUpdateCategory.Location = new System.Drawing.Point(134, 132);
+            this.cmbUpdateCategory.Name = "cmbUpdateCategory";
+            this.cmbUpdateCategory.Size = new System.Drawing.Size(178, 24);
+            this.cmbUpdateCategory.TabIndex = 8;
             // 
-            // label2
+            // tbxUpdateName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(26, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 22);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Author:";
+            this.tbxUpdateName.Location = new System.Drawing.Point(134, 52);
+            this.tbxUpdateName.Name = "tbxUpdateName";
+            this.tbxUpdateName.Size = new System.Drawing.Size(178, 22);
+            this.tbxUpdateName.TabIndex = 6;
             // 
-            // label3
+            // lblUpdateCategory
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(26, 147);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 22);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Stock:";
+            this.lblUpdateCategory.AutoSize = true;
+            this.lblUpdateCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUpdateCategory.Location = new System.Drawing.Point(40, 132);
+            this.lblUpdateCategory.Name = "lblUpdateCategory";
+            this.lblUpdateCategory.Size = new System.Drawing.Size(88, 22);
+            this.lblUpdateCategory.TabIndex = 14;
+            this.lblUpdateCategory.Text = "Category:";
             // 
-            // textBox1
+            // lblUpdateName
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 22);
-            this.textBox1.TabIndex = 3;
+            this.lblUpdateName.AutoSize = true;
+            this.lblUpdateName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUpdateName.Location = new System.Drawing.Point(40, 52);
+            this.lblUpdateName.Name = "lblUpdateName";
+            this.lblUpdateName.Size = new System.Drawing.Size(62, 22);
+            this.lblUpdateName.TabIndex = 8;
+            this.lblUpdateName.Text = "Name:";
             // 
-            // textBox2
+            // tbxUpdateStock
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 109);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(178, 22);
-            this.textBox2.TabIndex = 4;
+            this.tbxUpdateStock.Location = new System.Drawing.Point(134, 172);
+            this.tbxUpdateStock.Name = "tbxUpdateStock";
+            this.tbxUpdateStock.Size = new System.Drawing.Size(178, 22);
+            this.tbxUpdateStock.TabIndex = 9;
+            // 
+            // lblUpdateAuthor
+            // 
+            this.lblUpdateAuthor.AutoSize = true;
+            this.lblUpdateAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUpdateAuthor.Location = new System.Drawing.Point(40, 92);
+            this.lblUpdateAuthor.Name = "lblUpdateAuthor";
+            this.lblUpdateAuthor.Size = new System.Drawing.Size(68, 22);
+            this.lblUpdateAuthor.TabIndex = 9;
+            this.lblUpdateAuthor.Text = "Author:";
+            // 
+            // tbxUpdateAuthor
+            // 
+            this.tbxUpdateAuthor.Location = new System.Drawing.Point(134, 92);
+            this.tbxUpdateAuthor.Name = "tbxUpdateAuthor";
+            this.tbxUpdateAuthor.Size = new System.Drawing.Size(178, 22);
+            this.tbxUpdateAuthor.TabIndex = 7;
+            // 
+            // lblUpdateStock
+            // 
+            this.lblUpdateStock.AutoSize = true;
+            this.lblUpdateStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUpdateStock.Location = new System.Drawing.Point(40, 172);
+            this.lblUpdateStock.Name = "lblUpdateStock";
+            this.lblUpdateStock.Size = new System.Drawing.Size(60, 22);
+            this.lblUpdateStock.TabIndex = 10;
+            this.lblUpdateStock.Text = "Stock:";
+            // 
+            // btnAddBook
+            // 
+            this.btnAddBook.Location = new System.Drawing.Point(339, 501);
+            this.btnAddBook.Name = "btnAddBook";
+            this.btnAddBook.Size = new System.Drawing.Size(113, 26);
+            this.btnAddBook.TabIndex = 5;
+            this.btnAddBook.Text = "Add Book";
+            this.btnAddBook.UseVisualStyleBackColor = true;
+            this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
+            // 
+            // btnUpdateBook
+            // 
+            this.btnUpdateBook.Location = new System.Drawing.Point(822, 501);
+            this.btnUpdateBook.Name = "btnUpdateBook";
+            this.btnUpdateBook.Size = new System.Drawing.Size(113, 26);
+            this.btnUpdateBook.TabIndex = 10;
+            this.btnUpdateBook.Text = "Update Book";
+            this.btnUpdateBook.UseVisualStyleBackColor = true;
+            this.btnUpdateBook.Click += new System.EventHandler(this.btnUpdateBook_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(787, 236);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(113, 26);
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ManageBooksMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 553);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdateBook);
+            this.Controls.Add(this.btnAddBook);
             this.Controls.Add(this.gbUpdate);
             this.Controls.Add(this.gbAdd);
             this.Controls.Add(this.dgvBooks);
@@ -141,6 +297,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
             this.gbAdd.ResumeLayout(false);
             this.gbAdd.PerformLayout();
+            this.gbUpdate.ResumeLayout(false);
+            this.gbUpdate.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -150,10 +308,24 @@
         private System.Windows.Forms.DataGridView dgvBooks;
         private System.Windows.Forms.GroupBox gbAdd;
         private System.Windows.Forms.GroupBox gbUpdate;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblAddStock;
+        private System.Windows.Forms.Label lblAddAuthor;
+        private System.Windows.Forms.Label lblAddName;
+        private System.Windows.Forms.TextBox tbxAddAuthor;
+        private System.Windows.Forms.TextBox tbxAddName;
+        private System.Windows.Forms.Label lblAddCategory;
+        private System.Windows.Forms.TextBox tbxAddStock;
+        private System.Windows.Forms.ComboBox cmbAddCategory;
+        private System.Windows.Forms.ComboBox cmbUpdateCategory;
+        private System.Windows.Forms.TextBox tbxUpdateName;
+        private System.Windows.Forms.Label lblUpdateCategory;
+        private System.Windows.Forms.Label lblUpdateName;
+        private System.Windows.Forms.TextBox tbxUpdateStock;
+        private System.Windows.Forms.Label lblUpdateAuthor;
+        private System.Windows.Forms.TextBox tbxUpdateAuthor;
+        private System.Windows.Forms.Label lblUpdateStock;
+        private System.Windows.Forms.Button btnAddBook;
+        private System.Windows.Forms.Button btnUpdateBook;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
