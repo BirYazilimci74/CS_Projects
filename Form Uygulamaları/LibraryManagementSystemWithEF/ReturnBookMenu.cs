@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManagementSystemWithEF.BusinessLayer.Abstract;
 using LibraryManagementSystemWithEF.DAL;
@@ -8,36 +9,76 @@ namespace LibraryManagementSystemWithEF
 {
     public partial class ReturnBookMenu : Form
     {
-        private IBorrowedBookService borrowedBooks = Services.BorrowedBookService;
-        public ReturnBookMenu()
+        private readonly IBorrowedBookService _borrowedBooks;
+        public ReturnBookMenu(IBorrowedBookService borrowedBookService)
         {
+            _borrowedBooks = borrowedBookService;
             InitializeComponent();
         }
 
-        private void ReturnBookMenu_Load(object sender, EventArgs e)
+        private async void ReturnBookMenu_Load(object sender, EventArgs e)
         {
-            LoadBorrowedBooks();
+            await LoadBorrowedBooksAsync();
         }
 
-        private void btnReturn_Click(object sender, EventArgs e)
+        private async void btnReturn_Click(object sender, EventArgs e)
         {
-            ReturnBook();
+            try
+            {
+                await ReturnSelectedBookAsync();
+                await LoadBorrowedBooksAsync();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"An Error occured: {exception.Message}");
+                throw;
+            }
         }
 
-        private void LoadBorrowedBooks()
+        private async Task LoadBorrowedBooksAsync()
         {
-            dgvBorrowedBooks.DataSource = borrowedBooks.TGetBorrowedBooksWithName();
+            try
+            {
+                var borrowedBooksWithBookName = await Task.Run(() => _borrowedBooks.TGetBorrowedBooksWithName());
+                dgvBorrowedBooks.DataSource = borrowedBooksWithBookName;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("The Books Couldn't load!");
+                throw;
+            }
+            
         }
 
-        private void ReturnBook()
+        private async Task ReturnSelectedBookAsync()
         {
-            BorrowedBook bookToReturn =
-                borrowedBooks.TGetById(Convert.ToInt32(dgvBorrowedBooks.SelectedRows[0].Cells[0].Value));
+            if (dgvBorrowedBooks.SelectedRows.Count == 0)
+            {
+                MessageBox.Show(
+                    "Please select a book to return.", 
+                    "Warning", 
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
 
-            borrowedBooks.TReturn(bookToReturn);
-            borrowedBooks.TDelete(bookToReturn);
+            var selectedBookId = Convert.ToInt32(dgvBorrowedBooks.SelectedRows[0].Cells[0].Value);
 
-            LoadBorrowedBooks();
+            var bookToReturn = await Task.Run(() => _borrowedBooks.TGetById(selectedBookId));
+
+            if (bookToReturn != null)
+            {
+                await Task.Run(() => _borrowedBooks.TReturn(bookToReturn));
+                await Task.Run(() => _borrowedBooks.TDelete(bookToReturn));
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Book couldn't found!",
+                    "Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
     }
 }

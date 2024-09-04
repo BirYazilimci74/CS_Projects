@@ -28,8 +28,16 @@ namespace LibraryManagementSystemWithEF
 
         private async Task LoadBooksAsync()
         {
-            var booksWithCategoryName = await Task.Run(() => _bookService.TGetBooksWithCategoryName());
-            dgvBooks.DataSource = booksWithCategoryName;
+            try
+            {
+                var booksWithCategoryName = await Task.Run(() => _bookService.TGetBooksWithCategoryName());
+                dgvBooks.DataSource = booksWithCategoryName;
+            }
+            catch
+            {
+                MessageBox.Show("The Books Couldn't Load", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
 
         private void ClearTextBoxes()
@@ -43,9 +51,17 @@ namespace LibraryManagementSystemWithEF
         }
         private async Task LoadCategoryAsync(ComboBox comboBox)
         {
-            var categories = await Task.Run(() => _categoryService.TGetAll().Select(c => c.Name).ToList());
-
-            comboBox.DataSource = categories;
+            try
+            {
+                var categories = await Task.Run(() => _categoryService.TGetAll().Select(c => c.Name).ToList());
+                comboBox.DataSource = categories;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            
         }
 
         private void dgvBooks_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -62,6 +78,13 @@ namespace LibraryManagementSystemWithEF
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            await DeleteSelectedBookAsync();
+            await LoadBooksAsync();
+            ClearTextBoxes();
+        }
+
+        private async Task DeleteSelectedBookAsync()
+        {
             int categoryId = _categoryService.TGetAll()
                 .FirstOrDefault(c => c.Name == cmbUpdateCategory.SelectedItem.ToString()).Id;
 
@@ -74,19 +97,25 @@ namespace LibraryManagementSystemWithEF
                 Stock = Convert.ToInt32(dgvBooks.CurrentRow?.Cells[4].Value),
             };
 
-            await Task.Run(() => _bookService.TDelete(bookToDelete));
-            await LoadBooksAsync();
-            ClearTextBoxes();
+            try
+            {
+                await Task.Run(() => _bookService.TDelete(bookToDelete));
+            }
+            catch
+            {
+                MessageBox.Show("The Book Couldn't Deleted!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
 
         private async void btnUpdateBook_Click(object sender, EventArgs e)
         {
-            await UpdateSelectedBook();
+            await UpdateSelectedBookAsync();
             await LoadBooksAsync();
             ClearTextBoxes();
         }
 
-        private async Task UpdateSelectedBook()
+        private async Task UpdateSelectedBookAsync()
         {
             int categoryId = _categoryService.TGetAll()
                 .FirstOrDefault(c => c.Name == cmbUpdateCategory.SelectedItem.ToString()).Id;
@@ -99,10 +128,16 @@ namespace LibraryManagementSystemWithEF
                 CategoryId = categoryId,
                 Stock = Convert.ToInt32(tbxUpdateStock.Text),
             };
-            
-            await Task.Run(() => _bookService.TUpdate(bookToUpdate));
-            await LoadBooksAsync();
-            ClearTextBoxes();
+
+            try
+            {
+                await Task.Run(() => _bookService.TUpdate(bookToUpdate));
+            }
+            catch
+            {
+                MessageBox.Show("The Book Couldn't Updated!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
 
         private async void btnAddBook_Click(object sender, EventArgs e)
@@ -125,7 +160,16 @@ namespace LibraryManagementSystemWithEF
                 Stock = Convert.ToInt32(tbxAddStock.Text),
             };
 
-            await Task.Run(() => _bookService.TAdd(bookToAdd));
+            try
+            {
+                await Task.Run(() => _bookService.TAdd(bookToAdd));
+            }
+            catch
+            {
+                MessageBox.Show("The Book Couldn't Added!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            
         }
     }
 }
