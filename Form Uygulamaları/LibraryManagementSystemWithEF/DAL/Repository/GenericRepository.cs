@@ -40,6 +40,8 @@ namespace LibraryManagementSystemWithEF.DAL.Repository
 
         public void Update(T t)
         {
+            var entity = _context.Entry(t);
+            entity.State = EntityState.Modified;
             _context.SaveChanges();
         }
     }

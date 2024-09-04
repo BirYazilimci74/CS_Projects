@@ -19,7 +19,7 @@ namespace LibraryManagementSystemWithEF
 
         private void btnBorrowMenu_Click(object sender, EventArgs e)
         {
-            BorrowBookMenu borrowBookMenu = new BorrowBookMenu();
+            BorrowBookMenu borrowBookMenu = new BorrowBookMenu(_bookService,_borrowedBookService);
             borrowBookMenu.Show();
         }
 

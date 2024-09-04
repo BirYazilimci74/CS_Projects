@@ -1,51 +1,69 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManagementSystemWithEF.BusinessLayer.Abstract;
-using LibraryManagementSystemWithEF.BusinessLayer.Concrate;
-using LibraryManagementSystemWithEF.DAL;
-using LibraryManagementSystemWithEF.DAL.EntityFramework;
 using LibraryManagementSystemWithEF.Models;
 
 namespace LibraryManagementSystemWithEF
 {
     public partial class BorrowBookMenu : Form
     {
-        private IBookService _bookService = Services.BookService;
-        private IBorrowedBookService _borrowedBookService = Services.BorrowedBookService;
-        public BorrowBookMenu()
+        private readonly IBookService _bookService;
+        private readonly IBorrowedBookService _borrowedBookService;
+        public BorrowBookMenu(IBookService bookService, IBorrowedBookService borrowedBookService)
         {
+            _bookService = bookService;
+            _borrowedBookService = borrowedBookService;
             InitializeComponent();
         }
 
-        private void BorrowBookMenu_Load(object sender, EventArgs e)
+        private async void BorrowBookMenu_Load(object sender, EventArgs e)
         {
-            LoadBooks();
+            await LoadBooksAsync();
         }
 
-        private void btnBorrow_Click(object sender, EventArgs e)
+        private async void btnBorrow_Click(object sender, EventArgs e)
         {
-            BorrowBook();
+            await BorrowSelectedBookAsync();
+            await LoadBooksAsync();
         }
 
-        private void LoadBooks()
+        private async Task LoadBooksAsync()
         {
-            dgvBooks.DataSource = _bookService.TGetBooksWithCategoryName();
+            try
+            {
+                var booksWithCategoryName = await Task.Run(() => _bookService.TGetBooksWithCategoryName());
+                dgvBooks.DataSource = booksWithCategoryName;
+            }
+            catch
+            {
+                MessageBox.Show("The Books Couldn't Loaded!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void BorrowBook()
+        private async Task BorrowSelectedBookAsync()
         {
-            Book bookToBorrow = _bookService.TGetById(Convert.ToInt32(dgvBooks.SelectedRows[0].Cells[0].Value));
-            _bookService.TBorrow(bookToBorrow);
+            int selectedBookId = Convert.ToInt32(dgvBooks.SelectedRows[0].Cells[0].Value);
+            
+            var bookToBorrow = _bookService.TGetById(selectedBookId);
+            
+            if (bookToBorrow != null)
+            {
+                await Task.Run(() => _bookService.TBorrow(bookToBorrow));
+                
+                BorrowedBook borrowedBook = new BorrowedBook()
+                {
+                    BorrewedTime = DateTime.Now,
+                    BookID = bookToBorrow.Id,
+                };
+                borrowedBook.ReturnTime = borrowedBook.BorrewedTime.AddDays(15);
 
-            BorrowedBook borrowedBook = new BorrowedBook();
-
-            borrowedBook.BorrewedTime = DateTime.Now;
-            borrowedBook.ReturnTime = borrowedBook.BorrewedTime.AddDays(15);
-            borrowedBook.BookID = bookToBorrow.Id;
-
-            _borrowedBookService.TAdd(borrowedBook);
-
-            LoadBooks();
+                await Task.Run(() => _borrowedBookService.TAdd(borrowedBook));
+            }
+            else
+            {
+                MessageBox.Show("The Book Couldn't Found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

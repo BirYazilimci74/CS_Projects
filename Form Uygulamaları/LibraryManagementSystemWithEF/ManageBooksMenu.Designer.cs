@@ -32,7 +32,6 @@
             this.gbAdd = new System.Windows.Forms.GroupBox();
             this.cmbAddCategory = new System.Windows.Forms.ComboBox();
             this.lblAddCategory = new System.Windows.Forms.Label();
-            this.tbxAddStock = new System.Windows.Forms.TextBox();
             this.tbxAddAuthor = new System.Windows.Forms.TextBox();
             this.tbxAddName = new System.Windows.Forms.TextBox();
             this.lblAddStock = new System.Windows.Forms.Label();
@@ -43,16 +42,19 @@
             this.tbxUpdateName = new System.Windows.Forms.TextBox();
             this.lblUpdateCategory = new System.Windows.Forms.Label();
             this.lblUpdateName = new System.Windows.Forms.Label();
-            this.tbxUpdateStock = new System.Windows.Forms.TextBox();
             this.lblUpdateAuthor = new System.Windows.Forms.Label();
             this.tbxUpdateAuthor = new System.Windows.Forms.TextBox();
             this.lblUpdateStock = new System.Windows.Forms.Label();
             this.btnAddBook = new System.Windows.Forms.Button();
             this.btnUpdateBook = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.numAddStock = new System.Windows.Forms.NumericUpDown();
+            this.numUpdateStock = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.gbAdd.SuspendLayout();
             this.gbUpdate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAddStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpdateStock)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvBooks
@@ -79,9 +81,9 @@
             // 
             // gbAdd
             // 
+            this.gbAdd.Controls.Add(this.numAddStock);
             this.gbAdd.Controls.Add(this.cmbAddCategory);
             this.gbAdd.Controls.Add(this.lblAddCategory);
-            this.gbAdd.Controls.Add(this.tbxAddStock);
             this.gbAdd.Controls.Add(this.tbxAddAuthor);
             this.gbAdd.Controls.Add(this.tbxAddName);
             this.gbAdd.Controls.Add(this.lblAddStock);
@@ -96,6 +98,7 @@
             // 
             // cmbAddCategory
             // 
+            this.cmbAddCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAddCategory.FormattingEnabled = true;
             this.cmbAddCategory.Location = new System.Drawing.Point(120, 130);
             this.cmbAddCategory.Name = "cmbAddCategory";
@@ -111,13 +114,6 @@
             this.lblAddCategory.Size = new System.Drawing.Size(88, 22);
             this.lblAddCategory.TabIndex = 6;
             this.lblAddCategory.Text = "Category:";
-            // 
-            // tbxAddStock
-            // 
-            this.tbxAddStock.Location = new System.Drawing.Point(120, 170);
-            this.tbxAddStock.Name = "tbxAddStock";
-            this.tbxAddStock.Size = new System.Drawing.Size(178, 22);
-            this.tbxAddStock.TabIndex = 4;
             // 
             // tbxAddAuthor
             // 
@@ -165,11 +161,11 @@
             // 
             // gbUpdate
             // 
+            this.gbUpdate.Controls.Add(this.numUpdateStock);
             this.gbUpdate.Controls.Add(this.cmbUpdateCategory);
             this.gbUpdate.Controls.Add(this.tbxUpdateName);
             this.gbUpdate.Controls.Add(this.lblUpdateCategory);
             this.gbUpdate.Controls.Add(this.lblUpdateName);
-            this.gbUpdate.Controls.Add(this.tbxUpdateStock);
             this.gbUpdate.Controls.Add(this.lblUpdateAuthor);
             this.gbUpdate.Controls.Add(this.tbxUpdateAuthor);
             this.gbUpdate.Controls.Add(this.lblUpdateStock);
@@ -182,6 +178,7 @@
             // 
             // cmbUpdateCategory
             // 
+            this.cmbUpdateCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUpdateCategory.FormattingEnabled = true;
             this.cmbUpdateCategory.Location = new System.Drawing.Point(134, 132);
             this.cmbUpdateCategory.Name = "cmbUpdateCategory";
@@ -214,13 +211,6 @@
             this.lblUpdateName.Size = new System.Drawing.Size(62, 22);
             this.lblUpdateName.TabIndex = 8;
             this.lblUpdateName.Text = "Name:";
-            // 
-            // tbxUpdateStock
-            // 
-            this.tbxUpdateStock.Location = new System.Drawing.Point(134, 172);
-            this.tbxUpdateStock.Name = "tbxUpdateStock";
-            this.tbxUpdateStock.Size = new System.Drawing.Size(178, 22);
-            this.tbxUpdateStock.TabIndex = 9;
             // 
             // lblUpdateAuthor
             // 
@@ -279,6 +269,20 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // numAddStock
+            // 
+            this.numAddStock.Location = new System.Drawing.Point(120, 173);
+            this.numAddStock.Name = "numAddStock";
+            this.numAddStock.Size = new System.Drawing.Size(178, 22);
+            this.numAddStock.TabIndex = 7;
+            // 
+            // numUpdateStock
+            // 
+            this.numUpdateStock.Location = new System.Drawing.Point(134, 175);
+            this.numUpdateStock.Name = "numUpdateStock";
+            this.numUpdateStock.Size = new System.Drawing.Size(178, 22);
+            this.numUpdateStock.TabIndex = 8;
+            // 
             // ManageBooksMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -299,6 +303,8 @@
             this.gbAdd.PerformLayout();
             this.gbUpdate.ResumeLayout(false);
             this.gbUpdate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAddStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpdateStock)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -314,18 +320,18 @@
         private System.Windows.Forms.TextBox tbxAddAuthor;
         private System.Windows.Forms.TextBox tbxAddName;
         private System.Windows.Forms.Label lblAddCategory;
-        private System.Windows.Forms.TextBox tbxAddStock;
         private System.Windows.Forms.ComboBox cmbAddCategory;
         private System.Windows.Forms.ComboBox cmbUpdateCategory;
         private System.Windows.Forms.TextBox tbxUpdateName;
         private System.Windows.Forms.Label lblUpdateCategory;
         private System.Windows.Forms.Label lblUpdateName;
-        private System.Windows.Forms.TextBox tbxUpdateStock;
         private System.Windows.Forms.Label lblUpdateAuthor;
         private System.Windows.Forms.TextBox tbxUpdateAuthor;
         private System.Windows.Forms.Label lblUpdateStock;
         private System.Windows.Forms.Button btnAddBook;
         private System.Windows.Forms.Button btnUpdateBook;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.NumericUpDown numAddStock;
+        private System.Windows.Forms.NumericUpDown numUpdateStock;
     }
 }

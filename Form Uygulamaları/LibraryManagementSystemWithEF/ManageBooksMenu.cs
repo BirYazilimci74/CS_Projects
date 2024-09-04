@@ -43,11 +43,12 @@ namespace LibraryManagementSystemWithEF
         {
             tbxAddName.Clear();
             tbxAddAuthor.Clear();
-            tbxAddStock.Clear();
+            numAddStock.Value = Decimal.Zero;
             tbxUpdateName.Clear();
             tbxUpdateAuthor.Clear();
-            tbxUpdateStock.Clear();
+            numUpdateStock.Value = Decimal.Zero;
         }
+        
         private async Task LoadCategoryAsync(ComboBox comboBox)
         {
             try
@@ -71,7 +72,7 @@ namespace LibraryManagementSystemWithEF
                 tbxUpdateName.Text = selectedBooks.Cells[1].Value.ToString();
                 tbxUpdateAuthor.Text = selectedBooks.Cells[2].Value.ToString();
                 cmbUpdateCategory.Text = selectedBooks.Cells[3].Value.ToString();
-                tbxUpdateStock.Text = selectedBooks.Cells[4].Value.ToString();
+                numUpdateStock.Value = Convert.ToDecimal(selectedBooks.Cells[4].Value);
             }
         }
 
@@ -84,17 +85,8 @@ namespace LibraryManagementSystemWithEF
 
         private async Task DeleteSelectedBookAsync()
         {
-            int categoryId = _categoryService.TGetAll()
-                .FirstOrDefault(c => c.Name == cmbUpdateCategory.SelectedItem.ToString()).Id;
-
-            var bookToDelete = new Book()
-            {
-                Id = Convert.ToInt32(dgvBooks.CurrentRow?.Cells[0].Value),
-                Name = dgvBooks.CurrentRow?.Cells[1].Value.ToString(),
-                Author = dgvBooks.CurrentRow?.Cells[2].Value.ToString(),
-                CategoryId = categoryId,
-                Stock = Convert.ToInt32(dgvBooks.CurrentRow?.Cells[4].Value),
-            };
+            int selectedBookId = Convert.ToInt32(dgvBooks.CurrentRow?.Cells[0].Value);
+            var bookToDelete = await Task.Run(() => _bookService.TGetById(selectedBookId));
 
             try
             {
@@ -116,26 +108,32 @@ namespace LibraryManagementSystemWithEF
 
         private async Task UpdateSelectedBookAsync()
         {
-            int categoryId = _categoryService.TGetAll()
-                .FirstOrDefault(c => c.Name == cmbUpdateCategory.SelectedItem.ToString()).Id;
+            var selectedCategoryName = cmbUpdateCategory.Text;
+            var selectedCategoryId = _categoryService.TGetAll().Where(c => c.Name == selectedCategoryName)
+                .Select(c => c.Id).FirstOrDefault();
             
-            var bookToUpdate = new Book()
+            if (selectedCategoryId == -1)
             {
-                Id = Convert.ToInt32(dgvBooks.CurrentRow?.Cells[0].Value),
-                Name = tbxUpdateName.Text,
-                Author = tbxUpdateAuthor.Text,
-                CategoryId = categoryId,
-                Stock = Convert.ToInt32(tbxUpdateStock.Text),
-            };
+                MessageBox.Show("The Book Couldn't Updated!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int selectedBookId = Convert.ToInt32(dgvBooks.CurrentRow?.Cells[0].Value);
 
             try
             {
+                int stock = Convert.ToInt32(numUpdateStock.Value);
+                var bookToUpdate = _bookService.TGetById(selectedBookId);
+                bookToUpdate.Name = tbxUpdateName.Text;
+                bookToUpdate.Author = tbxUpdateAuthor.Text; 
+                bookToUpdate.CategoryId = selectedCategoryId;
+                bookToUpdate.Stock = stock;
+
                 await Task.Run(() => _bookService.TUpdate(bookToUpdate));
             }
             catch
             {
                 MessageBox.Show("The Book Couldn't Updated!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
             }
         }
 
@@ -148,25 +146,31 @@ namespace LibraryManagementSystemWithEF
 
         private async Task AddBookAsync()
         {
-            int categoryId = _categoryService.TGetAll()
-                .FirstOrDefault(c => c.Name == cmbAddCategory.SelectedItem.ToString()).Id;
-
-            var bookToAdd = new Book()
+            var selectedCategoryName = cmbAddCategory.Text;
+            var selectedCategoryId = _categoryService.TGetAll().Where(c => c.Name == selectedCategoryName)
+                .Select(c => c.Id).FirstOrDefault();
+            if (selectedCategoryId == -1)
             {
-                Name = tbxAddName.Text,
-                Author = tbxAddAuthor.Text,
-                CategoryId = categoryId,
-                Stock = Convert.ToInt32(tbxAddStock.Text),
-            };
+                MessageBox.Show("The Book Couldn't Added!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             try
             {
+                int stock = Convert.ToInt32(numAddStock.Value);
+                var bookToAdd = new Book()
+                {
+                    Name = tbxAddName.Text,
+                    Author = tbxAddAuthor.Text,
+                    CategoryId = selectedCategoryId,
+                    Stock = stock,
+                };
+
                 await Task.Run(() => _bookService.TAdd(bookToAdd));
             }
             catch
             {
                 MessageBox.Show("The Book Couldn't Added!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
             }
             
         }

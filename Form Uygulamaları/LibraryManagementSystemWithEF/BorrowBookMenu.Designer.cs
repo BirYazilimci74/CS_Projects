@@ -55,9 +55,9 @@
             // 
             // btnBorrow
             // 
-            this.btnBorrow.Location = new System.Drawing.Point(734, 257);
+            this.btnBorrow.Location = new System.Drawing.Point(787, 236);
             this.btnBorrow.Name = "btnBorrow";
-            this.btnBorrow.Size = new System.Drawing.Size(122, 36);
+            this.btnBorrow.Size = new System.Drawing.Size(113, 26);
             this.btnBorrow.TabIndex = 3;
             this.btnBorrow.Text = "Borrow";
             this.btnBorrow.UseVisualStyleBackColor = true;
