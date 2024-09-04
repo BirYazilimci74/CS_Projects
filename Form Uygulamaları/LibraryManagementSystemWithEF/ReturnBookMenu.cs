@@ -2,8 +2,6 @@
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManagementSystemWithEF.BusinessLayer.Abstract;
-using LibraryManagementSystemWithEF.DAL;
-using LibraryManagementSystemWithEF.Models;
 
 namespace LibraryManagementSystemWithEF
 {
@@ -47,7 +45,6 @@ namespace LibraryManagementSystemWithEF
                 MessageBox.Show("The Books Couldn't load!");
                 throw;
             }
-            
         }
 
         private async Task ReturnSelectedBookAsync()
