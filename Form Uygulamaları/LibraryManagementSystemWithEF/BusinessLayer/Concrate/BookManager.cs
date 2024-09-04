@@ -5,7 +5,7 @@ using LibraryManagementSystemWithEF.Models;
 
 namespace LibraryManagementSystemWithEF.BusinessLayer.Concrate
 {
-    internal class BookManager : IBookService
+    public class BookManager : IBookService
     {
         private readonly IBookDAL _bookDal;
         public BookManager(IBookDAL bookDal)

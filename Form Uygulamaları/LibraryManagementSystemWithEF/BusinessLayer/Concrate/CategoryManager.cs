@@ -5,7 +5,7 @@ using LibraryManagementSystemWithEF.Models;
 
 namespace LibraryManagementSystemWithEF.BusinessLayer.Concrate
 {
-    internal class CategoryManager : ICategoryService
+    public class CategoryManager : ICategoryService
     {
         private readonly ICategoryDAL _categoryDal;
 

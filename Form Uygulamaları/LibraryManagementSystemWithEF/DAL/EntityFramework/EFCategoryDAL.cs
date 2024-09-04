@@ -4,7 +4,7 @@ using LibraryManagementSystemWithEF.Models;
 
 namespace LibraryManagementSystemWithEF.DAL.EntityFramework
 {
-    internal class EFCategoryDAL : GenericRepository<Category>, ICategoryDAL
+    public class EFCategoryDAL : GenericRepository<Category>, ICategoryDAL
     {
     }
 }

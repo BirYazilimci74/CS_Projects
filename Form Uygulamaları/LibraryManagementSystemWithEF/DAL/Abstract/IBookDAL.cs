@@ -3,7 +3,7 @@ using LibraryManagementSystemWithEF.Models;
 
 namespace LibraryManagementSystemWithEF.DAL.Abstract
 {
-    internal interface IBookDAL : IGenericDAL<Book>
+    public interface IBookDAL : IGenericDAL<Book>
     {
         void Borrow(Book book);
         List<BookDTO> GetBooksWithCategoryName();

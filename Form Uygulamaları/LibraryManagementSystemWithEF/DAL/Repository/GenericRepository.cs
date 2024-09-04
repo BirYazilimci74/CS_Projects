@@ -8,7 +8,7 @@ using LibraryManagementSystemWithEF.DAL.Abstract;
 
 namespace LibraryManagementSystemWithEF.DAL.Repository
 {
-    internal class GenericRepository<T> : IGenericDAL<T> where T : class
+    public class GenericRepository<T> : IGenericDAL<T> where T : class
     {
         private readonly LibraryContext _context = new LibraryContext();
 
@@ -40,8 +40,6 @@ namespace LibraryManagementSystemWithEF.DAL.Repository
 
         public void Update(T t)
         {
-            var entity = _context.Entry(t);
-            entity.State = EntityState.Modified;
             _context.SaveChanges();
         }
     }

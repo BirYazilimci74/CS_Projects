@@ -6,7 +6,7 @@ using LibraryManagementSystemWithEF.Models;
 
 namespace LibraryManagementSystemWithEF.DAL.EntityFramework
 {
-    internal class EFBorrowedBookDAL : GenericRepository<BorrowedBook> , IBorrowedBookDAL
+    public class EFBorrowedBookDAL : GenericRepository<BorrowedBook> , IBorrowedBookDAL
     {
         private readonly LibraryContext _context = new LibraryContext();
         public void ReturnBook(BorrowedBook borrowedBook)

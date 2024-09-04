@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace LibraryManagementSystemWithEF.DAL.Abstract
 {
-    internal interface IGenericDAL<T>
+    public interface IGenericDAL<T>
     {
         void Add(T t);
         void Delete(T t);

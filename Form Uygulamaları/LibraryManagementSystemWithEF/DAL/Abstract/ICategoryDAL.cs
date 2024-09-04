@@ -2,7 +2,7 @@
 
 namespace LibraryManagementSystemWithEF.DAL.Abstract
 {
-    internal interface ICategoryDAL : IGenericDAL<Category>
+    public interface ICategoryDAL : IGenericDAL<Category>
     {
         
     }

@@ -4,7 +4,7 @@ using LibraryManagementSystemWithEF.DAL.EntityFramework;
 
 namespace LibraryManagementSystemWithEF.DAL
 {
-    internal class Services
+    public class Services
     {
         private static Services _instance;
         public static IBookService BookService = new BookManager(new EFBookDAL());

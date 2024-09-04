@@ -2,7 +2,7 @@
 
 namespace LibraryManagementSystemWithEF.BusinessLayer.Abstract
 {
-    internal interface IGenericService<T>
+    public interface IGenericService<T>
     {
         void TAdd(T t);
         void TUpdate(T t);
