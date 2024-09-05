@@ -30,6 +30,7 @@
         {
             this.dgvBooks = new System.Windows.Forms.DataGridView();
             this.gbAdd = new System.Windows.Forms.GroupBox();
+            this.numAddStock = new System.Windows.Forms.NumericUpDown();
             this.cmbAddCategory = new System.Windows.Forms.ComboBox();
             this.lblAddCategory = new System.Windows.Forms.Label();
             this.tbxAddAuthor = new System.Windows.Forms.TextBox();
@@ -38,6 +39,7 @@
             this.lblAddAuthor = new System.Windows.Forms.Label();
             this.lblAddName = new System.Windows.Forms.Label();
             this.gbUpdate = new System.Windows.Forms.GroupBox();
+            this.numUpdateStock = new System.Windows.Forms.NumericUpDown();
             this.cmbUpdateCategory = new System.Windows.Forms.ComboBox();
             this.tbxUpdateName = new System.Windows.Forms.TextBox();
             this.lblUpdateCategory = new System.Windows.Forms.Label();
@@ -48,12 +50,12 @@
             this.btnAddBook = new System.Windows.Forms.Button();
             this.btnUpdateBook = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.numAddStock = new System.Windows.Forms.NumericUpDown();
-            this.numUpdateStock = new System.Windows.Forms.NumericUpDown();
+            this.tbxSearchBookName = new System.Windows.Forms.TextBox();
+            this.tbxSearchAuthor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.gbAdd.SuspendLayout();
-            this.gbUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAddStock)).BeginInit();
+            this.gbUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpdateStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,6 +97,13 @@
             this.gbAdd.TabIndex = 4;
             this.gbAdd.TabStop = false;
             this.gbAdd.Text = "Add Book";
+            // 
+            // numAddStock
+            // 
+            this.numAddStock.Location = new System.Drawing.Point(120, 173);
+            this.numAddStock.Name = "numAddStock";
+            this.numAddStock.Size = new System.Drawing.Size(178, 22);
+            this.numAddStock.TabIndex = 7;
             // 
             // cmbAddCategory
             // 
@@ -175,6 +184,13 @@
             this.gbUpdate.TabIndex = 5;
             this.gbUpdate.TabStop = false;
             this.gbUpdate.Text = "Update Book";
+            // 
+            // numUpdateStock
+            // 
+            this.numUpdateStock.Location = new System.Drawing.Point(134, 175);
+            this.numUpdateStock.Name = "numUpdateStock";
+            this.numUpdateStock.Size = new System.Drawing.Size(178, 22);
+            this.numUpdateStock.TabIndex = 8;
             // 
             // cmbUpdateCategory
             // 
@@ -269,25 +285,31 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // numAddStock
+            // tbxSearchBookName
             // 
-            this.numAddStock.Location = new System.Drawing.Point(120, 173);
-            this.numAddStock.Name = "numAddStock";
-            this.numAddStock.Size = new System.Drawing.Size(178, 22);
-            this.numAddStock.TabIndex = 7;
+            this.tbxSearchBookName.Location = new System.Drawing.Point(100, 22);
+            this.tbxSearchBookName.Name = "tbxSearchBookName";
+            this.tbxSearchBookName.Size = new System.Drawing.Size(244, 22);
+            this.tbxSearchBookName.TabIndex = 8;
+            this.tbxSearchBookName.Text = "Book Name";
+            this.tbxSearchBookName.TextChanged += new System.EventHandler(this.tbxSearchBookName_TextChanged);
             // 
-            // numUpdateStock
+            // tbxSearchAuthor
             // 
-            this.numUpdateStock.Location = new System.Drawing.Point(134, 175);
-            this.numUpdateStock.Name = "numUpdateStock";
-            this.numUpdateStock.Size = new System.Drawing.Size(178, 22);
-            this.numUpdateStock.TabIndex = 8;
+            this.tbxSearchAuthor.Location = new System.Drawing.Point(376, 22);
+            this.tbxSearchAuthor.Name = "tbxSearchAuthor";
+            this.tbxSearchAuthor.Size = new System.Drawing.Size(244, 22);
+            this.tbxSearchAuthor.TabIndex = 16;
+            this.tbxSearchAuthor.Text = "Author";
+            this.tbxSearchAuthor.TextChanged += new System.EventHandler(this.tbxSearchAuthor_TextChanged);
             // 
             // ManageBooksMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 553);
+            this.Controls.Add(this.tbxSearchAuthor);
+            this.Controls.Add(this.tbxSearchBookName);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdateBook);
             this.Controls.Add(this.btnAddBook);
@@ -301,11 +323,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
             this.gbAdd.ResumeLayout(false);
             this.gbAdd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAddStock)).EndInit();
             this.gbUpdate.ResumeLayout(false);
             this.gbUpdate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numAddStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpdateStock)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -333,5 +356,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.NumericUpDown numAddStock;
         private System.Windows.Forms.NumericUpDown numUpdateStock;
+        private System.Windows.Forms.TextBox tbxSearchBookName;
+        private System.Windows.Forms.TextBox tbxSearchAuthor;
     }
 }

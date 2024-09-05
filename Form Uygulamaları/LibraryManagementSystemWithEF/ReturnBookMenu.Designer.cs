@@ -30,6 +30,7 @@
         {
             this.dgvBorrowedBooks = new System.Windows.Forms.DataGridView();
             this.btnReturn = new System.Windows.Forms.Button();
+            this.tbxSearchBookName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowedBooks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,11 +64,21 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
+            // tbxSearchBookName
+            // 
+            this.tbxSearchBookName.Location = new System.Drawing.Point(100, 22);
+            this.tbxSearchBookName.Name = "tbxSearchBookName";
+            this.tbxSearchBookName.Size = new System.Drawing.Size(244, 22);
+            this.tbxSearchBookName.TabIndex = 17;
+            this.tbxSearchBookName.Text = "Book Name";
+            this.tbxSearchBookName.TextChanged += new System.EventHandler(this.tbxSearchBookName_TextChanged);
+            // 
             // ReturnBookMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 553);
+            this.Controls.Add(this.tbxSearchBookName);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.dgvBorrowedBooks);
             this.MaximizeBox = false;
@@ -78,6 +89,7 @@
             this.Load += new System.EventHandler(this.ReturnBookMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowedBooks)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -85,5 +97,6 @@
 
         private System.Windows.Forms.DataGridView dgvBorrowedBooks;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.TextBox tbxSearchBookName;
     }
 }

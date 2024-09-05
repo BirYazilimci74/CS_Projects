@@ -40,10 +40,9 @@ namespace LibraryManagementSystemWithEF
                 var borrowedBooksWithBookName = await Task.Run(() => _borrowedBooks.TGetBorrowedBooksWithName());
                 dgvBorrowedBooks.DataSource = borrowedBooksWithBookName;
             }
-            catch (Exception e)
+            catch
             {
                 MessageBox.Show("The Books Couldn't load!");
-                throw;
             }
         }
 
@@ -76,6 +75,28 @@ namespace LibraryManagementSystemWithEF
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private async Task Search()
+        {
+            var searchStringBookName = tbxSearchBookName.Text.ToLower();
+            var booksWithFilter = await Task.Run(() =>
+            {
+                if (string.IsNullOrWhiteSpace(searchStringBookName))
+                {
+                    return _borrowedBooks.TGetBorrowedBooksWithName();
+                }
+
+                return _borrowedBooks.TGetBorrowedBooksWithName(
+                    b => b.BookName.ToLower().Contains(searchStringBookName));
+            });
+
+            dgvBorrowedBooks.DataSource = booksWithFilter;
+        }
+
+        private async void tbxSearchBookName_TextChanged(object sender, EventArgs e)
+        {
+            await Search();
         }
     }
 }

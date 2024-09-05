@@ -65,5 +65,34 @@ namespace LibraryManagementSystemWithEF
                 MessageBox.Show("The Book Couldn't Found", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private async Task Search()
+        {
+            var searchStringBookName = tbxSearchBookName.Text.ToLower();
+            var searchStringAuthor = tbxSearchAuthor.Text.ToLower();
+            var booksWithFilter = await Task.Run(() =>
+            {
+                if (string.IsNullOrWhiteSpace(searchStringBookName) && string.IsNullOrWhiteSpace(searchStringAuthor))
+                {
+                    return _bookService.TGetBooksWithCategoryName();
+                }
+
+                return _bookService.TGetBooksWithCategoryName(
+                    b => b.Name.ToLower().Contains(searchStringBookName) &&
+                         b.Author.ToLower().Contains(searchStringAuthor));
+            });
+
+            dgvBooks.DataSource = booksWithFilter;
+        }
+
+        private async void tbxSearchBookName_TextChanged(object sender, EventArgs e)
+        {
+            await Search();
+        }
+
+        private async void tbxSearchAuthor_TextChanged(object sender, EventArgs e)
+        {
+            await Search();
+        }
     }
 }

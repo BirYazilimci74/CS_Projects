@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using LibraryManagementSystemWithEF.BusinessLayer.Abstract;
 using LibraryManagementSystemWithEF.DAL.Abstract;
 using LibraryManagementSystemWithEF.Models;
@@ -23,9 +25,9 @@ namespace LibraryManagementSystemWithEF.BusinessLayer.Concrate
             _categoryDal.Delete(t);
         }
 
-        public List<Category> TGetAll()
+        public List<Category> TGetAll(Expression<Func<Category, bool>> filter = null)
         {
-            return _categoryDal.GetAll();
+            return _categoryDal.GetAll(filter);
         }
 
         public Category TGetById(int id)

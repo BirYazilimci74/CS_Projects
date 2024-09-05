@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using LibraryManagementSystemWithEF.DAL.Abstract;
 using LibraryManagementSystemWithEF.DAL.Repository;
 using LibraryManagementSystemWithEF.Models;
@@ -20,11 +22,11 @@ namespace LibraryManagementSystemWithEF.DAL.EntityFramework
             }
         }
 
-        public List<BookDTO> GetBooksWithCategoryName()
+        public List<BookDTO> GetBooksWithCategoryName(Expression<Func<BookDTO, bool>> filter = null)
         {
             // This allows us to use two table without join them,
             // more powerful then joining
-            return _context.Books
+            var query = _context.Books
                 .Select(b => new BookDTO() 
                 {
                     Id = b.Id,
@@ -32,7 +34,9 @@ namespace LibraryManagementSystemWithEF.DAL.EntityFramework
                     Author = b.Author,
                     Stock = b.Stock,
                     Category = b.Category.Name
-                }).ToList();
+                });
+
+            return filter != null ? query.Where(filter).ToList() : query.ToList();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using LibraryManagementSystemWithEF.BusinessLayer.Abstract;
 using LibraryManagementSystemWithEF.DAL.Abstract;
 using LibraryManagementSystemWithEF.Models;
@@ -23,14 +25,14 @@ namespace LibraryManagementSystemWithEF.BusinessLayer.Concrate
             _borrowedBookDal.Delete(t);
         }
 
-        public List<BorrowedBook> TGetAll()
+        public List<BorrowedBook> TGetAll(Expression<Func<BorrowedBook, bool>> filter = null)
         {
-            return _borrowedBookDal.GetAll();
+            return _borrowedBookDal.GetAll(filter);
         }
 
-        public List<BorrowedBookDTO> TGetBorrowedBooksWithName()
+        public List<BorrowedBookDTO> TGetBorrowedBooksWithName(Expression<Func<BorrowedBookDTO, bool>> filter = null)
         {
-            return _borrowedBookDal.GetBorrowedBooksWithName();
+            return _borrowedBookDal.GetBorrowedBooksWithName(filter);
         }
 
         public BorrowedBook TGetById(int id)

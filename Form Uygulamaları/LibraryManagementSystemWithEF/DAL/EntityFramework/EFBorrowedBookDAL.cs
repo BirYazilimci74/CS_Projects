@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using LibraryManagementSystemWithEF.DAL.Abstract;
 using LibraryManagementSystemWithEF.DAL.Repository;
 using LibraryManagementSystemWithEF.Models;
@@ -20,7 +22,7 @@ namespace LibraryManagementSystemWithEF.DAL.EntityFramework
             }
         }
 
-        public List<BorrowedBookDTO> GetBorrowedBooksWithName()
+        public List<BorrowedBookDTO> GetBorrowedBooksWithName(Expression<Func<BorrowedBookDTO, bool>> filter = null)
         {
             var borrowedBooks = (
                 from borrowedBook in _context.BorrowedBooks        //from {name for maintable} in {maintable}
@@ -28,29 +30,15 @@ namespace LibraryManagementSystemWithEF.DAL.EntityFramework
                 join book in _context.Books                        //join {name for joining table} in {joining table}
                 on borrowedBook.BookID equals book.Id              //on {maintable fk} equals {joining table pk}
                 
-                select new
+                select new BorrowedBookDTO
                 {
                     Id = borrowedBook.Id,
-                    BorrowedTime = borrowedBook.BorrewedTime,
+                    BorrewedTime = borrowedBook.BorrewedTime,
                     ReturnTime = borrowedBook.ReturnTime,
                     BookName = book.Name,
-                }).ToList();
+                });
 
-            var result = new List<BorrowedBookDTO>();
-            
-            foreach (var book in borrowedBooks)
-            {
-                BorrowedBookDTO borrowedBookDto = new BorrowedBookDTO
-                {
-                    Id = book.Id,
-                    BorrewedTime = book.BorrowedTime,
-                    ReturnTime = book.ReturnTime,
-                    BookName = book.BookName
-                };
-                result.Add(borrowedBookDto);
-            }
-
-            return result;
+            return filter != null ? borrowedBooks.Where(filter).ToList() : borrowedBooks.ToList();
         }
     }
 }

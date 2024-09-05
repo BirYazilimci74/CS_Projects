@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -43,10 +44,10 @@ namespace LibraryManagementSystemWithEF
         {
             tbxAddName.Clear();
             tbxAddAuthor.Clear();
-            numAddStock.Value = Decimal.Zero;
+            numAddStock.Value = decimal.Zero;
             tbxUpdateName.Clear();
             tbxUpdateAuthor.Clear();
-            numUpdateStock.Value = Decimal.Zero;
+            numUpdateStock.Value = decimal.Zero;
         }
         
         private async Task LoadCategoryAsync(ComboBox comboBox)
@@ -172,6 +173,40 @@ namespace LibraryManagementSystemWithEF
             {
                 MessageBox.Show("The Book Couldn't Added!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
+        }
+
+        private async void tbxSearchBookName_TextChanged(object sender, EventArgs e)
+        {
+            await Search();
+        }
+
+        private async void tbxSearchAuthor_TextChanged(object sender, EventArgs e)
+        {
+            await Search();
+        }
+
+        private async Task Search()
+        {
+            var searchStringBookName = tbxSearchBookName.Text.ToLower();
+            var searchStringAuthor = tbxSearchAuthor.Text.ToLower();
+            var booksWithFilter = await Task.Run(() =>
+            {
+                if (string.IsNullOrWhiteSpace(searchStringBookName) && string.IsNullOrWhiteSpace(searchStringAuthor))
+                {
+                    return _bookService.TGetBooksWithCategoryName();
+                }
+
+                return _bookService.TGetBooksWithCategoryName(
+                    b => b.Name.ToLower().Contains(searchStringBookName) && 
+                                b.Author.ToLower().Contains(searchStringAuthor));
+            });
+
+            dgvBooks.DataSource = booksWithFilter;
+        }
+
+        private void cbxSearchCategory_SelectedValueChanged(object sender, EventArgs e)
+        {
             
         }
     }

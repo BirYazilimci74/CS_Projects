@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using LibraryManagementSystemWithEF.BusinessLayer.Abstract;
 using LibraryManagementSystemWithEF.DAL.Abstract;
 using LibraryManagementSystemWithEF.Models;
@@ -22,9 +24,9 @@ namespace LibraryManagementSystemWithEF.BusinessLayer.Concrate
             return _bookDal.GetByID(id);
         }
 
-        public List<Book> TGetAll()
+        public List<Book> TGetAll(Expression<Func<Book, bool>> filter = null)
         {
-            return _bookDal.GetAll();
+            return _bookDal.GetAll(filter);
         }
 
         public void TAdd(Book t)
@@ -42,9 +44,9 @@ namespace LibraryManagementSystemWithEF.BusinessLayer.Concrate
             _bookDal.Borrow(book);
         }
 
-        public List<BookDTO> TGetBooksWithCategoryName()
+        public List<BookDTO> TGetBooksWithCategoryName(Expression<Func<BookDTO, bool>> filter = null)
         {
-            return _bookDal.GetBooksWithCategoryName();
+            return _bookDal.GetBooksWithCategoryName(filter);
         }
     }
 }
