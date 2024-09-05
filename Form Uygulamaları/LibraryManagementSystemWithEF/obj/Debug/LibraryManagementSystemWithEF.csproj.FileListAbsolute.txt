@@ -100,8 +100,6 @@ C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWit
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.csproj.AssemblyReference.cache
-C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.csproj.SuggestedBindingRedirects.cache
-C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.exe.config
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.BorrowBookMenu.resources
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.Library.resources
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.ManageBooksMenu.resources
@@ -118,3 +116,15 @@ C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWit
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.csproj.CopyComplete
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.exe
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\obj\Debug\LibraryManagementSystemWithEF.pdb
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\RestSharp.dll
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\System.CodeDom.dll
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\System.Text.Json.dll
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\System.ValueTuple.dll
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\Newtonsoft.Json.xml
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\RestSharp.xml
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\System.CodeDom.xml
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\System.Text.Json.xml
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryManagementSystemWithEF\bin\Debug\System.ValueTuple.xml

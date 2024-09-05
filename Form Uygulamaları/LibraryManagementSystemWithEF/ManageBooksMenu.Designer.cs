@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
             this.gbAdd = new System.Windows.Forms.GroupBox();
             this.numAddStock = new System.Windows.Forms.NumericUpDown();
@@ -52,6 +54,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.tbxSearchBookName = new System.Windows.Forms.TextBox();
             this.tbxSearchAuthor = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.gbAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAddStock)).BeginInit();
@@ -63,17 +66,40 @@
             // 
             this.dgvBooks.AllowUserToAddRows = false;
             this.dgvBooks.AllowUserToDeleteRows = false;
+            this.dgvBooks.AllowUserToOrderColumns = true;
+            this.dgvBooks.AllowUserToResizeColumns = false;
+            this.dgvBooks.AllowUserToResizeRows = false;
             this.dgvBooks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBooks.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvBooks.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dgvBooks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBooks.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvBooks.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBooks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBooks.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Myanmar Text", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBooks.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBooks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
+            this.dgvBooks.EnableHeadersVisualStyles = false;
             this.dgvBooks.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvBooks.Location = new System.Drawing.Point(100, 50);
             this.dgvBooks.MultiSelect = false;
             this.dgvBooks.Name = "dgvBooks";
             this.dgvBooks.ReadOnly = true;
+            this.dgvBooks.RowHeadersVisible = false;
             this.dgvBooks.RowHeadersWidth = 51;
             this.dgvBooks.RowTemplate.Height = 24;
             this.dgvBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -257,57 +283,81 @@
             // 
             // btnAddBook
             // 
+            this.btnAddBook.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBook.Font = new System.Drawing.Font("Myanmar Text", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddBook.Location = new System.Drawing.Point(339, 501);
             this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(113, 26);
+            this.btnAddBook.Size = new System.Drawing.Size(113, 40);
             this.btnAddBook.TabIndex = 5;
             this.btnAddBook.Text = "Add Book";
-            this.btnAddBook.UseVisualStyleBackColor = true;
+            this.btnAddBook.UseVisualStyleBackColor = false;
             this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
             // 
             // btnUpdateBook
             // 
+            this.btnUpdateBook.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnUpdateBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateBook.Font = new System.Drawing.Font("Myanmar Text", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateBook.Location = new System.Drawing.Point(822, 501);
             this.btnUpdateBook.Name = "btnUpdateBook";
-            this.btnUpdateBook.Size = new System.Drawing.Size(113, 26);
+            this.btnUpdateBook.Size = new System.Drawing.Size(113, 40);
             this.btnUpdateBook.TabIndex = 10;
             this.btnUpdateBook.Text = "Update Book";
-            this.btnUpdateBook.UseVisualStyleBackColor = true;
+            this.btnUpdateBook.UseVisualStyleBackColor = false;
             this.btnUpdateBook.Click += new System.EventHandler(this.btnUpdateBook_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Myanmar Text", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(787, 236);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(113, 26);
+            this.btnDelete.Size = new System.Drawing.Size(113, 35);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // tbxSearchBookName
             // 
-            this.tbxSearchBookName.Location = new System.Drawing.Point(100, 22);
+            this.tbxSearchBookName.Location = new System.Drawing.Point(240, 16);
             this.tbxSearchBookName.Name = "tbxSearchBookName";
-            this.tbxSearchBookName.Size = new System.Drawing.Size(244, 22);
+            this.tbxSearchBookName.Size = new System.Drawing.Size(300, 22);
             this.tbxSearchBookName.TabIndex = 8;
             this.tbxSearchBookName.Text = "Book Name";
             this.tbxSearchBookName.TextChanged += new System.EventHandler(this.tbxSearchBookName_TextChanged);
             // 
             // tbxSearchAuthor
             // 
-            this.tbxSearchAuthor.Location = new System.Drawing.Point(376, 22);
+            this.tbxSearchAuthor.Location = new System.Drawing.Point(560, 16);
             this.tbxSearchAuthor.Name = "tbxSearchAuthor";
-            this.tbxSearchAuthor.Size = new System.Drawing.Size(244, 22);
+            this.tbxSearchAuthor.Size = new System.Drawing.Size(300, 22);
             this.tbxSearchAuthor.TabIndex = 16;
             this.tbxSearchAuthor.Text = "Author";
             this.tbxSearchAuthor.TextChanged += new System.EventHandler(this.tbxSearchAuthor_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(130, 11);
+            this.label1.MaximumSize = new System.Drawing.Size(200, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 36);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Search";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // ManageBooksMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(210)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(982, 553);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dgvBooks);
             this.Controls.Add(this.tbxSearchAuthor);
             this.Controls.Add(this.tbxSearchBookName);
             this.Controls.Add(this.btnDelete);
@@ -315,8 +365,9 @@
             this.Controls.Add(this.btnAddBook);
             this.Controls.Add(this.gbUpdate);
             this.Controls.Add(this.gbAdd);
-            this.Controls.Add(this.dgvBooks);
+            this.MaximizeBox = false;
             this.Name = "ManageBooksMenu";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageBooksMenu";
             this.Load += new System.EventHandler(this.ManageBooksMenu_Load);
@@ -358,5 +409,6 @@
         private System.Windows.Forms.NumericUpDown numUpdateStock;
         private System.Windows.Forms.TextBox tbxSearchBookName;
         private System.Windows.Forms.TextBox tbxSearchAuthor;
+        private System.Windows.Forms.Label label1;
     }
 }
