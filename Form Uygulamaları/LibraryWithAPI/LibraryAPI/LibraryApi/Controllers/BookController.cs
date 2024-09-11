@@ -1,10 +1,7 @@
-using LibraryApi.Contexts;
 using LibraryApi.DTOs.Book;
 using LibraryApi.Interfaces;
 using LibraryApi.Mappers;
-using LibraryApi.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace LibraryApi.Controllers
 {
@@ -12,18 +9,15 @@ namespace LibraryApi.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        private readonly LibraryDBContext _context;
         private readonly IBookRepository _bookRepository;
-        public BookController(LibraryDBContext context,IBookRepository bookRepository)
+        public BookController(IBookRepository bookRepository)
         {
             _bookRepository = bookRepository;
-            _context = context;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
-
             var books = await _bookRepository.GetAllAsync();
             var booksDto = books.Select(b => b.ToBookResponseDTO());
             
@@ -31,7 +25,7 @@ namespace LibraryApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById([FromRoute]int id)
+        public async Task<IActionResult> GetByIdAsync([FromRoute]int id)
         {
             var book = await _bookRepository.GetByIdAsync(id);
 
@@ -43,7 +37,7 @@ namespace LibraryApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete([FromRoute]int id)
+        public async Task<IActionResult> DeleteAsync([FromRoute]int id)
         {
             var bookToDelete = await _bookRepository.DeleteAsync(id);
 
@@ -55,15 +49,19 @@ namespace LibraryApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody]BookRequestDTO book)
+        public async Task<IActionResult> AddAsync([FromBody]BookRequestDTO book)
         {
-            await _bookRepository.AddAsync(book.ToBook());
-            return Ok();
+            if (book is not null)
+            {
+                await _bookRepository.AddAsync(book);
+                return Ok();
+            }
+            return BadRequest("Book coulldn't added!!!");
             //return CreatedAtAction(nameof(GetById), new { id = book.Id }, book.ToBookResponseDTO());
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromRoute]int id,[FromBody]BookRequestDTO book)
+        public async Task<IActionResult> UpdateAsync([FromRoute]int id,[FromBody]BookRequestDTO book)
         {
             await _bookRepository.UpdateAsync(id, book);
 

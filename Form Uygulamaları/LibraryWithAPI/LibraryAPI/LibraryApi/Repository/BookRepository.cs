@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using LibraryApi.Contexts;
 using LibraryApi.DTOs.Book;
 using LibraryApi.Interfaces;
@@ -20,12 +16,12 @@ namespace LibraryApi.Repository
             _context = context;
         }
 
-        public async Task<Book> AddAsync(Book book)
+        public async Task<Book> AddAsync(BookRequestDTO book)
         {
-            await _context.Books.AddAsync(book);
+            await _context.Books.AddAsync(book.ToBook());
             await _context.SaveChangesAsync();
             
-            return book;
+            return book.ToBook();
         }
 
         public async Task<Book?> DeleteAsync(int id)

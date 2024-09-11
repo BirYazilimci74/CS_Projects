@@ -16,6 +16,17 @@ namespace LibraryApi.Mappers
             };
         }
 
+        public static BookRequestDTO ToBookRequestDTO(this Book bookModel)
+        {
+            return new BookRequestDTO
+            {
+                Name = bookModel.Name,
+                Author = bookModel.Author,
+                CategoryId = bookModel.CategoryId,
+                Stock = bookModel.Stock,
+            };
+        }
+
         public static Book ToBook (this BookRequestDTO bookRequestDTO)
         {
             return new Book

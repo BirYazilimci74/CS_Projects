@@ -17,6 +17,7 @@ builder.Services.AddDbContext<LibraryDBContext>(option => {
 });
 
 builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBorrowedBookRepository, BorrowedBookRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

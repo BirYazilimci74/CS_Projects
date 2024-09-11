@@ -1,4 +1,4 @@
-using LibraryApi.DTOs;
+using LibraryApi.DTOs.Catagory;
 using LibraryApi.Models;
 
 namespace LibraryApi.Mappers
