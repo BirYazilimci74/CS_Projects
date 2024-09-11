@@ -1,5 +1,6 @@
 using LibraryApi.Contexts;
 using LibraryApi.DTOs.Book;
+using LibraryApi.Interfaces;
 using LibraryApi.Mappers;
 using LibraryApi.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -12,22 +13,27 @@ namespace LibraryApi.Controllers
     public class BookController : ControllerBase
     {
         private readonly LibraryDBContext _context;
-        public BookController(LibraryDBContext context)
+        private readonly IBookRepository _bookRepository;
+        public BookController(LibraryDBContext context,IBookRepository bookRepository)
         {
+            _bookRepository = bookRepository;
             _context = context;
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var books = _context.Books.Include(b => b.Category).ToList().Select(b => b.ToBookResponseDTO());
-            return Ok(books);
+
+            var books = await _bookRepository.GetAllAsync();
+            var booksDto = books.Select(b => b.ToBookResponseDTO());
+            
+            return Ok(booksDto);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById([FromRoute]int id)
+        public async Task<IActionResult> GetById([FromRoute]int id)
         {
-            var book = _context.Books.Include(b => b.Category).FirstOrDefault(b => b.Id == id);
+            var book = await _bookRepository.GetByIdAsync(id);
 
             if (book is null)
             {
@@ -37,47 +43,31 @@ namespace LibraryApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete([FromRoute]int id)
+        public async Task<IActionResult> Delete([FromRoute]int id)
         {
-            var bookToDelete = _context.Books.Find(id);
+            var bookToDelete = await _bookRepository.DeleteAsync(id);
 
             if (bookToDelete is null)
             {
                 return NotFound();
             }
-            _context.Books.Remove(bookToDelete);
-            _context.SaveChanges();
-            return Ok();
+            return NoContent();
         }
 
         [HttpPost]
-        public IActionResult Add([FromBody]BookRequestDTO book)
+        public async Task<IActionResult> Add([FromBody]BookRequestDTO book)
         {
-            
-            if (book is not null)
-            {
-                _context.Books.Add(book.ToBook());
-                _context.SaveChanges();
-                return Ok();
-            }
-            return BadRequest("Book couldn't added!!!");
+            await _bookRepository.AddAsync(book.ToBook());
+            return Ok();
+            //return CreatedAtAction(nameof(GetById), new { id = book.Id }, book.ToBookResponseDTO());
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update([FromRoute]int id,[FromBody]Book book)
+        public async Task<IActionResult> Update([FromRoute]int id,[FromBody]BookRequestDTO book)
         {
-            var bookToUpdate = _context.Books.Find(id);
+            await _bookRepository.UpdateAsync(id, book);
 
-            if (bookToUpdate is null)
-            {
-                return NotFound();
-            }
-            bookToUpdate.Name = book.Name;
-            bookToUpdate.Author = book.Author;
-            bookToUpdate.CategoryId = book.CategoryId;
-            bookToUpdate.Stock = book.Stock;
-            _context.SaveChanges();
-            return Ok();
+            return Ok(book.ToBook());
         }
     }
 }
