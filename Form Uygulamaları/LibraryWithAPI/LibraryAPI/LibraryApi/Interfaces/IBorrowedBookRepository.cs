@@ -3,12 +3,8 @@ using LibraryApi.Models;
 
 namespace LibraryApi.Interfaces
 {
-    public interface IBorrowedBookRepository
+    public interface IBorrowedBookRepository : IGenericRepository<BorrowedBook,BorrowedBookRequestDTO>
     {
-        Task<List<BorrowedBook>> GetAllAsync();
-        Task<BorrowedBook?> GetByIdAsync(int id);
-        Task<BorrowedBook> AddAsync(BorrowedBookRequestDTO borrowedBook);
-        Task<BorrowedBook?> UpdateAsync(int id,BorrowedBookRequestDTO book);
-        Task<BorrowedBook?> DeleteAsync(int id);
+        
     }
 }
