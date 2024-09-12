@@ -54,10 +54,9 @@ namespace LibraryApi.Controllers
             if (book is not null)
             {
                 await _bookRepository.AddAsync(book);
-                return Ok();
+                return CreatedAtAction(nameof(GetByIdAsync), new { id = book.ToBook().Id }, book);
             }
             return BadRequest("Book coulldn't added!!!");
-            //return CreatedAtAction(nameof(GetById), new { id = book.Id }, book.ToBookResponseDTO());
         }
 
         [HttpPut("{id}")]

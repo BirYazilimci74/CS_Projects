@@ -18,10 +18,11 @@ namespace LibraryApi.Repository
 
         public async Task<Book> AddAsync(BookRequestDTO book)
         {
-            await _context.Books.AddAsync(book.ToBook());
+            var bookModel = book.ToBook();
+            await _context.Books.AddAsync(bookModel);
             await _context.SaveChangesAsync();
             
-            return book.ToBook();
+            return bookModel;
         }
 
         public async Task<Book?> DeleteAsync(int id)
