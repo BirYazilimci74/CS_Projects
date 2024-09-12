@@ -74,7 +74,7 @@
             dgvBorrowedBooks.EditMode = DataGridViewEditMode.EditOnF2;
             dgvBorrowedBooks.EnableHeadersVisualStyles = false;
             dgvBorrowedBooks.GridColor = SystemColors.ActiveCaptionText;
-            dgvBorrowedBooks.Location = new Point(60, 80);
+            dgvBorrowedBooks.Location = new Point(55, 76);
             dgvBorrowedBooks.MultiSelect = false;
             dgvBorrowedBooks.Name = "dgvBorrowedBooks";
             dgvBorrowedBooks.ReadOnly = true;
@@ -123,6 +123,7 @@
             Name = "BorrowBookMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "BorrowBookMenu";
+            Load += BorrowBookMenu_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).EndInit();
             ResumeLayout(false);
             PerformLayout();
