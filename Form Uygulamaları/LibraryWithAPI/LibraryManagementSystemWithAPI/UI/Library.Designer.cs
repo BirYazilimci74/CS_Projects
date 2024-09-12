@@ -28,12 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Library";
+            btnBorrowMenu = new Button();
+            btnReturnMenu = new Button();
+            btnManageBooksMenu = new Button();
+            SuspendLayout();
+            // 
+            // btnBorrowMenu
+            // 
+            btnBorrowMenu.BackColor = Color.CornflowerBlue;
+            btnBorrowMenu.FlatStyle = FlatStyle.Flat;
+            btnBorrowMenu.Font = new Font("Myanmar Text", 10F, FontStyle.Bold);
+            btnBorrowMenu.Location = new Point(195, 100);
+            btnBorrowMenu.Margin = new Padding(3, 2, 3, 2);
+            btnBorrowMenu.Name = "btnBorrowMenu";
+            btnBorrowMenu.Size = new Size(160, 64);
+            btnBorrowMenu.TabIndex = 0;
+            btnBorrowMenu.Text = "Borrow";
+            btnBorrowMenu.UseVisualStyleBackColor = false;
+            btnBorrowMenu.Click += btnBorrowMenu_Click;
+            // 
+            // btnReturnMenu
+            // 
+            btnReturnMenu.BackColor = Color.CornflowerBlue;
+            btnReturnMenu.FlatStyle = FlatStyle.Flat;
+            btnReturnMenu.Font = new Font("Myanmar Text", 10F, FontStyle.Bold);
+            btnReturnMenu.Location = new Point(195, 200);
+            btnReturnMenu.Margin = new Padding(3, 2, 3, 2);
+            btnReturnMenu.Name = "btnReturnMenu";
+            btnReturnMenu.Size = new Size(160, 64);
+            btnReturnMenu.TabIndex = 1;
+            btnReturnMenu.Text = "Return";
+            btnReturnMenu.UseVisualStyleBackColor = false;
+            btnReturnMenu.Click += btnReturnMenu_Click;
+            // 
+            // btnManageBooksMenu
+            // 
+            btnManageBooksMenu.BackColor = Color.CornflowerBlue;
+            btnManageBooksMenu.FlatStyle = FlatStyle.Flat;
+            btnManageBooksMenu.Font = new Font("Myanmar Text", 10F, FontStyle.Bold);
+            btnManageBooksMenu.Location = new Point(195, 300);
+            btnManageBooksMenu.Margin = new Padding(3, 2, 3, 2);
+            btnManageBooksMenu.Name = "btnManageBooksMenu";
+            btnManageBooksMenu.Size = new Size(160, 64);
+            btnManageBooksMenu.TabIndex = 2;
+            btnManageBooksMenu.Text = "Manage Books";
+            btnManageBooksMenu.UseVisualStyleBackColor = false;
+            btnManageBooksMenu.Click += btnManageBooksMenu_Click;
+            // 
+            // Library
+            // 
+            AutoScaleDimensions = new SizeF(8F, 16F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(196, 210, 245);
+            ClientSize = new Size(532, 503);
+            Controls.Add(btnManageBooksMenu);
+            Controls.Add(btnReturnMenu);
+            Controls.Add(btnBorrowMenu);
+            Font = new Font("Microsoft Sans Serif", 7.8F);
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
+            Name = "Library";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Library";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnBorrowMenu;
+        private Button btnReturnMenu;
+        private Button btnManageBooksMenu;
     }
 }

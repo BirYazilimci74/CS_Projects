@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yahya\\Desktop\\Software\\C#\\Form Uygulamaları\\LibraryManagementSystemWithAPI\\LibraryManagementSystemWithAPI.csproj",
+      "projectUniqueName": "C:\\Users\\yahya\\Desktop\\CS_Projects\\Form Uygulamaları\\LibraryWithAPI\\LibraryManagementSystemWithAPI\\LibraryManagementSystemWithAPI.csproj",
       "projectName": "LibraryManagementSystemWithAPI",
-      "projectPath": "C:\\Users\\yahya\\Desktop\\Software\\C#\\Form Uygulamaları\\LibraryManagementSystemWithAPI\\LibraryManagementSystemWithAPI.csproj",
+      "projectPath": "C:\\Users\\yahya\\Desktop\\CS_Projects\\Form Uygulamaları\\LibraryWithAPI\\LibraryManagementSystemWithAPI\\LibraryManagementSystemWithAPI.csproj",
       "packagesPath": "C:\\Users\\yahya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yahya\\Desktop\\Software\\C#\\Form Uygulamaları\\LibraryManagementSystemWithAPI\\obj\\",
+      "outputPath": "C:\\Users\\yahya\\Desktop\\CS_Projects\\Form Uygulamaları\\LibraryWithAPI\\LibraryManagementSystemWithAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

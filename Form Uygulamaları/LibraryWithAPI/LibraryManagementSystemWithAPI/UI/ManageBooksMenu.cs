@@ -16,5 +16,10 @@ namespace LibraryManagementSystemWithAPI.UI
         {
             InitializeComponent();
         }
+
+        private void ManageBooksMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
