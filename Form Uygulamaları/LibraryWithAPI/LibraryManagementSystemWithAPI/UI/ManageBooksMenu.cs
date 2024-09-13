@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagementSystemWithAPI.API;
 
 namespace LibraryManagementSystemWithAPI.UI
 {
@@ -17,9 +18,10 @@ namespace LibraryManagementSystemWithAPI.UI
             InitializeComponent();
         }
 
-        private void ManageBooksMenu_Load(object sender, EventArgs e)
+        private async void ManageBooksMenu_Load(object sender, EventArgs e)
         {
-
+            BookOperations bookOperations = new BookOperations(new HttpClient());
+            dgvBooks.DataSource = await bookOperations.GetAllAsync();
         }
     }
 }

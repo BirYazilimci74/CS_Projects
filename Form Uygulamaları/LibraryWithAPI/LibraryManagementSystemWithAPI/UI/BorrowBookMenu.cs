@@ -23,23 +23,8 @@ namespace LibraryManagementSystemWithAPI.UI
         }
         private async void BorrowBookMenu_Load(object sender, EventArgs e)
         {
-            HttpClient _httpClient = new HttpClient();
-            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5069/api/book");
-
-            if (response.IsSuccessStatusCode)
-            {
-                string responseBody = await response.Content.ReadAsStringAsync();
-                //burda sorun var:
-                var books = JsonSerializer.Deserialize<List<BookResponseDTO>>(responseBody);
-                //
-                label1.Text = books[1].Author;
-                dgvBorrowedBooks.DataSource = books.ToList();
-            }
-            else
-            {
-                Console.WriteLine($"Error: {response.StatusCode}");
-                
-            }
+            BookOperations bookOperations = new BookOperations(new HttpClient());
+            dgvBorrowedBooks.DataSource = await bookOperations.GetAllAsync();
         }
 
     }

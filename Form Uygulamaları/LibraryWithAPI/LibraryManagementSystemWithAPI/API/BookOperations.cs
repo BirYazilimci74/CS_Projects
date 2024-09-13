@@ -8,26 +8,31 @@ namespace LibraryManagementSystemWithAPI.API
     public class BookOperations
     {
         private readonly HttpClient _httpClient;
-        private const string URL = "http://localhost:5069/api/book";
+        private const string Url = "http://localhost:5069/api/book";
         public BookOperations(HttpClient client)
         {
             _httpClient = client;
         }
 
-        public async Task<List<BookResponseDTO>> GetAllAsync()
+        public async Task<List<Book>> GetAllAsync()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync(URL);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                string responseBody = await response.Content.ReadAsStringAsync();
-                var books = JsonSerializer.Deserialize<List<BookResponseDTO>>(responseBody);
+                HttpResponseMessage message = await _httpClient.GetAsync(Url);
+                message.EnsureSuccessStatusCode();
+
+                string bookJson = await message.Content.ReadAsStringAsync();
+                //Console.WriteLine(bookJson);
+                var books = JsonSerializer.Deserialize<List<Book>>(bookJson, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
                 return books;
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine($"Error: {response.StatusCode}");
-                return new List<BookResponseDTO>();
+                throw;
             }
         }
 
