@@ -1,5 +1,5 @@
 
-namespace LibraryApi.DTOs.BorrowedBook
+namespace LibraryManagementSystemWithAPI.DTOs.BorrowedBook
 {
     public class BorrowedBookRequestDTO
     {

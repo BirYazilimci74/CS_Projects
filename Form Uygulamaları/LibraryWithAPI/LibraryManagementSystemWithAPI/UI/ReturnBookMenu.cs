@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
+using LibraryManagementSystemWithAPI.API;
 
 namespace LibraryManagementSystemWithAPI.UI
 {
@@ -17,5 +10,10 @@ namespace LibraryManagementSystemWithAPI.UI
             InitializeComponent();
         }
 
+        private async void ReturnBookMenu_Load(object sender, EventArgs e)
+        {
+            BorrowedBookOperations borrowedBookOperations = new BorrowedBookOperations(new HttpClient());
+            dgvBorrowedBooks.DataSource = await borrowedBookOperations.GetAllAsync();
+        }
     }
 }

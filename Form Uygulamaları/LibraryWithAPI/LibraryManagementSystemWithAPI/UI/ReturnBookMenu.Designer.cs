@@ -112,6 +112,7 @@
             Name = "ReturnBookMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ReturnBookMenu";
+            Load += ReturnBookMenu_Load;
             ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).EndInit();
             ResumeLayout(false);
             PerformLayout();

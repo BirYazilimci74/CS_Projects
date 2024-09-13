@@ -1,5 +1,5 @@
 
-namespace LibraryApi.DTOs.Catagory
+namespace LibraryManagementSystemWithAPI.DTOs.Catagory
 {
     public class CatagoryResponseDTO
     {

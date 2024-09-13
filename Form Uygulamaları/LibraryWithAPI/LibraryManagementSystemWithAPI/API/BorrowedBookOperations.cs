@@ -1,21 +1,21 @@
 ﻿using System.Text.Json;
-using System.Threading.Tasks;
-using LibraryManagementSystemWithAPI.DTOs.Book;
+using LibraryManagementSystemWithAPI.DTOs.BorrowedBook;
 using LibraryManagementSystemWithAPI.Mappers;
 using LibraryManagementSystemWithAPI.Models;
 
 namespace LibraryManagementSystemWithAPI.API
 {
-    public class BookOperations
+    public class BorrowedBookOperations
     {
         private readonly HttpClient _httpClient;
-        private const string Url = "http://localhost:5069/api/book";
-        public BookOperations(HttpClient client)
+        private const string Url = "http://localhost:5069/api/borrowedbook";
+
+        public BorrowedBookOperations(HttpClient client)
         {
             _httpClient = client;
         }
 
-        public async Task<List<BookResponseDTO>> GetAllAsync()
+        public async Task<List<BorrowedBookResponseDTO>> GetAllAsync()
         {
             try
             {
@@ -24,12 +24,12 @@ namespace LibraryManagementSystemWithAPI.API
 
                 string bookJson = await message.Content.ReadAsStringAsync();
                 //Console.WriteLine(bookJson);
-                var books = JsonSerializer.Deserialize<List<Book>>(bookJson, new JsonSerializerOptions
+                var books = JsonSerializer.Deserialize<List<BorrowedBook>>(bookJson, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });
 
-                return books.Select(b => b.ToBookResponseDTO()).ToList();
+                return books.Select(b => b.ToBorrowedBookResponseDTO()).ToList();
             }
             catch (Exception ex)
             {
@@ -37,7 +37,7 @@ namespace LibraryManagementSystemWithAPI.API
             }
         }
 
-        public async Task<BookResponseDTO> GetByIdAsync(int id)
+        public async Task<BorrowedBookResponseDTO> GetByIdAsync(int id)
         {
             try
             {
@@ -46,12 +46,12 @@ namespace LibraryManagementSystemWithAPI.API
 
                 string bookJson = await message.Content.ReadAsStringAsync();
 
-                Book book = JsonSerializer.Deserialize<Book>(bookJson, new JsonSerializerOptions
+                var book = JsonSerializer.Deserialize<BorrowedBook>(bookJson, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });
 
-                return book.ToBookResponseDTO();
+                return book.ToBorrowedBookResponseDTO();
             }
             catch (System.Exception)
             {
