@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using System.Threading.Tasks;
 using LibraryManagementSystemWithAPI.DTOs.Book;
 using LibraryManagementSystemWithAPI.Mappers;
 using LibraryManagementSystemWithAPI.Models;
@@ -46,7 +45,7 @@ namespace LibraryManagementSystemWithAPI.API
 
                 string bookJson = await message.Content.ReadAsStringAsync();
 
-                Book book = JsonSerializer.Deserialize<Book>(bookJson, new JsonSerializerOptions
+                var book = JsonSerializer.Deserialize<Book>(bookJson, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });

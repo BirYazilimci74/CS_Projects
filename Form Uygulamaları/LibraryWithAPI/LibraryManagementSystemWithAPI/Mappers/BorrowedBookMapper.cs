@@ -1,7 +1,7 @@
-using LibraryApi.DTOs.BorrowedBook;
-using LibraryApi.Models;
+using LibraryManagementSystemWithAPI.DTOs.BorrowedBook;
+using LibraryManagementSystemWithAPI.Models;
 
-namespace LibraryApi.Mappers
+namespace LibraryManagementSystemWithAPI.Mappers
 {
     public static class BorrowedBookMapper
     {

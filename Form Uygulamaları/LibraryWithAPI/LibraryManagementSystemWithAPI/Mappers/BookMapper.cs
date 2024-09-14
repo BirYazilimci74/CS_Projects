@@ -1,7 +1,7 @@
-using LibraryApi.DTOs.Book;
-using LibraryApi.Models;
+using LibraryManagementSystemWithAPI.DTOs.Book;
+using LibraryManagementSystemWithAPI.Models;
 
-namespace LibraryApi.Mappers
+namespace LibraryManagementSystemWithAPI.Mappers
 {
     public static class BookMapper
     {

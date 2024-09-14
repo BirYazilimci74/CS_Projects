@@ -1,7 +1,7 @@
-using LibraryApi.DTOs.Catagory;
-using LibraryApi.Models;
+using LibraryManagementSystemWithAPI.DTOs.Catagory;
+using LibraryManagementSystemWithAPI.Models;
 
-namespace LibraryApi.Mappers
+namespace LibraryManagementSystemWithAPI.Mappers
 {
     public static class CatagoryMapper
     {
