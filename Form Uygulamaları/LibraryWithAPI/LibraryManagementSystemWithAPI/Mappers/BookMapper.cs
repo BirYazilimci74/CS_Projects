@@ -1,7 +1,7 @@
-using LibraryManagementSystemWithAPI.DTOs.Book;
-using LibraryManagementSystemWithAPI.Models;
+using LibraryApi.DTOs.Book;
+using LibraryApi.Models;
 
-namespace LibraryManagementSystemWithAPI.Mappers
+namespace LibraryApi.Mappers
 {
     public static class BookMapper
     {
@@ -16,25 +16,25 @@ namespace LibraryManagementSystemWithAPI.Mappers
             };
         }
 
-        public static BookRequestDTO ToBookRequestDTO(this Book bookModel)
+        public static Book ToBook(this BookDTO bookDTO)
         {
-            return new BookRequestDTO
+            return new Book
+            {
+                Name = bookDTO.Name,
+                Author = bookDTO.Author,
+                CategoryId = bookDTO.CategoryId,
+                Stock = bookDTO.Stock,
+            };
+        }
+
+        public static BookDTO ToBookDTO (this Book bookModel)
+        {
+            return new BookDTO
             {
                 Name = bookModel.Name,
                 Author = bookModel.Author,
                 CategoryId = bookModel.CategoryId,
                 Stock = bookModel.Stock,
-            };
-        }
-
-        public static Book ToBook (this BookRequestDTO bookRequestDTO)
-        {
-            return new Book
-            {
-                Name = bookRequestDTO.Name,
-                Author = bookRequestDTO.Author,
-                CategoryId = bookRequestDTO.CategoryId,
-                Stock = bookRequestDTO.Stock,
             };
         }
     }
