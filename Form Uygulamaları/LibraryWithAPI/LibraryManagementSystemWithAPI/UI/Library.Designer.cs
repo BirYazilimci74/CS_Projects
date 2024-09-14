@@ -93,6 +93,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Library";
+            Load += Library_Load;
             ResumeLayout(false);
         }
 

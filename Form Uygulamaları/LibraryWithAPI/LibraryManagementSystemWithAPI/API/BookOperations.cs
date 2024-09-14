@@ -1,6 +1,6 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 using LibraryManagementSystemWithAPI.DTOs.Book;
-using LibraryManagementSystemWithAPI.Mappers;
 using LibraryManagementSystemWithAPI.Models;
 
 namespace LibraryManagementSystemWithAPI.API
@@ -14,7 +14,7 @@ namespace LibraryManagementSystemWithAPI.API
             _httpClient = client;
         }
 
-        public async Task<List<BookResponseDTO>> GetAllAsync()
+        public async Task<List<Book>> GetAllAsync()
         {
             try
             {
@@ -28,7 +28,7 @@ namespace LibraryManagementSystemWithAPI.API
                     PropertyNameCaseInsensitive = true
                 });
 
-                return books.Select(b => b.ToBookResponseDTO()).ToList();
+                return books;
             }
             catch (Exception ex)
             {
@@ -36,11 +36,11 @@ namespace LibraryManagementSystemWithAPI.API
             }
         }
 
-        public async Task<BookResponseDTO> GetByIdAsync(int id)
+        public async Task<Book> GetByIdAsync(int id)
         {
             try
             {
-                HttpResponseMessage message = await _httpClient.GetAsync(Url + $"/{id}");
+                var message = await _httpClient.GetAsync(Url + $"/{id}");
                 message.EnsureSuccessStatusCode();
 
                 string bookJson = await message.Content.ReadAsStringAsync();
@@ -50,7 +50,7 @@ namespace LibraryManagementSystemWithAPI.API
                     PropertyNameCaseInsensitive = true
                 });
 
-                return book.ToBookResponseDTO();
+                return book;
             }
             catch (System.Exception)
             {
@@ -58,19 +58,50 @@ namespace LibraryManagementSystemWithAPI.API
             }
         }
 
-        public void Update()
+        public async Task UpdateAsync(int id,BookDTO bookDto)
         {
-
+            var json = JsonSerializer.Serialize(bookDto);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                HttpResponseMessage response = await _httpClient.PutAsync(Url + $"/{id}", content);
+                response.EnsureSuccessStatusCode();
+            }
+            catch
+            {
+                MessageBox.Show("The Book Couldn't Updated!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
 
-        public void Delete()
+        public async Task DeleteById(int id)
         {
-
+            try
+            {
+                var message = await _httpClient.DeleteAsync(Url + $"/{id}");
+                message.EnsureSuccessStatusCode();
+            }
+            catch
+            {
+                MessageBox.Show("The Book Couldn't Deleted!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
 
-        public void Add()
+        public async Task AddAsync(BookDTO bookDto)
         {
-
+            var json = JsonSerializer.Serialize(bookDto);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                var response = await _httpClient.PostAsync(Url, content);
+                response.EnsureSuccessStatusCode();
+            }
+            catch
+            {
+                MessageBox.Show("The Book Couldn't Added!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
     }
 }

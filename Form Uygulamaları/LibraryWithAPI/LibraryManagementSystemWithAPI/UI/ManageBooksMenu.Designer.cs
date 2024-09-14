@@ -122,6 +122,7 @@
             dgvBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBooks.Size = new Size(800, 180);
             dgvBooks.TabIndex = 0;
+            dgvBooks.CellClick += dgvBooks_CellClick;
             // 
             // btnDelete
             // 
@@ -134,6 +135,7 @@
             btnDelete.TabIndex = 11;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // cmbAddCatagory
             // 
@@ -233,6 +235,7 @@
             btnAdd.TabIndex = 22;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 

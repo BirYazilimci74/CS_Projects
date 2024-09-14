@@ -9,6 +9,7 @@ namespace LibraryManagementSystemWithAPI.Mappers
         {
             return new BookResponseDTO
             {
+                Id = bookModel.Id,
                 Name = bookModel.Name ?? string.Empty,
                 Author = bookModel.Author ?? string.Empty,
                 CategoryName = bookModel.Category?.Name ?? "Unknown",
