@@ -1,7 +1,7 @@
 
 namespace LibraryApi.DTOs.BorrowedBook
 {
-    public class BorrowedBookRequestDTO
+    public class BorrowedBookDTO
     {
         public int BookID { get; set; }
         public DateTime BorrewedTime { get; set; } = DateTime.Now;

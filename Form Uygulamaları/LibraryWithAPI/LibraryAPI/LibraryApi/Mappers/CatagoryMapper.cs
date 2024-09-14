@@ -5,9 +5,9 @@ namespace LibraryApi.Mappers
 {
     public static class CatagoryMapper
     {
-        public static CatagoryResponseDTO ToCatagoryResponseDTO(this Category catagory)
+        public static CatagoryDTO ToCatagoryDTO(this Category catagory)
         {
-            return new CatagoryResponseDTO
+            return new CatagoryDTO
             {
                 Name = catagory.Name,
             };

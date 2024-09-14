@@ -3,7 +3,7 @@ using LibraryApi.Models;
 
 namespace LibraryApi.Interfaces
 {
-    public interface IBookRepository : IGenericRepository<Book,BookRequestDTO>
+    public interface IBookRepository : IGenericRepository<Book,BookDTO>
     {
         
     }

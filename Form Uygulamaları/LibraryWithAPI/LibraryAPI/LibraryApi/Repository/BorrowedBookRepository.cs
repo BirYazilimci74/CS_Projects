@@ -15,7 +15,7 @@ namespace LibraryApi.Repository
         {
             _context = context;
         }
-        public async Task<BorrowedBook> AddAsync(BorrowedBookRequestDTO borrowedBook)
+        public async Task<BorrowedBook> AddAsync(BorrowedBookDTO borrowedBook)
         {
             await _context.BorrowedBooks.AddAsync(borrowedBook.ToBorrowedBook());
             await _context.SaveChangesAsync();
@@ -48,7 +48,7 @@ namespace LibraryApi.Repository
             return await _context.BorrowedBooks.Include(bb => bb.Book).FirstOrDefaultAsync(bb => bb.Id == id);
         }
 
-        public async Task<BorrowedBook?> UpdateAsync(int id, BorrowedBookRequestDTO book)
+        public async Task<BorrowedBook?> UpdateAsync(int id, BorrowedBookDTO book)
         {
             var borrowedBookToUpdate = await _context.BorrowedBooks.FindAsync(id);
             if(borrowedBookToUpdate is null)

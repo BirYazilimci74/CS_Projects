@@ -16,7 +16,7 @@ namespace LibraryApi.Repository
             _context = context;
         }
 
-        public async Task<Book> AddAsync(BookRequestDTO book)
+        public async Task<Book> AddAsync(BookDTO book)
         {
             var bookModel = book.ToBook();
             await _context.Books.AddAsync(bookModel);
@@ -50,7 +50,7 @@ namespace LibraryApi.Repository
             return await _context.Books.Include(b => b.Category).FirstOrDefaultAsync(b => b.Id == id);
         }
 
-        public async Task<Book?> UpdateAsync(int id, BookRequestDTO book)
+        public async Task<Book?> UpdateAsync(int id, BookDTO book)
         {
             var bookToUpdate = await _context.Books.FindAsync(id);
 

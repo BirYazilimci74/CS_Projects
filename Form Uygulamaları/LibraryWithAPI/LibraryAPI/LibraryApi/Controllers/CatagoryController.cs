@@ -18,7 +18,8 @@ namespace LibraryApi.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var catagories = _context.Categories.ToList().Select(c => c.ToCatagoryResponseDTO());
+            var catagories = _context.Categories.ToList();
+            //.Select(c => c.ToCatagoryDTO());
             return Ok(catagories);
         }
 
@@ -32,7 +33,7 @@ namespace LibraryApi.Controllers
                 return NotFound();
             }
 
-            return Ok(catagory.ToCatagoryResponseDTO());
+            return Ok(catagory/*.ToCatagoryDTO()*/);
         }
     }
 }

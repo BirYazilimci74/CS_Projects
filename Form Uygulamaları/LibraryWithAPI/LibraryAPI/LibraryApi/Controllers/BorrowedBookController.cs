@@ -20,7 +20,8 @@ namespace LibraryApi.Controllers
         public async Task<IActionResult> GetAllAsync()
         {
             var borrowedBooks = await _borrowedBookRepository.GetAllAsync();
-            var borrowedBooksDto = borrowedBooks.Select(bb => bb.ToBorrowedBookResponseDTO());
+            var borrowedBooksDto = borrowedBooks;
+            //.Select(bb => bb.ToBorrowedBookResponseDTO());
             
             return Ok(borrowedBooksDto);
         }
@@ -34,7 +35,7 @@ namespace LibraryApi.Controllers
             {
                 return NotFound();
             }
-            return Ok(borrowedBook.ToBorrowedBookResponseDTO());
+            return Ok(borrowedBook/*.ToBorrowedBookResponseDTO()*/);
         }
 
         [HttpDelete("{id}")]
@@ -50,7 +51,7 @@ namespace LibraryApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAsync([FromBody]BorrowedBookRequestDTO borrowedBook)
+        public async Task<IActionResult> AddAsync([FromBody]BorrowedBookDTO borrowedBook)
         {
             if (borrowedBook is not null)
             {
@@ -62,7 +63,7 @@ namespace LibraryApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync([FromRoute]int id,[FromBody]BorrowedBookRequestDTO borrowedBook)
+        public async Task<IActionResult> UpdateAsync([FromRoute]int id,[FromBody]BorrowedBookDTO borrowedBook)
         {
             await _borrowedBookRepository.UpdateAsync(id, borrowedBook);
             

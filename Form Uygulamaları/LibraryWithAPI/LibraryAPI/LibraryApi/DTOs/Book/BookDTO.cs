@@ -1,7 +1,7 @@
 
 namespace LibraryApi.DTOs.Book
 {
-    public class BookRequestDTO
+    public class BookDTO
     {
         public string Name { get; set; } = string.Empty;
         public string Author { get; set; } = string.Empty;

@@ -15,23 +15,23 @@ namespace LibraryApi.Mappers
             };
         }
 
-        public static BorrowedBookRequestDTO ToBorrowedBookRequestDTO(this BorrowedBook borrowedBook)
+        public static BorrowedBookDTO ToBorrowedBookDTO(this BorrowedBook borrowedBook)
         {
-            return new BorrowedBookRequestDTO
+            return new BorrowedBookDTO
             {
+                BookID = borrowedBook.BookID,
                 BorrewedTime = borrowedBook.BorrewedTime,
                 ReturnTime = borrowedBook.ReturnTime,
-                BookID = borrowedBook.BookID,
             };
         }
 
-        public static BorrowedBook ToBorrowedBook(this BorrowedBookRequestDTO borrowedBookRequestDTO)
+        public static BorrowedBook ToBorrowedBook(this BorrowedBookDTO borrowedBookRequestDTO)
         {
             return new BorrowedBook
             {
+                BookID = borrowedBookRequestDTO.BookID,
                 BorrewedTime = borrowedBookRequestDTO.BorrewedTime,
                 ReturnTime = borrowedBookRequestDTO.ReturnTime,
-                BookID = borrowedBookRequestDTO.BookID,
             };
         }
     }

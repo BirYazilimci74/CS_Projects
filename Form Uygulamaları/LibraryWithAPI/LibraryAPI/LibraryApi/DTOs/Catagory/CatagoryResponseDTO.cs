@@ -1,7 +1,7 @@
 
 namespace LibraryApi.DTOs.Catagory
 {
-    public class CatagoryResponseDTO
+    public class CatagoryDTO
     {
         public string Name { get; set; } = string.Empty;
     }
