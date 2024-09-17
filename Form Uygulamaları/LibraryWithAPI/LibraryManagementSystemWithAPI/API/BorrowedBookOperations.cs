@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 using LibraryManagementSystemWithAPI.DTOs.BorrowedBook;
 using LibraryManagementSystemWithAPI.Mappers;
 using LibraryManagementSystemWithAPI.Models;
@@ -69,9 +70,19 @@ namespace LibraryManagementSystemWithAPI.API
 
         }
 
-        public void Add()
+        public async Task AddBorrowedBookAsync(BorrowedBookDTO borrowedBookDto)
         {
-
+            var json = JsonSerializer.Serialize(borrowedBookDto);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                var response = await _httpClient.PostAsync(Url, content);
+            }
+            catch
+            {
+                MessageBox.Show("The Book Couldn't Borrowed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
     }
 }

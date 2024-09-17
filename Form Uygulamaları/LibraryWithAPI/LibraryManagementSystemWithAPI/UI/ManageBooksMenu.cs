@@ -27,7 +27,11 @@ namespace LibraryManagementSystemWithAPI.UI
         {
             var books = await _bookOperations.GetAllAsync();
             dgvBooks.DataSource = books.Select(b => b.ToBookResponseDTO()).ToList();
-            dgvBooks.Columns["Id"].Visible = false;
+            
+            if (dgvBooks.Columns.Contains("Id"))
+            {
+                dgvBooks.Columns["Id"].Visible = false;
+            }
         }
 
         private async Task LoadCategoryAsync(ComboBox comboBox)

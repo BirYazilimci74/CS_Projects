@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnReturn = new Button();
+            btnBorrow = new Button();
             tbxSearchBookName = new TextBox();
-            dgvBorrowedBooks = new DataGridView();
+            dgvBooks = new DataGridView();
             label1 = new Label();
             textBox1 = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBooks).BeginInit();
             SuspendLayout();
             // 
-            // btnReturn
+            // btnBorrow
             // 
-            btnReturn.BackColor = Color.CornflowerBlue;
-            btnReturn.FlatStyle = FlatStyle.Flat;
-            btnReturn.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
-            btnReturn.Location = new Point(870, 90);
-            btnReturn.Name = "btnReturn";
-            btnReturn.Size = new Size(100, 50);
-            btnReturn.TabIndex = 22;
-            btnReturn.Text = "Borrow";
-            btnReturn.UseVisualStyleBackColor = false;
+            btnBorrow.BackColor = Color.CornflowerBlue;
+            btnBorrow.FlatStyle = FlatStyle.Flat;
+            btnBorrow.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
+            btnBorrow.Location = new Point(870, 90);
+            btnBorrow.Name = "btnBorrow";
+            btnBorrow.Size = new Size(100, 50);
+            btnBorrow.TabIndex = 22;
+            btnBorrow.Text = "Borrow";
+            btnBorrow.UseVisualStyleBackColor = false;
+            btnBorrow.Click += btnBorrow_Click;
             // 
             // tbxSearchBookName
             // 
@@ -57,32 +58,32 @@
             tbxSearchBookName.TabIndex = 23;
             tbxSearchBookName.Text = "Book Name";
             // 
-            // dgvBorrowedBooks
+            // dgvBooks
             // 
-            dgvBorrowedBooks.AllowUserToAddRows = false;
-            dgvBorrowedBooks.AllowUserToDeleteRows = false;
-            dgvBorrowedBooks.AllowUserToOrderColumns = true;
-            dgvBorrowedBooks.AllowUserToResizeColumns = false;
-            dgvBorrowedBooks.AllowUserToResizeRows = false;
-            dgvBorrowedBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvBorrowedBooks.BackgroundColor = SystemColors.GradientInactiveCaption;
-            dgvBorrowedBooks.BorderStyle = BorderStyle.None;
-            dgvBorrowedBooks.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dgvBorrowedBooks.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgvBorrowedBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBorrowedBooks.Cursor = Cursors.Hand;
-            dgvBorrowedBooks.EditMode = DataGridViewEditMode.EditOnF2;
-            dgvBorrowedBooks.EnableHeadersVisualStyles = false;
-            dgvBorrowedBooks.GridColor = SystemColors.ActiveCaptionText;
-            dgvBorrowedBooks.Location = new Point(55, 76);
-            dgvBorrowedBooks.MultiSelect = false;
-            dgvBorrowedBooks.Name = "dgvBorrowedBooks";
-            dgvBorrowedBooks.ReadOnly = true;
-            dgvBorrowedBooks.RowHeadersVisible = false;
-            dgvBorrowedBooks.RowHeadersWidth = 51;
-            dgvBorrowedBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvBorrowedBooks.Size = new Size(800, 400);
-            dgvBorrowedBooks.TabIndex = 24;
+            dgvBooks.AllowUserToAddRows = false;
+            dgvBooks.AllowUserToDeleteRows = false;
+            dgvBooks.AllowUserToOrderColumns = true;
+            dgvBooks.AllowUserToResizeColumns = false;
+            dgvBooks.AllowUserToResizeRows = false;
+            dgvBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBooks.BackgroundColor = SystemColors.GradientInactiveCaption;
+            dgvBooks.BorderStyle = BorderStyle.None;
+            dgvBooks.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgvBooks.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBooks.Cursor = Cursors.Hand;
+            dgvBooks.EditMode = DataGridViewEditMode.EditOnF2;
+            dgvBooks.EnableHeadersVisualStyles = false;
+            dgvBooks.GridColor = SystemColors.ActiveCaptionText;
+            dgvBooks.Location = new Point(55, 76);
+            dgvBooks.MultiSelect = false;
+            dgvBooks.Name = "dgvBooks";
+            dgvBooks.ReadOnly = true;
+            dgvBooks.RowHeadersVisible = false;
+            dgvBooks.RowHeadersWidth = 51;
+            dgvBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvBooks.Size = new Size(800, 400);
+            dgvBooks.TabIndex = 24;
             // 
             // label1
             // 
@@ -112,9 +113,9 @@
             BackColor = Color.FromArgb(196, 210, 245);
             ClientSize = new Size(982, 553);
             Controls.Add(textBox1);
-            Controls.Add(btnReturn);
+            Controls.Add(btnBorrow);
             Controls.Add(tbxSearchBookName);
-            Controls.Add(dgvBorrowedBooks);
+            Controls.Add(dgvBooks);
             Controls.Add(label1);
             Font = new Font("Microsoft Sans Serif", 7.8F);
             Margin = new Padding(3, 2, 3, 2);
@@ -124,16 +125,16 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "BorrowBookMenu";
             Load += BorrowBookMenu_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBooks).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button btnReturn;
+        private Button btnBorrow;
         private TextBox tbxSearchBookName;
-        private DataGridView dgvBorrowedBooks;
+        private DataGridView dgvBooks;
         private Label label1;
         private TextBox textBox1;
     }

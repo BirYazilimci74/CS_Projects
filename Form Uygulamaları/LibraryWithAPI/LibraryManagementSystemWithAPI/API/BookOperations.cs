@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Text.Json;
 using LibraryManagementSystemWithAPI.DTOs.Book;
+using LibraryManagementSystemWithAPI.Mappers;
 using LibraryManagementSystemWithAPI.Models;
 
 namespace LibraryManagementSystemWithAPI.API
@@ -101,6 +102,13 @@ namespace LibraryManagementSystemWithAPI.API
                 MessageBox.Show("The Book Couldn't Added!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
+        }
+
+        public async Task BorrowSelectedBookById(int id)
+        {
+            var bookToBorrow = await GetByIdAsync(id);
+            bookToBorrow.Stock--;
+            await UpdateAsync(id, bookToBorrow.ToBookDTO());
         }
     }
 }
