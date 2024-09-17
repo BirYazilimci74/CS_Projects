@@ -248,6 +248,7 @@
             btnUpdate.TabIndex = 24;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // numeUpdateStock
             // 

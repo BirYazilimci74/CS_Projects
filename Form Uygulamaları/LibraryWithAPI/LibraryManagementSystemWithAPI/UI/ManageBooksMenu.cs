@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystemWithAPI.API;
+using LibraryManagementSystemWithAPI.DTOs.Book;
 using LibraryManagementSystemWithAPI.Mappers;
 using LibraryManagementSystemWithAPI.Models;
 
@@ -95,7 +96,7 @@ namespace LibraryManagementSystemWithAPI.UI
 
             if (selectedCategoryId == -1)
             {
-                MessageBox.Show("The Book Couldn't Added!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The Book Couldn't Added!\nInvalid Catagory", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
             }
@@ -111,10 +112,37 @@ namespace LibraryManagementSystemWithAPI.UI
             await _bookOperations.AddAsync(newBook.ToBookDTO());
         }
 
-        private async void UpdateSelectedBook()
+        private async Task UpdateSelectedBookAsync()
         {
-            //Test edilmedi
-            //await _bookOperations.UpdateAsync()
+            int selectedRow = dgvBooks.SelectedRows[0].Index;
+            int selectedBookId = Convert.ToInt32(dgvBooks.Rows[selectedRow].Cells[0].Value);
+
+            string selectedCategoryName = cbxUpdateCatagory.Text;
+            var categories = await _categoryOperations.GetAllAsync();
+            int selectedCategoryId = categories.FirstOrDefault(c => c.Name == selectedCategoryName)?.Id ?? -1;
+
+            if (selectedCategoryId == -1)
+            {
+                MessageBox.Show("The Book Couldn't Added!\nInvalid Catagory", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            var updatedBook = new BookDTO()
+            {
+                Name = tbxUpdateName.Text,
+                Author = tbxUpdateAuthor.Text,
+                CategoryId = selectedCategoryId,
+                Stock = Convert.ToInt32(numUpdateStock.Value)
+            };
+            await _bookOperations.UpdateAsync(selectedBookId, updatedBook);
+        }
+
+        private async void btnUpdate_Click(object sender, EventArgs e)
+        {
+            await UpdateSelectedBookAsync();
+            await LoadBooksAsync();
+            ClearTextBoxes();
         }
     }
 }

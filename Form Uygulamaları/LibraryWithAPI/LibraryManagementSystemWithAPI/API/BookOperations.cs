@@ -95,7 +95,6 @@ namespace LibraryManagementSystemWithAPI.API
             try
             {
                 var response = await _httpClient.PostAsync(Url, content);
-                response.EnsureSuccessStatusCode();
             }
             catch
             {
