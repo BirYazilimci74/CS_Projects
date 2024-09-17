@@ -94,6 +94,7 @@
             btnReturn.TabIndex = 5;
             btnReturn.Text = "Return";
             btnReturn.UseVisualStyleBackColor = false;
+            btnReturn.Click += btnReturn_Click;
             // 
             // ReturnBookMenu
             // 

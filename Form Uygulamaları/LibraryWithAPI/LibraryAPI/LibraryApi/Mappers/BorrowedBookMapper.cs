@@ -20,18 +20,20 @@ namespace LibraryApi.Mappers
             return new BorrowedBookDTO
             {
                 BookID = borrowedBook.BookID,
+                Book = borrowedBook.Book,
                 BorrewedTime = borrowedBook.BorrewedTime,
                 ReturnTime = borrowedBook.ReturnTime,
             };
         }
 
-        public static BorrowedBook ToBorrowedBook(this BorrowedBookDTO borrowedBookRequestDTO)
+        public static BorrowedBook ToBorrowedBook(this BorrowedBookDTO borrowedBookDTO)
         {
             return new BorrowedBook
             {
-                BookID = borrowedBookRequestDTO.BookID,
-                BorrewedTime = borrowedBookRequestDTO.BorrewedTime,
-                ReturnTime = borrowedBookRequestDTO.ReturnTime,
+                BookID = borrowedBookDTO.BookID,
+                Book = borrowedBookDTO.Book,
+                BorrewedTime = borrowedBookDTO.BorrewedTime,
+                ReturnTime = borrowedBookDTO.ReturnTime,
             };
         }
     }

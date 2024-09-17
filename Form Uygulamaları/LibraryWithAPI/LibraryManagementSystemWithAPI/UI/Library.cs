@@ -24,7 +24,7 @@ namespace LibraryManagementSystemWithAPI.UI
 
         private void btnReturnMenu_Click(object sender, EventArgs e)
         {
-            ReturnBookMenu returnBookMenu = new ReturnBookMenu();
+            ReturnBookMenu returnBookMenu = new ReturnBookMenu(_borrowedBookOperations,_bookOperations);
             returnBookMenu.Show();
         }
 

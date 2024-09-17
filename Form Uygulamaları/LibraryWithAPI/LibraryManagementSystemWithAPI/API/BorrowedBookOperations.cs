@@ -16,7 +16,7 @@ namespace LibraryManagementSystemWithAPI.API
             _httpClient = client;
         }
 
-        public async Task<List<BorrowedBookResponseDTO>> GetAllAsync()
+        public async Task<List<BorrowedBook>> GetAllAsync()
         {
             try
             {
@@ -30,7 +30,7 @@ namespace LibraryManagementSystemWithAPI.API
                     PropertyNameCaseInsensitive = true
                 });
 
-                return books.Select(b => b.ToBorrowedBookResponseDTO()).ToList();
+                return books;
             }
             catch (Exception ex)
             {
@@ -38,7 +38,7 @@ namespace LibraryManagementSystemWithAPI.API
             }
         }
 
-        public async Task<BorrowedBookResponseDTO> GetByIdAsync(int id)
+        public async Task<BorrowedBook> GetByIdAsync(int id)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace LibraryManagementSystemWithAPI.API
                     PropertyNameCaseInsensitive = true
                 });
 
-                return book.ToBorrowedBookResponseDTO();
+                return book;
             }
             catch (System.Exception)
             {
@@ -60,14 +60,17 @@ namespace LibraryManagementSystemWithAPI.API
             }
         }
 
-        public void Update()
+        public async Task DeleteBorrowedBookByIdAsync(int id)
         {
-
-        }
-
-        public void Delete()
-        {
-
+            try
+            {
+                var massage = await _httpClient.DeleteAsync(Url + $"/{id}");
+            }
+            catch
+            {
+                MessageBox.Show("The Book Couldn't Returned!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
 
         public async Task AddBorrowedBookAsync(BorrowedBookDTO borrowedBookDto)
