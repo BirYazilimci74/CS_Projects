@@ -1,5 +1,6 @@
 ﻿
 using LibraryManagementSystemWithAPI.API;
+using LibraryManagementSystemWithAPI.DTOs.Book;
 using LibraryManagementSystemWithAPI.Mappers;
 
 namespace LibraryManagementSystemWithAPI.UI
@@ -22,25 +23,19 @@ namespace LibraryManagementSystemWithAPI.UI
 
         private async Task LoadBorrowedBooksAsync()
         {
-            // Taking borrewedbooks from database
             var borrowedBooks = await _borrowedBookOperations.GetAllAsync();
-            var borrowedBookDto = borrowedBooks.Select(bb => bb.ToBorrowedBookDTO()).ToList();
+            var borrowedBookDto = borrowedBooks
+                .Select(bb => bb.ToBorrowedBookDTO())
+                .Select(bb => new
+                {
+                    bb.Id,
+                    bb.Book?.Name,
+                    bb.BorrewedTime,
+                    bb.ReturnTime
+                })
+                .ToList();
 
-            // Taking books from database
-            var books = await _bookOperations.GetAllAsync();
-            // Mapping id -> name for books
-            var bookDictionary = books.ToDictionary(b => b.Id, b => b.Name);
-            
-            var dgvSource = borrowedBookDto.Select(bd => new
-            {
-                Id = bd.Id,
-                //taking book that mapped with bookId
-                Book = bookDictionary.ContainsKey(bd.BookID) ? bookDictionary[bd.BookID] : null,
-                bd.BorrewedTime,
-                bd.ReturnTime
-            }).ToList();
-            
-            dgvBorrowedBooks.DataSource = dgvSource;
+            dgvBorrowedBooks.DataSource = borrowedBookDto;
 
             if (dgvBorrowedBooks.Columns.Contains("Id"))
             {
@@ -64,6 +59,18 @@ namespace LibraryManagementSystemWithAPI.UI
         private async Task ReturnSelectedBook()
         {
             int selectedBorrowedBookId = DetermineSelectedBorrowedBookId();
+            
+            var borrowedBookToReturn = await _borrowedBookOperations.GetByIdAsync(selectedBorrowedBookId);
+            var book = await _bookOperations.GetByIdAsync(borrowedBookToReturn.BookID);
+            
+            await _bookOperations.UpdateAsync(book.Id, new BookDTO()
+            {
+                Name = book.Name,
+                Author = book.Author,
+                Stock = ++book.Stock,
+                CategoryId = book.CategoryId,
+            });
+            
             await _borrowedBookOperations.DeleteBorrowedBookByIdAsync(selectedBorrowedBookId);
         }
     }
