@@ -18,3 +18,4 @@ C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryWithAPI\LibraryMana
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryWithAPI\LibraryManagementSystemWithAPI\obj\Debug\net8.0-windows\LibraryManagementSystemWithAPI.pdb
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryWithAPI\LibraryManagementSystemWithAPI\obj\Debug\net8.0-windows\LibraryManagementSystemWithAPI.genruntimeconfig.cache
 C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryWithAPI\LibraryManagementSystemWithAPI\obj\Debug\net8.0-windows\ref\LibraryManagementSystemWithAPI.dll
+C:\Users\yahya\Desktop\CS_Projects\Form Uygulamaları\LibraryWithAPI\LibraryManagementSystemWithAPI\obj\Debug\net8.0-windows\LibraryManagementSystemWithAPI.Properties.Resources.resources

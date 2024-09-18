@@ -27,7 +27,7 @@ namespace LibraryManagementSystemWithAPI.UI
         {
             var books = await _bookOperations.GetAllAsync();
             dgvBooks.DataSource = books.Select(b => b.ToBookResponseDTO()).ToList();
-            
+
             if (dgvBooks.Columns.Contains("Id"))
             {
                 dgvBooks.Columns["Id"].Visible = false;

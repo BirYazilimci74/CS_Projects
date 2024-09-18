@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageBooksMenu));
             tbxSearchBookName = new TextBox();
             tbxSearchAuthor = new TextBox();
             tbxAddName = new TextBox();
@@ -37,63 +38,88 @@
             cmbAddCatagory = new ComboBox();
             numAddStock = new NumericUpDown();
             gbAdd = new GroupBox();
+            panel5 = new Panel();
+            panel6 = new Panel();
+            panel4 = new Panel();
+            panel3 = new Panel();
             lblAddCatagory = new Label();
             lblAddAuthor = new Label();
             lblAddStock = new Label();
             lblAddName = new Label();
-            label1 = new Label();
             btnAdd = new Button();
             btnUpdate = new Button();
             numeUpdateStock = new NumericUpDown();
             gbUpdate = new GroupBox();
-            lblUpdateCatagory = new Label();
-            lblUpdateAuthor = new Label();
-            lblUpdateStock = new Label();
-            lblUpdateName = new Label();
-            tbxUpdateName = new TextBox();
-            tbxUpdateAuthor = new TextBox();
+            panel10 = new Panel();
             numUpdateStock = new NumericUpDown();
+            lblUpdateCatagory = new Label();
+            panel9 = new Panel();
             cbxUpdateCatagory = new ComboBox();
+            lblUpdateAuthor = new Label();
+            panel8 = new Panel();
+            tbxUpdateAuthor = new TextBox();
+            lblUpdateStock = new Label();
+            panel7 = new Panel();
+            tbxUpdateName = new TextBox();
+            lblUpdateName = new Label();
+            button1 = new Button();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvBooks).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numAddStock).BeginInit();
             gbAdd.SuspendLayout();
+            panel5.SuspendLayout();
+            panel6.SuspendLayout();
+            panel4.SuspendLayout();
+            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numeUpdateStock).BeginInit();
             gbUpdate.SuspendLayout();
+            panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numUpdateStock).BeginInit();
+            panel9.SuspendLayout();
+            panel8.SuspendLayout();
+            panel7.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // tbxSearchBookName
             // 
+            tbxSearchBookName.BorderStyle = BorderStyle.None;
             tbxSearchBookName.Font = new Font("Microsoft Sans Serif", 7.8F);
-            tbxSearchBookName.Location = new Point(240, 16);
+            tbxSearchBookName.Location = new Point(3, 10);
             tbxSearchBookName.Name = "tbxSearchBookName";
-            tbxSearchBookName.Size = new Size(300, 22);
+            tbxSearchBookName.Size = new Size(356, 15);
             tbxSearchBookName.TabIndex = 8;
             tbxSearchBookName.Text = "Book Name";
             // 
             // tbxSearchAuthor
             // 
+            tbxSearchAuthor.BorderStyle = BorderStyle.None;
             tbxSearchAuthor.Font = new Font("Microsoft Sans Serif", 7.8F);
-            tbxSearchAuthor.Location = new Point(560, 16);
+            tbxSearchAuthor.Location = new Point(3, 10);
             tbxSearchAuthor.Name = "tbxSearchAuthor";
-            tbxSearchAuthor.Size = new Size(300, 22);
+            tbxSearchAuthor.Size = new Size(300, 15);
             tbxSearchAuthor.TabIndex = 16;
             tbxSearchAuthor.Text = "Author";
             // 
             // tbxAddName
             // 
+            tbxAddName.BorderStyle = BorderStyle.None;
             tbxAddName.Font = new Font("Microsoft Sans Serif", 7.8F);
-            tbxAddName.Location = new Point(120, 50);
+            tbxAddName.Location = new Point(3, 6);
             tbxAddName.Name = "tbxAddName";
-            tbxAddName.Size = new Size(178, 22);
+            tbxAddName.Size = new Size(172, 15);
             tbxAddName.TabIndex = 4;
             // 
             // tbxAddAuthor
             // 
+            tbxAddAuthor.BorderStyle = BorderStyle.None;
             tbxAddAuthor.Font = new Font("Microsoft Sans Serif", 7.8F);
-            tbxAddAuthor.Location = new Point(120, 90);
+            tbxAddAuthor.Location = new Point(3, 6);
             tbxAddAuthor.Name = "tbxAddAuthor";
-            tbxAddAuthor.Size = new Size(178, 22);
+            tbxAddAuthor.Size = new Size(172, 15);
             tbxAddAuthor.TabIndex = 5;
             // 
             // dgvBooks
@@ -105,7 +131,6 @@
             dgvBooks.AllowUserToResizeRows = false;
             dgvBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBooks.BackgroundColor = SystemColors.GradientInactiveCaption;
-            dgvBooks.BorderStyle = BorderStyle.None;
             dgvBooks.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgvBooks.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -139,39 +164,81 @@
             // 
             // cmbAddCatagory
             // 
+            cmbAddCatagory.BackColor = Color.White;
             cmbAddCatagory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAddCatagory.DropDownWidth = 178;
             cmbAddCatagory.Font = new Font("Microsoft Sans Serif", 7.8F);
             cmbAddCatagory.FormattingEnabled = true;
-            cmbAddCatagory.Location = new Point(120, 130);
+            cmbAddCatagory.Location = new Point(0, 3);
             cmbAddCatagory.Name = "cmbAddCatagory";
             cmbAddCatagory.Size = new Size(178, 24);
             cmbAddCatagory.TabIndex = 3;
             // 
             // numAddStock
             // 
+            numAddStock.BorderStyle = BorderStyle.None;
             numAddStock.Font = new Font("Microsoft Sans Serif", 7.8F);
-            numAddStock.Location = new Point(120, 170);
+            numAddStock.Location = new Point(3, 7);
             numAddStock.Name = "numAddStock";
-            numAddStock.Size = new Size(178, 22);
+            numAddStock.Size = new Size(172, 18);
             numAddStock.TabIndex = 7;
             // 
             // gbAdd
             // 
+            gbAdd.Controls.Add(panel5);
+            gbAdd.Controls.Add(panel6);
+            gbAdd.Controls.Add(panel4);
+            gbAdd.Controls.Add(panel3);
             gbAdd.Controls.Add(lblAddCatagory);
             gbAdd.Controls.Add(lblAddAuthor);
             gbAdd.Controls.Add(lblAddStock);
             gbAdd.Controls.Add(lblAddName);
-            gbAdd.Controls.Add(tbxAddName);
-            gbAdd.Controls.Add(tbxAddAuthor);
-            gbAdd.Controls.Add(numAddStock);
-            gbAdd.Controls.Add(cmbAddCatagory);
             gbAdd.Location = new Point(37, 273);
             gbAdd.Name = "gbAdd";
             gbAdd.Size = new Size(415, 225);
             gbAdd.TabIndex = 14;
             gbAdd.TabStop = false;
             gbAdd.Text = "Add Book";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.White;
+            panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(numAddStock);
+            panel5.Location = new Point(120, 168);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(178, 30);
+            panel5.TabIndex = 30;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.White;
+            panel6.BorderStyle = BorderStyle.FixedSingle;
+            panel6.Controls.Add(cmbAddCatagory);
+            panel6.Location = new Point(120, 128);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(178, 30);
+            panel6.TabIndex = 30;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(tbxAddAuthor);
+            panel4.Location = new Point(120, 88);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(178, 30);
+            panel4.TabIndex = 30;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(tbxAddName);
+            panel3.Location = new Point(120, 48);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(178, 30);
+            panel3.TabIndex = 29;
             // 
             // lblAddCatagory
             // 
@@ -213,17 +280,6 @@
             lblAddName.TabIndex = 0;
             lblAddName.Text = "Name:";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Myanmar Text", 12F, FontStyle.Bold);
-            label1.Location = new Point(130, 11);
-            label1.Name = "label1";
-            label1.Size = new Size(78, 36);
-            label1.TabIndex = 21;
-            label1.Text = "Search";
-            label1.TextAlign = ContentAlignment.BottomCenter;
-            // 
             // btnAdd
             // 
             btnAdd.BackColor = Color.CornflowerBlue;
@@ -259,20 +315,40 @@
             // 
             // gbUpdate
             // 
+            gbUpdate.Controls.Add(panel10);
             gbUpdate.Controls.Add(lblUpdateCatagory);
+            gbUpdate.Controls.Add(panel9);
             gbUpdate.Controls.Add(lblUpdateAuthor);
+            gbUpdate.Controls.Add(panel8);
             gbUpdate.Controls.Add(lblUpdateStock);
+            gbUpdate.Controls.Add(panel7);
             gbUpdate.Controls.Add(lblUpdateName);
-            gbUpdate.Controls.Add(tbxUpdateName);
-            gbUpdate.Controls.Add(tbxUpdateAuthor);
-            gbUpdate.Controls.Add(numUpdateStock);
-            gbUpdate.Controls.Add(cbxUpdateCatagory);
             gbUpdate.Location = new Point(518, 273);
             gbUpdate.Name = "gbUpdate";
             gbUpdate.Size = new Size(415, 225);
             gbUpdate.TabIndex = 18;
             gbUpdate.TabStop = false;
             gbUpdate.Text = "Update Book";
+            // 
+            // panel10
+            // 
+            panel10.BackColor = Color.White;
+            panel10.BorderStyle = BorderStyle.FixedSingle;
+            panel10.Controls.Add(numUpdateStock);
+            panel10.Location = new Point(120, 168);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(178, 30);
+            panel10.TabIndex = 31;
+            // 
+            // numUpdateStock
+            // 
+            numUpdateStock.BackColor = Color.White;
+            numUpdateStock.BorderStyle = BorderStyle.None;
+            numUpdateStock.Font = new Font("Microsoft Sans Serif", 7.8F);
+            numUpdateStock.Location = new Point(3, 7);
+            numUpdateStock.Name = "numUpdateStock";
+            numUpdateStock.Size = new Size(172, 18);
+            numUpdateStock.TabIndex = 7;
             // 
             // lblUpdateCatagory
             // 
@@ -284,6 +360,27 @@
             lblUpdateCatagory.TabIndex = 17;
             lblUpdateCatagory.Text = "Catagory:";
             // 
+            // panel9
+            // 
+            panel9.BackColor = Color.White;
+            panel9.BorderStyle = BorderStyle.FixedSingle;
+            panel9.Controls.Add(cbxUpdateCatagory);
+            panel9.Location = new Point(120, 128);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(178, 30);
+            panel9.TabIndex = 31;
+            // 
+            // cbxUpdateCatagory
+            // 
+            cbxUpdateCatagory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxUpdateCatagory.DropDownWidth = 178;
+            cbxUpdateCatagory.Font = new Font("Microsoft Sans Serif", 7.8F);
+            cbxUpdateCatagory.FormattingEnabled = true;
+            cbxUpdateCatagory.Location = new Point(0, 3);
+            cbxUpdateCatagory.Name = "cbxUpdateCatagory";
+            cbxUpdateCatagory.Size = new Size(178, 24);
+            cbxUpdateCatagory.TabIndex = 3;
+            // 
             // lblUpdateAuthor
             // 
             lblUpdateAuthor.AutoSize = true;
@@ -293,6 +390,26 @@
             lblUpdateAuthor.Size = new Size(63, 22);
             lblUpdateAuthor.TabIndex = 16;
             lblUpdateAuthor.Text = "Author";
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.White;
+            panel8.BorderStyle = BorderStyle.FixedSingle;
+            panel8.Controls.Add(tbxUpdateAuthor);
+            panel8.Location = new Point(120, 88);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(178, 30);
+            panel8.TabIndex = 31;
+            // 
+            // tbxUpdateAuthor
+            // 
+            tbxUpdateAuthor.BackColor = Color.White;
+            tbxUpdateAuthor.BorderStyle = BorderStyle.None;
+            tbxUpdateAuthor.Font = new Font("Microsoft Sans Serif", 7.8F);
+            tbxUpdateAuthor.Location = new Point(3, 6);
+            tbxUpdateAuthor.Name = "tbxUpdateAuthor";
+            tbxUpdateAuthor.Size = new Size(169, 15);
+            tbxUpdateAuthor.TabIndex = 5;
             // 
             // lblUpdateStock
             // 
@@ -304,6 +421,26 @@
             lblUpdateStock.TabIndex = 15;
             lblUpdateStock.Text = "Stock:";
             // 
+            // panel7
+            // 
+            panel7.BackColor = Color.White;
+            panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Controls.Add(tbxUpdateName);
+            panel7.Location = new Point(120, 48);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(178, 30);
+            panel7.TabIndex = 30;
+            // 
+            // tbxUpdateName
+            // 
+            tbxUpdateName.BackColor = Color.White;
+            tbxUpdateName.BorderStyle = BorderStyle.None;
+            tbxUpdateName.Font = new Font("Microsoft Sans Serif", 7.8F);
+            tbxUpdateName.Location = new Point(3, 6);
+            tbxUpdateName.Name = "tbxUpdateName";
+            tbxUpdateName.Size = new Size(171, 15);
+            tbxUpdateName.TabIndex = 4;
+            // 
             // lblUpdateName
             // 
             lblUpdateName.AutoSize = true;
@@ -314,40 +451,53 @@
             lblUpdateName.TabIndex = 0;
             lblUpdateName.Text = "Name:";
             // 
-            // tbxUpdateName
+            // button1
             // 
-            tbxUpdateName.Font = new Font("Microsoft Sans Serif", 7.8F);
-            tbxUpdateName.Location = new Point(120, 50);
-            tbxUpdateName.Name = "tbxUpdateName";
-            tbxUpdateName.Size = new Size(178, 22);
-            tbxUpdateName.TabIndex = 4;
+            button1.BackColor = Color.CornflowerBlue;
+            button1.Dock = DockStyle.Right;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(357, 0);
+            button1.Name = "button1";
+            button1.Size = new Size(36, 34);
+            button1.TabIndex = 27;
+            button1.UseVisualStyleBackColor = false;
             // 
-            // tbxUpdateAuthor
+            // panel1
             // 
-            tbxUpdateAuthor.Font = new Font("Microsoft Sans Serif", 7.8F);
-            tbxUpdateAuthor.Location = new Point(120, 90);
-            tbxUpdateAuthor.Name = "tbxUpdateAuthor";
-            tbxUpdateAuthor.Size = new Size(178, 22);
-            tbxUpdateAuthor.TabIndex = 5;
+            panel1.BackColor = Color.White;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(tbxSearchBookName);
+            panel1.Location = new Point(100, 8);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(395, 36);
+            panel1.TabIndex = 26;
             // 
-            // numUpdateStock
+            // panel2
             // 
-            numUpdateStock.Font = new Font("Microsoft Sans Serif", 7.8F);
-            numUpdateStock.Location = new Point(120, 170);
-            numUpdateStock.Name = "numUpdateStock";
-            numUpdateStock.Size = new Size(178, 22);
-            numUpdateStock.TabIndex = 7;
+            panel2.BackColor = Color.White;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(button2);
+            panel2.Controls.Add(tbxSearchAuthor);
+            panel2.Location = new Point(505, 8);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(395, 36);
+            panel2.TabIndex = 28;
             // 
-            // cbxUpdateCatagory
+            // button2
             // 
-            cbxUpdateCatagory.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxUpdateCatagory.DropDownWidth = 178;
-            cbxUpdateCatagory.Font = new Font("Microsoft Sans Serif", 7.8F);
-            cbxUpdateCatagory.FormattingEnabled = true;
-            cbxUpdateCatagory.Location = new Point(120, 130);
-            cbxUpdateCatagory.Name = "cbxUpdateCatagory";
-            cbxUpdateCatagory.Size = new Size(178, 24);
-            cbxUpdateCatagory.TabIndex = 3;
+            button2.BackColor = Color.CornflowerBlue;
+            button2.Dock = DockStyle.Right;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.Location = new Point(357, 0);
+            button2.Name = "button2";
+            button2.Size = new Size(36, 34);
+            button2.TabIndex = 27;
+            button2.UseVisualStyleBackColor = false;
             // 
             // ManageBooksMenu
             // 
@@ -355,15 +505,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(196, 210, 245);
             ClientSize = new Size(982, 553);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(gbUpdate);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
-            Controls.Add(label1);
             Controls.Add(gbAdd);
             Controls.Add(btnDelete);
             Controls.Add(dgvBooks);
-            Controls.Add(tbxSearchAuthor);
-            Controls.Add(tbxSearchBookName);
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
@@ -376,12 +525,27 @@
             ((System.ComponentModel.ISupportInitialize)numAddStock).EndInit();
             gbAdd.ResumeLayout(false);
             gbAdd.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numeUpdateStock).EndInit();
             gbUpdate.ResumeLayout(false);
             gbUpdate.PerformLayout();
+            panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)numUpdateStock).EndInit();
+            panel9.ResumeLayout(false);
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -396,7 +560,6 @@
         private NumericUpDown numAddStock;
         private GroupBox gbAdd;
         private Label lblAddName;
-        private Label label1;
         private Label lblAddStock;
         private Label lblUpdateAuthor;
         private Label lblUpdateCatagory;
@@ -412,5 +575,17 @@
         private TextBox tbxUpdateAuthor;
         private NumericUpDown numUpdateStock;
         private ComboBox cbxUpdateCatagory;
+        private Button button1;
+        private Panel panel1;
+        private Panel panel2;
+        private Button button2;
+        private Panel panel3;
+        private Panel panel5;
+        private Panel panel6;
+        private Panel panel4;
+        private Panel panel7;
+        private Panel panel8;
+        private Panel panel9;
+        private Panel panel10;
     }
 }

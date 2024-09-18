@@ -23,7 +23,7 @@ namespace LibraryManagementSystemWithAPI.UI
         {
             var books = await _bookOperations.GetAllAsync();
             dgvBooks.DataSource = books.Select(b => b.ToBookResponseDTO()).ToList();
-            
+
             if (dgvBooks.Columns.Contains("Id"))
             {
                 dgvBooks.Columns["Id"].Visible = false;
@@ -48,6 +48,11 @@ namespace LibraryManagementSystemWithAPI.UI
         {
             await _bookOperations.BorrowSelectedBookById(id);
             await _borrowedBookOperations.AddBorrowedBookAsync(new BorrowedBookDTO() { BookID = id });
+        }
+
+        private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

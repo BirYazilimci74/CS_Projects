@@ -1,5 +1,4 @@
-﻿
-using LibraryManagementSystemWithAPI.API;
+﻿using LibraryManagementSystemWithAPI.API;
 using LibraryManagementSystemWithAPI.DTOs.Book;
 using LibraryManagementSystemWithAPI.Mappers;
 
@@ -59,10 +58,10 @@ namespace LibraryManagementSystemWithAPI.UI
         private async Task ReturnSelectedBook()
         {
             int selectedBorrowedBookId = DetermineSelectedBorrowedBookId();
-            
+
             var borrowedBookToReturn = await _borrowedBookOperations.GetByIdAsync(selectedBorrowedBookId);
             var book = await _bookOperations.GetByIdAsync(borrowedBookToReturn.BookID);
-            
+
             await _bookOperations.UpdateAsync(book.Id, new BookDTO()
             {
                 Name = book.Name,
@@ -70,8 +69,30 @@ namespace LibraryManagementSystemWithAPI.UI
                 Stock = ++book.Stock,
                 CategoryId = book.CategoryId,
             });
-            
+
             await _borrowedBookOperations.DeleteBorrowedBookByIdAsync(selectedBorrowedBookId);
+        }
+
+        private async void btnOverdue_Click(object sender, EventArgs e)
+        {
+            await ListOverdueBooksAsync();
+        }
+
+        private async Task ListOverdueBooksAsync()
+        {
+            var borrowedBooks = await _borrowedBookOperations.GetAllAsync();
+            var overdueBooks = borrowedBooks
+                .Select(bb => bb.ToBorrowedBookDTO())
+                .Select(bb => new 
+                {
+                    bb.Id,
+                    bb.Book?.Name,
+                    bb.BorrewedTime,
+                    bb.ReturnTime
+                })
+                .Where(bb => bb.ReturnTime < DateTime.Now)
+                .ToList();
+            dgvBorrowedBooks.DataSource = overdueBooks;
         }
     }
 }
