@@ -34,7 +34,7 @@
             btnReturn = new Button();
             btnOverdue = new Button();
             panel1 = new Panel();
-            button1 = new Button();
+            btnSearchBookName = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvBorrowedBooks).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -72,7 +72,7 @@
             tbxSearchBookName.Cursor = Cursors.IBeam;
             tbxSearchBookName.Location = new Point(7, 10);
             tbxSearchBookName.Name = "tbxSearchBookName";
-            tbxSearchBookName.Size = new Size(541, 15);
+            tbxSearchBookName.Size = new Size(604, 15);
             tbxSearchBookName.TabIndex = 17;
             tbxSearchBookName.Text = "Book Name";
             // 
@@ -112,17 +112,18 @@
             panel1.Size = new Size(654, 36);
             panel1.TabIndex = 24;
             // 
-            // button1
+            // btnSearchBookName
             // 
-            button1.BackColor = Color.CornflowerBlue;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(678, 35);
-            button1.Name = "button1";
-            button1.Size = new Size(36, 36);
-            button1.TabIndex = 25;
-            button1.UseVisualStyleBackColor = false;
+            btnSearchBookName.BackColor = Color.CornflowerBlue;
+            btnSearchBookName.FlatStyle = FlatStyle.Flat;
+            btnSearchBookName.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
+            btnSearchBookName.Image = (Image)resources.GetObject("btnSearchBookName.Image");
+            btnSearchBookName.Location = new Point(678, 35);
+            btnSearchBookName.Name = "btnSearchBookName";
+            btnSearchBookName.Size = new Size(36, 36);
+            btnSearchBookName.TabIndex = 25;
+            btnSearchBookName.UseVisualStyleBackColor = false;
+            btnSearchBookName.Click += btnSearchBookName_Click;
             // 
             // ReturnBookMenu
             // 
@@ -130,7 +131,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(196, 210, 245);
             ClientSize = new Size(982, 553);
-            Controls.Add(button1);
+            Controls.Add(btnSearchBookName);
             Controls.Add(panel1);
             Controls.Add(btnOverdue);
             Controls.Add(btnReturn);
@@ -155,6 +156,6 @@
         private Button btnReturn;
         private Button btnOverdue;
         private Panel panel1;
-        private Button button1;
+        private Button btnSearchBookName;
     }
 }

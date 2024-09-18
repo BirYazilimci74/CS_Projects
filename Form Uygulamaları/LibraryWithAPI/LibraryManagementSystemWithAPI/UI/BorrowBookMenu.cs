@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystemWithAPI.API;
+using LibraryManagementSystemWithAPI.DTOs.Book;
 using LibraryManagementSystemWithAPI.DTOs.BorrowedBook;
 using LibraryManagementSystemWithAPI.Mappers;
 
@@ -50,9 +51,25 @@ namespace LibraryManagementSystemWithAPI.UI
             await _borrowedBookOperations.AddBorrowedBookAsync(new BorrowedBookDTO() { BookID = id });
         }
 
-        private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void btnNameSearch_Click(object sender, EventArgs e)
         {
+            await SearchBooksByFilter(tbxSearchBookName.Text, b => b.Name);
+        }
 
+        private async Task SearchBooksByFilter(string searchString, Func<BookResponseDTO, string> filter)
+        {
+            var books = await _bookOperations.GetAllAsync();
+            var booksWithFilter = books
+                .Select(b => b.ToBookResponseDTO())
+                .Where(book => filter(book).ToLower().Contains(searchString.ToLower()))
+                .ToList();
+
+            dgvBooks.DataSource = booksWithFilter;
+        }
+
+        private async void btnAuthorSearch_Click(object sender, EventArgs e)
+        {
+            await SearchBooksByFilter(tbxSearchAuthor.Text, b => b.Author);
         }
     }
 }

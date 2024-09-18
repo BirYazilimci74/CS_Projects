@@ -62,10 +62,10 @@
             panel7 = new Panel();
             tbxUpdateName = new TextBox();
             lblUpdateName = new Label();
-            button1 = new Button();
+            btnSearchBookName = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
-            button2 = new Button();
+            btnSearchAuthor = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvBooks).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numAddStock).BeginInit();
             gbAdd.SuspendLayout();
@@ -451,24 +451,25 @@
             lblUpdateName.TabIndex = 0;
             lblUpdateName.Text = "Name:";
             // 
-            // button1
+            // btnSearchBookName
             // 
-            button1.BackColor = Color.CornflowerBlue;
-            button1.Dock = DockStyle.Right;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(357, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(36, 34);
-            button1.TabIndex = 27;
-            button1.UseVisualStyleBackColor = false;
+            btnSearchBookName.BackColor = Color.CornflowerBlue;
+            btnSearchBookName.Dock = DockStyle.Right;
+            btnSearchBookName.FlatStyle = FlatStyle.Flat;
+            btnSearchBookName.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
+            btnSearchBookName.Image = (Image)resources.GetObject("btnSearchBookName.Image");
+            btnSearchBookName.Location = new Point(357, 0);
+            btnSearchBookName.Name = "btnSearchBookName";
+            btnSearchBookName.Size = new Size(36, 34);
+            btnSearchBookName.TabIndex = 27;
+            btnSearchBookName.UseVisualStyleBackColor = false;
+            btnSearchBookName.Click += btnSearchBookName_Click;
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnSearchBookName);
             panel1.Controls.Add(tbxSearchBookName);
             panel1.Location = new Point(100, 8);
             panel1.Name = "panel1";
@@ -479,25 +480,26 @@
             // 
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(button2);
+            panel2.Controls.Add(btnSearchAuthor);
             panel2.Controls.Add(tbxSearchAuthor);
             panel2.Location = new Point(505, 8);
             panel2.Name = "panel2";
             panel2.Size = new Size(395, 36);
             panel2.TabIndex = 28;
             // 
-            // button2
+            // btnSearchAuthor
             // 
-            button2.BackColor = Color.CornflowerBlue;
-            button2.Dock = DockStyle.Right;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(357, 0);
-            button2.Name = "button2";
-            button2.Size = new Size(36, 34);
-            button2.TabIndex = 27;
-            button2.UseVisualStyleBackColor = false;
+            btnSearchAuthor.BackColor = Color.CornflowerBlue;
+            btnSearchAuthor.Dock = DockStyle.Right;
+            btnSearchAuthor.FlatStyle = FlatStyle.Flat;
+            btnSearchAuthor.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
+            btnSearchAuthor.Image = (Image)resources.GetObject("btnSearchAuthor.Image");
+            btnSearchAuthor.Location = new Point(357, 0);
+            btnSearchAuthor.Name = "btnSearchAuthor";
+            btnSearchAuthor.Size = new Size(36, 34);
+            btnSearchAuthor.TabIndex = 27;
+            btnSearchAuthor.UseVisualStyleBackColor = false;
+            btnSearchAuthor.Click += btnSearchAuthor_Click;
             // 
             // ManageBooksMenu
             // 
@@ -575,10 +577,10 @@
         private TextBox tbxUpdateAuthor;
         private NumericUpDown numUpdateStock;
         private ComboBox cbxUpdateCatagory;
-        private Button button1;
+        private Button btnSearchBookName;
         private Panel panel1;
         private Panel panel2;
-        private Button button2;
+        private Button btnSearchAuthor;
         private Panel panel3;
         private Panel panel5;
         private Panel panel6;

@@ -52,25 +52,34 @@ namespace LibraryManagementSystemWithAPI.UI
         private async void btnReturn_Click(object sender, EventArgs e)
         {
             await ReturnSelectedBook();
+            MessageBox.Show("The book has been successfully returned.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             await LoadBorrowedBooksAsync();
         }
 
         private async Task ReturnSelectedBook()
         {
-            int selectedBorrowedBookId = DetermineSelectedBorrowedBookId();
-
-            var borrowedBookToReturn = await _borrowedBookOperations.GetByIdAsync(selectedBorrowedBookId);
-            var book = await _bookOperations.GetByIdAsync(borrowedBookToReturn.BookID);
-
-            await _bookOperations.UpdateAsync(book.Id, new BookDTO()
+            try
             {
-                Name = book.Name,
-                Author = book.Author,
-                Stock = ++book.Stock,
-                CategoryId = book.CategoryId,
-            });
+                int selectedBorrowedBookId = DetermineSelectedBorrowedBookId();
 
-            await _borrowedBookOperations.DeleteBorrowedBookByIdAsync(selectedBorrowedBookId);
+                var borrowedBookToReturn = await _borrowedBookOperations.GetByIdAsync(selectedBorrowedBookId);
+                var book = await _bookOperations.GetByIdAsync(borrowedBookToReturn.BookID);
+
+                await _bookOperations.UpdateAsync(book.Id, new BookDTO()
+                {
+                    Name = book.Name,
+                    Author = book.Author,
+                    Stock = ++book.Stock,
+                    CategoryId = book.CategoryId,
+                });
+
+                await _borrowedBookOperations.DeleteBorrowedBookByIdAsync(selectedBorrowedBookId);
+            }
+            catch
+            {
+                MessageBox.Show("The Book Couldn't Returned!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
         }
 
         private async void btnOverdue_Click(object sender, EventArgs e)
@@ -83,7 +92,7 @@ namespace LibraryManagementSystemWithAPI.UI
             var borrowedBooks = await _borrowedBookOperations.GetAllAsync();
             var overdueBooks = borrowedBooks
                 .Select(bb => bb.ToBorrowedBookDTO())
-                .Select(bb => new 
+                .Select(bb => new
                 {
                     bb.Id,
                     bb.Book?.Name,
@@ -93,6 +102,34 @@ namespace LibraryManagementSystemWithAPI.UI
                 .Where(bb => bb.ReturnTime < DateTime.Now)
                 .ToList();
             dgvBorrowedBooks.DataSource = overdueBooks;
+        }
+
+        private async Task SearchByBookName()
+        {
+            string? searchString = String.IsNullOrWhiteSpace(tbxSearchBookName.Text) ? null : tbxSearchBookName.Text.ToLower();
+
+            if (searchString is not null)
+            {
+                var bbBooks = await _borrowedBookOperations.GetAllAsync();
+                var bbBooksWithFilter = bbBooks
+                    .Select(bb => bb.ToBorrowedBookDTO())
+                    .Select(bb => new
+                    {
+                        bb.Id,
+                        bb.Book?.Name,
+                        bb.BorrewedTime,
+                        bb.ReturnTime
+                    })
+                    .Where(book => book.Name.ToLower().Contains(searchString)).ToList();
+                dgvBorrowedBooks.DataSource = bbBooksWithFilter;
+                return;
+            }
+            await LoadBorrowedBooksAsync();
+        }
+
+        private async void btnSearchBookName_Click(object sender, EventArgs e)
+        {
+            await SearchByBookName();
         }
     }
 }

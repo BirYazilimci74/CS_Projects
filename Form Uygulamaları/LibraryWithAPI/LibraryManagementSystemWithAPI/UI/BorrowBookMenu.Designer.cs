@@ -32,11 +32,11 @@
             btnBorrow = new Button();
             tbxSearchBookName = new TextBox();
             dgvBooks = new DataGridView();
-            textBox1 = new TextBox();
+            tbxSearchAuthor = new TextBox();
             panel2 = new Panel();
-            button2 = new Button();
+            btnAuthorSearch = new Button();
             panel1 = new Panel();
-            button1 = new Button();
+            btnNameSearch = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvBooks).BeginInit();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -91,66 +91,67 @@
             dgvBooks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBooks.Size = new Size(800, 400);
             dgvBooks.TabIndex = 24;
-            dgvBooks.CellContentClick += dgvBooks_CellContentClick;
             // 
-            // textBox1
+            // tbxSearchAuthor
             // 
-            textBox1.BackColor = Color.White;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Cursor = Cursors.IBeam;
-            textBox1.Location = new Point(3, 10);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(350, 15);
-            textBox1.TabIndex = 26;
-            textBox1.Text = "Author";
+            tbxSearchAuthor.BackColor = Color.White;
+            tbxSearchAuthor.BorderStyle = BorderStyle.None;
+            tbxSearchAuthor.Cursor = Cursors.IBeam;
+            tbxSearchAuthor.Location = new Point(3, 10);
+            tbxSearchAuthor.Name = "tbxSearchAuthor";
+            tbxSearchAuthor.Size = new Size(350, 15);
+            tbxSearchAuthor.TabIndex = 26;
+            tbxSearchAuthor.Text = "Author";
             // 
             // panel2
             // 
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(btnAuthorSearch);
+            panel2.Controls.Add(tbxSearchAuthor);
             panel2.Location = new Point(460, 34);
             panel2.Name = "panel2";
             panel2.Size = new Size(395, 36);
             panel2.TabIndex = 30;
             // 
-            // button2
+            // btnAuthorSearch
             // 
-            button2.BackColor = Color.CornflowerBlue;
-            button2.Dock = DockStyle.Right;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(357, 0);
-            button2.Name = "button2";
-            button2.Size = new Size(36, 34);
-            button2.TabIndex = 27;
-            button2.UseVisualStyleBackColor = false;
+            btnAuthorSearch.BackColor = Color.CornflowerBlue;
+            btnAuthorSearch.Dock = DockStyle.Right;
+            btnAuthorSearch.FlatStyle = FlatStyle.Flat;
+            btnAuthorSearch.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
+            btnAuthorSearch.Image = (Image)resources.GetObject("btnAuthorSearch.Image");
+            btnAuthorSearch.Location = new Point(357, 0);
+            btnAuthorSearch.Name = "btnAuthorSearch";
+            btnAuthorSearch.Size = new Size(36, 34);
+            btnAuthorSearch.TabIndex = 27;
+            btnAuthorSearch.UseVisualStyleBackColor = false;
+            btnAuthorSearch.Click += btnAuthorSearch_Click;
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnNameSearch);
             panel1.Controls.Add(tbxSearchBookName);
             panel1.Location = new Point(55, 34);
             panel1.Name = "panel1";
             panel1.Size = new Size(395, 36);
             panel1.TabIndex = 29;
             // 
-            // button1
+            // btnNameSearch
             // 
-            button1.BackColor = Color.CornflowerBlue;
-            button1.Dock = DockStyle.Right;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(357, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(36, 34);
-            button1.TabIndex = 27;
-            button1.UseVisualStyleBackColor = false;
+            btnNameSearch.BackColor = Color.CornflowerBlue;
+            btnNameSearch.Dock = DockStyle.Right;
+            btnNameSearch.FlatStyle = FlatStyle.Flat;
+            btnNameSearch.Font = new Font("Myanmar Text", 10.2F, FontStyle.Bold);
+            btnNameSearch.Image = (Image)resources.GetObject("btnNameSearch.Image");
+            btnNameSearch.Location = new Point(357, 0);
+            btnNameSearch.Name = "btnNameSearch";
+            btnNameSearch.Size = new Size(36, 34);
+            btnNameSearch.TabIndex = 27;
+            btnNameSearch.UseVisualStyleBackColor = false;
+            btnNameSearch.Click += btnNameSearch_Click;
             // 
             // BorrowBookMenu
             // 
@@ -183,10 +184,10 @@
         private Button btnBorrow;
         private TextBox tbxSearchBookName;
         private DataGridView dgvBooks;
-        private TextBox textBox1;
+        private TextBox tbxSearchAuthor;
         private Panel panel2;
-        private Button button2;
+        private Button btnAuthorSearch;
         private Panel panel1;
-        private Button button1;
+        private Button btnNameSearch;
     }
 }

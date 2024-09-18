@@ -92,11 +92,16 @@ namespace LibraryManagementSystemWithAPI.UI
             ClearTextBoxes();
         }
 
+        private async Task<int> GetCategoryIdByName(string categoryName)
+        {
+            var categories = await _categoryOperations.GetAllAsync();
+            return categories.FirstOrDefault(c => c.Name == categoryName)?.Id ?? -1;
+        }
+
         private async Task AddBookAsync()
         {
             string selectedCategoryName = cmbAddCatagory.Text;
-            var categories = await _categoryOperations.GetAllAsync();
-            int selectedCategoryId = categories.FirstOrDefault(c => c.Name == selectedCategoryName)?.Id ?? -1;
+            int selectedCategoryId = await GetCategoryIdByName(selectedCategoryName);
 
             if (selectedCategoryId == -1)
             {
@@ -122,8 +127,7 @@ namespace LibraryManagementSystemWithAPI.UI
             int selectedBookId = Convert.ToInt32(dgvBooks.Rows[selectedRow].Cells[0].Value);
 
             string selectedCategoryName = cbxUpdateCatagory.Text;
-            var categories = await _categoryOperations.GetAllAsync();
-            int selectedCategoryId = categories.FirstOrDefault(c => c.Name == selectedCategoryName)?.Id ?? -1;
+            int selectedCategoryId = await GetCategoryIdByName(selectedCategoryName);
 
             if (selectedCategoryId == -1)
             {
@@ -139,6 +143,7 @@ namespace LibraryManagementSystemWithAPI.UI
                 CategoryId = selectedCategoryId,
                 Stock = Convert.ToInt32(numUpdateStock.Value)
             };
+
             await _bookOperations.UpdateAsync(selectedBookId, updatedBook);
         }
 
@@ -147,6 +152,27 @@ namespace LibraryManagementSystemWithAPI.UI
             await UpdateSelectedBookAsync();
             await LoadBooksAsync();
             ClearTextBoxes();
+        }
+
+        private async Task SearchBooksByFilter(string searchString, Func<BookResponseDTO, string> filter)
+        {
+            var books = await _bookOperations.GetAllAsync();
+            var booksWithFilter = books
+                .Select(b => b.ToBookResponseDTO())
+                .Where(book => filter(book).ToLower().Contains(searchString.ToLower()))
+                .ToList();
+
+            dgvBooks.DataSource = booksWithFilter;
+        }
+
+        private async void btnSearchBookName_Click(object sender, EventArgs e)
+        {
+            await SearchBooksByFilter(tbxSearchBookName.Text, b => b.Name);
+        }
+
+        private async void btnSearchAuthor_Click(object sender, EventArgs e)
+        {
+            await SearchBooksByFilter(tbxSearchAuthor.Text, b => b.Author);
         }
     }
 }
